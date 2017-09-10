@@ -1,0 +1,29 @@
+2017-09-09 12:24:33,539 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-09 21:07:14,679 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-09 21:58:15,279 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-09 21:59:26,554 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @83196ms to org.eclipse.jetty.util.log.Slf4jLog
+2017-09-09 21:59:26,761 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.5.v20170502
+2017-09-09 21:59:26,796 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2017-09-09 21:59:26,796 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2017-09-09 21:59:26,798 [Start Help Server] INFO  org.eclipse.jetty.server.session - Scavenging every 600000ms
+2017-09-09 21:59:26,835 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@67deb9a7{/help,null,AVAILABLE}
+2017-09-09 21:59:26,856 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@4d193d25{HTTP/1.1,[http/1.1]}{127.0.0.1:65150}
+2017-09-09 21:59:26,857 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @83500ms
+2017-09-09 22:05:09,646 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@4d193d25{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
+2017-09-09 22:05:09,646 [Stop Help Server] INFO  org.eclipse.jetty.server.session - Stopped scavenging
+2017-09-09 22:05:09,653 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@67deb9a7{/help,null,UNAVAILABLE}
+2017-09-09 22:05:24,618 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-09 22:06:46,969 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-09 22:09:53,940 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-10 19:10:50,503 [main] WARN  org.eclipse.jgit.util.FS - Exception caught during execution of command '[git, config, --system, --edit]' in '/usr/bin', return code '128', error message 'fatal: Could not switch to '/Applications/Xcode.app/Contents/Developer/usr/etc/': No such file or directory
+'
+2017-09-10 19:13:28,911 [Worker-16] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-09-10 19:17:17,678 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-10 19:17:18,010 [Worker-8] WARN  org.eclipse.jgit.util.FS - Exception caught during execution of command '[git, config, --system, --edit]' in '/usr/bin', return code '128', error message 'fatal: Could not switch to '/Applications/Xcode.app/Contents/Developer/usr/etc/': No such file or directory
+'
+2017-09-10 19:22:19,794 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-10 19:28:57,724 [main] WARN  org.eclipse.jgit.util.FS - Exception caught during execution of command '[git, config, --system, --edit]' in '/usr/bin', return code '128', error message 'fatal: Could not switch to '/Applications/Xcode.app/Contents/Developer/usr/etc/': No such file or directory
+'
+2017-09-10 19:34:03,441 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-09-10 19:37:43,663 [main] WARN  org.eclipse.jgit.util.FS - Exception caught during execution of command '[git, config, --system, --edit]' in '/usr/bin', return code '128', error message 'fatal: Could not switch to '/Applications/Xcode.app/Contents/Developer/usr/etc/': No such file or directory
+'
