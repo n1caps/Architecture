@@ -20,6 +20,7 @@ public class Register_Set {
 		Register CC;
 		Register IR;
 		Register MAR;
+		Register MBR;
 		Register MSR;
 		Register MFR;
 		//GPR
@@ -46,6 +47,7 @@ public class Register_Set {
 			this.IR=new Register(16,1);
 			this.MAR=new Register(16,1);
 			this.MSR=new Register(16,1);
+			this.MBR=new Register(16,1);
 			this.MFR=new Register(16,1);
 		
 			// ER=new Erro_Report();

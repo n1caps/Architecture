@@ -32,6 +32,24 @@ public class Panel {
 	private JTextField textField_11;
 	private JTextField textField_12;
 	public Register_Set RegisterSet;
+	private JRadioButton radioButton;
+	private JRadioButton radioButton_1;
+	private JRadioButton radioButton_2;
+	private JRadioButton radioButton_3;
+	private JRadioButton radioButton_4;
+	private JRadioButton radioButton_5;
+	private JRadioButton radioButton_6;
+	private JRadioButton radioButton_7;
+	private JRadioButton radioButton_8;
+	private JRadioButton radioButton_9;
+	private JRadioButton radioButton_10;
+	private JRadioButton radioButton_11;
+	private JRadioButton radioButton_12;
+	private JRadioButton radioButton_13;
+	private JRadioButton radioButton_14;
+	private JRadioButton radioButton_15;
+	private JTextArea textArea;
+	int[] SwitchRegister = new int[16];
 
 	/**
 	 * Launch the application.
@@ -69,12 +87,12 @@ public class Panel {
 		RegisterSet= new Register_Set();
 		//
 		
-		JButton AL = new JButton("OFF");
+		JButton AL = new JButton("");
 		
 		AL.setBounds(900, 263, 123, 29);
 		frame.getContentPane().add(AL);
 		
-		JButton DP = new JButton("OFF");
+		JButton DP = new JButton("");
 		DP.setBounds(900, 323, 123, 29);
 		frame.getContentPane().add(DP);
 		
@@ -86,7 +104,7 @@ public class Panel {
 		Halt.setBounds(900, 444, 123, 29);
 		frame.getContentPane().add(Halt);
 		
-		JButton Clear = new JButton("OFF");
+		JButton Clear = new JButton("");
 		Clear.setBounds(900, 500, 123, 29);
 		frame.getContentPane().add(Clear);
 		
@@ -110,67 +128,67 @@ public class Panel {
 		lblClear.setBounds(900, 477, 81, 21);
 		frame.getContentPane().add(lblClear);
 		
-		JRadioButton radioButton = new JRadioButton("");
+		radioButton = new JRadioButton("");
 		radioButton.setBounds(62, 383, 34, 29);
 		frame.getContentPane().add(radioButton);
 		
-		JRadioButton radioButton_1 = new JRadioButton("");
+		radioButton_1 = new JRadioButton("");
 		radioButton_1.setBounds(111, 383, 34, 29);
 		frame.getContentPane().add(radioButton_1);
 		
-		JRadioButton radioButton_2 = new JRadioButton("");
+		radioButton_2 = new JRadioButton("");
 		radioButton_2.setBounds(159, 383, 29, 29);
 		frame.getContentPane().add(radioButton_2);
 		
-		JRadioButton radioButton_3 = new JRadioButton("");
+		radioButton_3 = new JRadioButton("");
 		radioButton_3.setBounds(205, 383, 34, 29);
 		frame.getContentPane().add(radioButton_3);
 		
-		JRadioButton radioButton_4 = new JRadioButton("");
+		radioButton_4 = new JRadioButton("");
 		radioButton_4.setBounds(250, 383, 29, 29);
 		frame.getContentPane().add(radioButton_4);
 		
-		JRadioButton radioButton_5 = new JRadioButton("");
+		radioButton_5 = new JRadioButton("");
 		radioButton_5.setBounds(297, 383, 34, 29);
 		frame.getContentPane().add(radioButton_5);
 		
-		JRadioButton radioButton_6 = new JRadioButton("");
+		radioButton_6 = new JRadioButton("");
 		radioButton_6.setBounds(344, 383, 34, 29);
 		frame.getContentPane().add(radioButton_6);
 		
-		JRadioButton radioButton_7 = new JRadioButton("");
+		radioButton_7 = new JRadioButton("");
 		radioButton_7.setBounds(389, 383, 34, 29);
 		frame.getContentPane().add(radioButton_7);
 		
-		JRadioButton radioButton_8 = new JRadioButton("");
+		radioButton_8 = new JRadioButton("");
 		radioButton_8.setBounds(440, 383, 29, 29);
 		frame.getContentPane().add(radioButton_8);
 		
-		JRadioButton radioButton_9 = new JRadioButton("");
+		radioButton_9 = new JRadioButton("");
 		radioButton_9.setBounds(488, 383, 34, 29);
 		frame.getContentPane().add(radioButton_9);
 		
-		JRadioButton radioButton_10 = new JRadioButton("");
+		radioButton_10 = new JRadioButton("");
 		radioButton_10.setBounds(534, 383, 34, 29);
 		frame.getContentPane().add(radioButton_10);
 		
-		JRadioButton radioButton_11 = new JRadioButton("");
+		radioButton_11 = new JRadioButton("");
 		radioButton_11.setBounds(583, 383, 29, 29);
 		frame.getContentPane().add(radioButton_11);
 		
-		JRadioButton radioButton_12 = new JRadioButton("");
+		radioButton_12 = new JRadioButton("");
 		radioButton_12.setBounds(630, 383, 34, 29);
 		frame.getContentPane().add(radioButton_12);
 		
-		JRadioButton radioButton_13 = new JRadioButton("");
+		radioButton_13 = new JRadioButton("");
 		radioButton_13.setBounds(679, 383, 29, 29);
 		frame.getContentPane().add(radioButton_13);
 		
-		JRadioButton radioButton_14 = new JRadioButton("");
+		radioButton_14 = new JRadioButton("");
 		radioButton_14.setBounds(728, 383, 29, 29);
 		frame.getContentPane().add(radioButton_14);
 		
-		JRadioButton radioButton_15 = new JRadioButton("");
+		radioButton_15 = new JRadioButton("");
 		radioButton_15.setBounds(776, 383, 29, 29);
 		frame.getContentPane().add(radioButton_15);
 		
@@ -180,7 +198,7 @@ public class Panel {
 		frame.getContentPane().add(lblSWI);
 		
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setBounds(33, 541, 988, 141);
 		frame.getContentPane().add(textArea);
 		textArea.setLineWrap(true);
@@ -309,131 +327,7 @@ public class Panel {
 		AL.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if(AL.getText()=="OFF") {
-					AL.setText("ON");
-					
-					
-					//Get the data of Memory.
-					int[] Address;
-					Address=new int[16];
-					
-					if(radioButton.isSelected()) {
-						Address[0]=1;
-					}
-					else {
-						Address[0]=0;
-					}
-					if(radioButton_1.isSelected()) {
-						Address[1]=1;
-					}
-					else {
-						Address[1]=0;
-					}
-					if(radioButton_2.isSelected()) {
-						Address[2]=1;
-					}
-					else {
-						Address[2]=0;
-					}
-					if(radioButton_3.isSelected()) {
-						Address[3]=1;
-					}
-					else {
-						Address[3]=0;
-					}
-					if(radioButton_4.isSelected()) {
-						Address[4]=1;
-					}
-					else {
-						Address[4]=0;
-					}
-					if(radioButton_5.isSelected()) {
-						Address[5]=1;
-					}
-					else {
-						Address[5]=0;
-					}
-					if(radioButton_6.isSelected()) {
-						Address[6]=1;
-					}
-					else {
-						Address[6]=0;
-					}
-					if(radioButton_7.isSelected()) {
-						Address[7]=1;
-					}
-					else {
-						Address[7]=0;
-					}
-					if(radioButton_8.isSelected()) {
-						Address[8]=1;
-					}
-					else {
-						Address[8]=0;
-					}
-					if(radioButton_9.isSelected()) {
-						Address[9]=1;
-					}
-					else {
-						Address[9]=0;
-					}
-					if(radioButton_10.isSelected()) {
-						Address[10]=1;
-					}
-					else {
-						Address[10]=0;
-					}
-					if(radioButton_11.isSelected()) {
-						Address[11]=1;
-					}
-					else {
-						Address[11]=0;
-					}
-					if(radioButton_12.isSelected()) {
-						Address[12]=1;
-					}
-					else {
-						Address[12]=0;
-					}
-					if(radioButton_13.isSelected()) {
-						Address[13]=1;
-					}
-					else {
-						Address[13]=0;
-					}
-					if(radioButton_14.isSelected()) {
-						Address[14]=1;
-					}
-					else {
-						Address[14]=0;
-					}
-					if(radioButton_15.isSelected()) {
-						Address[15]=1;
-					}
-					else {
-						Address[15]=0;
-					}
-					
-					//int -> string
-					String text="";
-					for(int i=0;i<16;i++) {
-						text=text+Address[i];
-					}
-					
-					int[] Data;
-					Data=new int[16];
-					Data=RegisterSet.Memory.Output(Address);
-					
-					String text2="";
-					for(int i=0;i<16;i++) {
-						text2=text2+Data[i];
-					}
-					textArea.append("The Memory at Address:["+text+"] is ["+text2+"]\n");
-					
-				}
-				else {
-					AL.setText("OFF");
-				}
+				doAL();
 			}
 		});
 		
@@ -441,136 +335,7 @@ public class Panel {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				//textArea.append("Deposit\n");
-				if(DP.getText()=="OFF") {
-					DP.setText("ON");
-					
-					//get the input from Switch Register
-					int[] Data;
-					Data=new int[16];
-					if(radioButton.isSelected()) {
-						Data[0]=1;
-					}
-					else {
-						Data[0]=0;
-					}
-					if(radioButton_1.isSelected()) {
-						Data[1]=1;
-					}
-					else {
-						Data[1]=0;
-					}
-					if(radioButton_2.isSelected()) {
-						Data[2]=1;
-					}
-					else {
-						Data[2]=0;
-					}
-					if(radioButton_3.isSelected()) {
-						Data[3]=1;
-					}
-					else {
-						Data[3]=0;
-					}
-					if(radioButton_4.isSelected()) {
-						Data[4]=1;
-					}
-					else {
-						Data[4]=0;
-					}
-					if(radioButton_5.isSelected()) {
-						Data[5]=1;
-					}
-					else {
-						Data[5]=0;
-					}
-					if(radioButton_6.isSelected()) {
-						Data[6]=1;
-					}
-					else {
-						Data[6]=0;
-					}
-					if(radioButton_7.isSelected()) {
-						Data[7]=1;
-					}
-					else {
-						Data[7]=0;
-					}
-					if(radioButton_8.isSelected()) {
-						Data[8]=1;
-					}
-					else {
-						Data[8]=0;
-					}
-					if(radioButton_9.isSelected()) {
-						Data[9]=1;
-					}
-					else {
-						Data[9]=0;
-					}
-					if(radioButton_10.isSelected()) {
-						Data[10]=1;
-					}
-					else {
-						Data[10]=0;
-					}
-					if(radioButton_11.isSelected()) {
-						Data[11]=1;
-					}
-					else {
-						Data[11]=0;
-					}
-					if(radioButton_12.isSelected()) {
-						Data[12]=1;
-					}
-					else {
-						Data[12]=0;
-					}
-					if(radioButton_13.isSelected()) {
-						Data[13]=1;
-					}
-					else {
-						Data[13]=0;
-					}
-					if(radioButton_14.isSelected()) {
-						Data[14]=1;
-					}
-					else {
-						Data[14]=0;
-					}
-					if(radioButton_15.isSelected()) {
-						Data[15]=1;
-					}
-					else {
-						Data[15]=0;
-					}
-					
-					//int -> string
-					String text="";
-					for(int i=0;i<16;i++) {
-						text=text+Data[i];
-					}
-					textArea.append("The Data Insert to Memory is:["+text+"]\n");
-					
-					
-					//insert to memery
-					RegisterSet.Memory.Insert(Data);
-					
-					
-					//Data=RegisterSet.Memory.Output(0);
-					//for(int i=0;i<16;i++) {
-					//	text=text+Data[i];
-					//}
-					
-					/**
-					 *We can add Fault Diagnose   
-					*/
-					textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
-				}
-				else {
-					DP.setText("OFF");
-					textArea.append("Deposit is closed.\n");
-				}
+				doDP();
 			}
 		});
 		
@@ -603,16 +368,186 @@ public class Panel {
 		Clear.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				textArea.append("Clear\n");
-				if(Clear.getText()=="OFF") {
-					Clear.setText("ON");
-				}
-				else {
-					Clear.setText("OFF");
-				}
+				doClear();
 			}
 		});
+				
+		updateFields();
+	}
+	
+	public void updateFields(){
+		textField.setText(RegisterSet.R0.OutputAsString());
+		textField_1.setText(RegisterSet.R1.OutputAsString());
+		textField_2.setText(RegisterSet.R2.OutputAsString());
+		textField_3.setText(RegisterSet.R3.OutputAsString());
+		textField_4.setText(RegisterSet.X1.OutputAsString());
+		textField_5.setText(RegisterSet.X2.OutputAsString());
+		textField_6.setText(RegisterSet.X3.OutputAsString());
+		textField_7.setText(RegisterSet.PC.OutputAsString());
+		textField_8.setText(RegisterSet.IR.OutputAsString());
+		textField_9.setText(RegisterSet.MAR.OutputAsString());
+		textField_10.setText(RegisterSet.MBR.OutputAsString());
+		textField_11.setText(RegisterSet.MSR.OutputAsString());
+		textField_12.setText(RegisterSet.MFR.OutputAsString());
+	}
+	
+	public void updateSwitchRegisterVal() {
+		if(radioButton.isSelected()) {
+			SwitchRegister[0]=1;
+		}
+		else {
+			SwitchRegister[0]=0;
+		}
+		if(radioButton_1.isSelected()) {
+			SwitchRegister[1]=1;
+		}
+		else {
+			SwitchRegister[1]=0;
+		}
+		if(radioButton_2.isSelected()) {
+			SwitchRegister[2]=1;
+		}
+		else {
+			SwitchRegister[2]=0;
+		}
+		if(radioButton_3.isSelected()) {
+			SwitchRegister[3]=1;
+		}
+		else {
+			SwitchRegister[3]=0;
+		}
+		if(radioButton_4.isSelected()) {
+			SwitchRegister[4]=1;
+		}
+		else {
+			SwitchRegister[4]=0;
+		}
+		if(radioButton_5.isSelected()) {
+			SwitchRegister[5]=1;
+		}
+		else {
+			SwitchRegister[5]=0;
+		}
+		if(radioButton_6.isSelected()) {
+			SwitchRegister[6]=1;
+		}
+		else {
+			SwitchRegister[6]=0;
+		}
+		if(radioButton_7.isSelected()) {
+			SwitchRegister[7]=1;
+		}
+		else {
+			SwitchRegister[7]=0;
+		}
+		if(radioButton_8.isSelected()) {
+			SwitchRegister[8]=1;
+		}
+		else {
+			SwitchRegister[8]=0;
+		}
+		if(radioButton_9.isSelected()) {
+			SwitchRegister[9]=1;
+		}
+		else {
+			SwitchRegister[9]=0;
+		}
+		if(radioButton_10.isSelected()) {
+			SwitchRegister[10]=1;
+		}
+		else {
+			SwitchRegister[10]=0;
+		}
+		if(radioButton_11.isSelected()) {
+			SwitchRegister[11]=1;
+		}
+		else {
+			SwitchRegister[11]=0;
+		}
+		if(radioButton_12.isSelected()) {
+			SwitchRegister[12]=1;
+		}
+		else {
+			SwitchRegister[12]=0;
+		}
+		if(radioButton_13.isSelected()) {
+			SwitchRegister[13]=1;
+		}
+		else {
+			SwitchRegister[13]=0;
+		}
+		if(radioButton_14.isSelected()) {
+			SwitchRegister[14]=1;
+		}
+		else {
+			SwitchRegister[14]=0;
+		}
+		if(radioButton_15.isSelected()) {
+			SwitchRegister[15]=1;
+		}
+		else {
+			SwitchRegister[15]=0;
+		}
+	}
+	
+	public void doClear() {
+		textArea.setText("");
+		radioButton.setSelected(false);
+		radioButton_1.setSelected(false);
+		radioButton_2.setSelected(false);
+		radioButton_3.setSelected(false);
+		radioButton_4.setSelected(false);
+		radioButton_5.setSelected(false);
+		radioButton_6.setSelected(false);
+		radioButton_7.setSelected(false);
+		radioButton_8.setSelected(false);
+		radioButton_9.setSelected(false);
+		radioButton_10.setSelected(false);
+		radioButton_11.setSelected(false);
+		radioButton_12.setSelected(false);
+		radioButton_13.setSelected(false);
+		radioButton_14.setSelected(false);
+		radioButton_15.setSelected(false);
+	}
+	
+	public void doAL() {
+		//Get the data of Memory.
+		updateSwitchRegisterVal();
+		//int -> string
+		String text="";
+		for(int i=0;i<16;i++) {
+			text=text+SwitchRegister[i];
+		}
+		
+		int[] Data=RegisterSet.Memory.Output(SwitchRegister);
+		String text2="";
+		if (Data != null) {
+			for(int i=0;i<16;i++) {
+				text2=text2+Data[i];
+			}
+			textArea.append("The Memory at Address:["+text+"] is ["+text2+"]\n");
+		}else {
+			textArea.append("Address Out of range\n");
+		}
+	}
+
+	public void doDP() {
+		//get the input from Switch Register
+		updateSwitchRegisterVal();
+		//int -> string
+		String text="";
+		for(int i=0;i<16;i++) {
+			text=text+SwitchRegister[i];
+		}
+		textArea.append("The Data Insert to Memory is:["+text+"]\n");
 		
 		
+		//insert to memory
+		RegisterSet.Memory.Insert(SwitchRegister);
+		
+		/**
+		 *We can add Fault Diagnose   
+		*/
+		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
 	}
 }
