@@ -529,28 +529,6 @@ public class Panel {
 		return result;
 	}
 	
-	public void decoder(int[] instruct) {
-		int opcode = 0;
-		opcode = bitToInt(instruct);
-		
-		switch (opcode) {
-			case 1:
-				LoadRegister(bitToInt(new int[]{instruct[6], instruct[7]}), bitToInt(new int[]{instruct[11], instruct[12], instruct[13], instruct[14], instruct[15]}));
-				break;
-			case 2:
-				
-				break;
-			case 3:
-				break;
-			case 33:
-				break;
-			case 34:
-				break;
-			default:
-				//do nothing
-				break;
-		}
-	}
 	
 	public void doIPL() {
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
@@ -623,23 +601,4 @@ public class Panel {
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
 	}
 	
-	public void LoadRegister(int register, int address) {
-		
-	}
-	
-	public void StoreValFromRegister(int register, int address) {
-		
-	}
-	
-	public void LoadRegisterWithAddress(int register, int address) {
-		
-	}
-	
-	public void LoadIndexRegister(int indexRegister, int address) {
-		
-	}
-	
-	public void StoreValFromIndexRegister(int indexRegister, int address) {
-		
-	}
 }

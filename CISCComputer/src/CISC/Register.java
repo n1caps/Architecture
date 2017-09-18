@@ -79,6 +79,17 @@ public class Register {
 		return this.Output;
 	}
 	
+	public int[] Output(int Address) {
+		this.Output=new int[this.Length];
+		if(Address < Height) {
+			this.Output = this.Memory[Address];
+		}else {
+			//Return error code
+			return null;
+		}
+		return this.Output;
+	}
+	
 	public String OutputAsString() {
 		String txt = "";
 		for(int i = 0; i < Height; i++) {
