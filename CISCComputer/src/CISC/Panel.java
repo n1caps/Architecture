@@ -531,35 +531,46 @@ public class Panel {
 	
 	public void decoder(int[] instruct) {
 		int opcode = 0;
-		opcode = bitToInt(instruct);
+		opcode = bitToInt(new int[]{instruct[0], instruct[1], instruct[2], instruct[3], instruct[4], instruct[5]});
 		
 		switch (opcode) {
 			case 1:
 				LoadRegister(bitToInt(new int[]{instruct[6], instruct[7]}), bitToInt(new int[]{instruct[11], instruct[12], instruct[13], instruct[14], instruct[15]}));
 				break;
-			case 2:
-				
+			case 2:				
 				break;
 			case 3:
+				LoadRegisterWithAddress(bitToInt(new int[]{instruct[6], instruct[7]}), bitToInt(new int[]{instruct[11], instruct[12], instruct[13], instruct[14], instruct[15]}));
 				break;
 			case 33:
 				break;
 			case 34:
 				break;
+			case 0:
 			default:
+				textArea.append("Halted.\n");
 				//do nothing
 				break;
 		}
 	}
 	
 	public void doIPL() {
+		textArea.append("Initializing initial program.\n");
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
+		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
 		updateFields();
-		//RegisterSet.MAR.Insert()
+		decoder(RegisterSet.IR.Output);
 	}
 	
-	public void doSingleStep() {
-		
+ 	public void doSingleStep() {
+ 		textArea.append("Executing Next Instruction.\n");
+		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
+		updateFields();
+		decoder(RegisterSet.IR.Output);
 	}
 	
 	public void doClear() {
@@ -590,8 +601,9 @@ public class Panel {
 		for(int i=0;i<16;i++) {
 			text=text+SwitchRegister[i];
 		}
-		
-		int[] Data=RegisterSet.Memory.Output(SwitchRegister);
+		RegisterSet.MAR.Insert(SwitchRegister,0);
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		int[] Data= RegisterSet.MBR.Output;
 		String text2="";
 		if (Data != null) {
 			for(int i=0;i<16;i++) {
@@ -601,6 +613,7 @@ public class Panel {
 		}else {
 			textArea.append("Address Out of range\n");
 		}
+		updateFields();
 	}
 
 	public void doDP() {
@@ -612,15 +625,16 @@ public class Panel {
 			text=text+SwitchRegister[i];
 		}
 		textArea.append("The Data Insert to Memory is:["+text+"]\n");
-		
-		
+			
 		//insert to memory
-		RegisterSet.Memory.Insert(SwitchRegister, bitToInt(RegisterSet.MBR.Output));
+		RegisterSet.MBR.Insert(SwitchRegister,0);
+		RegisterSet.Memory.Insert(SwitchRegister, bitToInt(RegisterSet.MAR.Output));
 		
 		/**
 		 *We can add Fault Diagnose   
 		*/
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
+		updateFields();
 	}
 	
 	public void LoadRegister(int register, int address) {
@@ -632,7 +646,27 @@ public class Panel {
 	}
 	
 	public void LoadRegisterWithAddress(int register, int address) {
-		
+ 		textArea.append("Executing LDA Instruction.\n");
+		switch(register) {
+			case 0:
+				RegisterSet.R0.Insert(address, 0);
+				break;
+			case 1:
+				RegisterSet.R1.Insert(address, 0);
+				break;
+			case 2:
+				RegisterSet.R2.Insert(address, 0);
+				break;
+			case 3:
+				RegisterSet.R3.Insert(address, 0);
+				break;
+			default:
+				//Probably an error
+				break;
+		}
+		updateFields();
+		RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+		doSingleStep();
 	}
 	
 	public void LoadIndexRegister(int indexRegister, int address) {
