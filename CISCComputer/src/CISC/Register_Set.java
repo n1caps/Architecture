@@ -39,7 +39,7 @@ public class Register_Set {
 		
 			//Main Memory
 			this.Memory=new Register(16,4096);
-			this.Memory.Pointer=6;
+			//this.Memory.Pointer=6;
 			
 			//PC
 			this.PC=new Register(12,1);

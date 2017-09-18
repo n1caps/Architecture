@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import java.awt.Font;
+import java.awt.Color;
 
 public class Panel {
 
@@ -194,7 +195,7 @@ public class Panel {
 		
 		JLabel lblSWI = new JLabel("S W I T C H        R E G I S T E R");
 		lblSWI.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 26));
-		lblSWI.setBounds(250, 334, 369, 44);
+		lblSWI.setBounds(250, 334, 386, 44);
 		frame.getContentPane().add(lblSWI);
 		
 		
@@ -323,6 +324,35 @@ public class Panel {
 		JLabel lblMfr = new JLabel("MFR");
 		lblMfr.setBounds(607, 208, 81, 21);
 		frame.getContentPane().add(lblMfr);
+		
+		JButton btnIpl = new JButton("IPL");
+		btnIpl.setBackground(Color.RED);
+		btnIpl.setBounds(900, 38, 123, 44);
+		btnIpl.setOpaque(true);
+		frame.getContentPane().add(btnIpl);
+		
+		JButton singleStepButton = new JButton("Single Step");
+		singleStepButton.setBounds(900, 94, 123, 29);
+		frame.getContentPane().add(singleStepButton);
+		
+		btnIpl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(btnIpl.getBackground().equals(Color.RED)) {
+					btnIpl.setBackground(Color.GREEN);
+					doIPL();
+				}else {
+					btnIpl.setBackground(Color.RED);
+				}
+			}
+		});
+		
+		singleStepButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				doSingleStep();
+			}
+		});
 		
 		AL.addMouseListener(new MouseAdapter() {
 			@Override
@@ -490,6 +520,48 @@ public class Panel {
 		}
 	}
 	
+	public int bitToInt (int[] array) {
+		int result = 0;
+		for(int i=0;i<array.length;i++) {
+			int exp = (int) Math.pow(2,(array.length-1-i));
+			result += array[i] * (exp);
+		}
+		return result;
+	}
+	
+	public void decoder(int[] instruct) {
+		int opcode = 0;
+		opcode = bitToInt(instruct);
+		
+		switch (opcode) {
+			case 1:
+				LoadRegister(bitToInt(new int[]{instruct[6], instruct[7]}), bitToInt(new int[]{instruct[11], instruct[12], instruct[13], instruct[14], instruct[15]}));
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				break;
+			case 33:
+				break;
+			case 34:
+				break;
+			default:
+				//do nothing
+				break;
+		}
+	}
+	
+	public void doIPL() {
+		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
+		updateFields();
+		//RegisterSet.MAR.Insert()
+	}
+	
+	public void doSingleStep() {
+		
+	}
+	
 	public void doClear() {
 		textArea.setText("");
 		radioButton.setSelected(false);
@@ -543,11 +615,31 @@ public class Panel {
 		
 		
 		//insert to memory
-		RegisterSet.Memory.Insert(SwitchRegister);
+		RegisterSet.Memory.Insert(SwitchRegister, bitToInt(RegisterSet.MBR.Output));
 		
 		/**
 		 *We can add Fault Diagnose   
 		*/
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
+	}
+	
+	public void LoadRegister(int register, int address) {
+		
+	}
+	
+	public void StoreValFromRegister(int register, int address) {
+		
+	}
+	
+	public void LoadRegisterWithAddress(int register, int address) {
+		
+	}
+	
+	public void LoadIndexRegister(int indexRegister, int address) {
+		
+	}
+	
+	public void StoreValFromIndexRegister(int indexRegister, int address) {
+		
 	}
 }

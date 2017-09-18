@@ -13,20 +13,23 @@ public class Register {
 		this.Length=bits;
 		this.Height=height;
 		this.Pointer=0;
-		this.Memory=new int[this.Length][this.Height];
+		this.Memory=new int[this.Height][this.Length];
 		for(int i = 0; i < Height; i++) {
 			for(int j = 0; j < Length; j++) {
-				this.Memory[j][i] = 0;
+				this.Memory[i][j] = 0;
 			}
 		}
+		this.Output = this.Memory[0];
 	}
 	
-	public int Insert(int data[]) {// input is the data
+	public int Insert(int data[], int address) {// input is the data
 		if(data.length==this.Length) {
 			for(int i=0;i<this.Length;i++) {
-				this.Memory[i][this.Pointer]=data[i];
+				this.Memory[address][i]=data[i];
 			}
-			this.Pointer=this.Pointer+1;
+			Output = data;
+			//I dont thing that we should increment pointer when we insert data
+			//this.Pointer=this.Pointer+1;
 			Flag=0;//0 means complete
 		}
 		else if(this.Length<data.length) {
@@ -41,10 +44,23 @@ public class Register {
 		return this.Flag;
 	}
 	
+	public int Insert(int data, int address) {// Allows input of decimal data
+		if(data > Math.pow(2, this.Length-1)) {
+			this.Flag = 1;
+		}else {
+			for(int i=0;i<this.Length;i++) {
+				//Needs some work
+				//this.Memory[address][i]= (int)data % Math.pow(2,(this.Length-1-i));
+			}
+		}
+			
+		return this.Flag;
+	}
+	
 	public int Binary_to_dec(int[] Bin) {//binary transfer to dec
 		int decAd=0;
-		for(int i=0;i<16;i++) {
-			int exp = (int) Math.pow(2,(15-i));
+		for(int i=0;i<this.Length;i++) {
+			int exp = (int) Math.pow(2,(this.Length-1-i));
 			decAd += Bin[i] * (exp);
 		}
 		return decAd;
@@ -55,9 +71,7 @@ public class Register {
 		int decAd;
 		decAd=Binary_to_dec(Address);
 		if(decAd < Height) {
-			for(int i=0;i<this.Length;i++) {
-				this.Output[i]=this.Memory[i][decAd];
-			}
+			this.Output = this.Memory[decAd];
 		}else {
 			//Return error code
 			return null;
@@ -69,10 +83,14 @@ public class Register {
 		String txt = "";
 		for(int i = 0; i < Height; i++) {
 			for(int j = 0; j < Length; j++) {
-				txt += this.Memory[j][i];
+				txt += this.Memory[i][j];
 			}
 		}
 		return txt;
 	}
 	
+	public int OutputAsInt() {
+		int val = Binary_to_dec(this.Output);
+		return val;
+	}
 }
