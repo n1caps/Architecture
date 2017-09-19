@@ -48,12 +48,16 @@ public class Register {
 		if(data > Math.pow(2, this.Length-1)) {
 			this.Flag = 1;
 		}else {
+			int remainder = data;
+			int val = 0;
 			for(int i=0;i<this.Length;i++) {
 				//Needs some work
-				//this.Memory[address][i]= (int)data % Math.pow(2,(this.Length-1-i));
+				val = (int) (remainder/Math.pow(2,(this.Length-1-i)));
+				remainder = (int) (remainder%Math.pow(2,(this.Length-1-i)));
+				this.Memory[address][i]= val;
 			}
+			this.Output = this.Memory[address];	
 		}
-			
 		return this.Flag;
 	}
 	

@@ -531,13 +531,22 @@ public class Panel {
 	
 	
 	public void doIPL() {
+		textArea.append("Initializing initial program.\n");
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
+		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
 		updateFields();
-		//RegisterSet.MAR.Insert()
 	}
 	
-	public void doSingleStep() {
-		
+ 	public void doSingleStep() {
+ 		textArea.append("Executing Next Instruction.\n");
+		//RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
+		//RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		//RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
+		//updateFields();
+ 		updateSwitchRegisterVal();
+ 		RegisterSet.decoder(SwitchRegister);//maybe return some String.
 	}
 	
 	public void doClear() {
@@ -568,8 +577,9 @@ public class Panel {
 		for(int i=0;i<16;i++) {
 			text=text+SwitchRegister[i];
 		}
-		
-		int[] Data=RegisterSet.Memory.Output(SwitchRegister);
+		RegisterSet.MAR.Insert(SwitchRegister,0);
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		int[] Data= RegisterSet.MBR.Output;
 		String text2="";
 		if (Data != null) {
 			for(int i=0;i<16;i++) {
@@ -579,6 +589,7 @@ public class Panel {
 		}else {
 			textArea.append("Address Out of range\n");
 		}
+		updateFields();
 	}
 
 	public void doDP() {
@@ -590,15 +601,16 @@ public class Panel {
 			text=text+SwitchRegister[i];
 		}
 		textArea.append("The Data Insert to Memory is:["+text+"]\n");
-		
-		
+			
 		//insert to memory
-		RegisterSet.Memory.Insert(SwitchRegister, bitToInt(RegisterSet.MBR.Output));
+		RegisterSet.MBR.Insert(SwitchRegister,0);
+		RegisterSet.Memory.Insert(SwitchRegister, bitToInt(RegisterSet.MAR.Output));
 		
 		/**
 		 *We can add Fault Diagnose   
 		*/
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
+		updateFields();
 	}
 	
 }

@@ -98,6 +98,7 @@ public class Register_Set {
 			int decR=Binary_to_dec(R);
 			int decIX=Binary_to_dec(IX);
 			int decAddress=Binary_to_dec(Address);
+			int fault;
 			switch (decOpcode) {
 				case 1:
 					LDR(decR,decIX,I,decAddress);
@@ -105,11 +106,13 @@ public class Register_Set {
 					//information report
 				break;
 				case 2:
-				
+					STR(decR,decIX,I,decAddress);
 				break;
-				case 3:
+				case 41:
+					LDX(decR,decIX,I,decAddress);
 				break;
-				case 33:
+				case 42:
+					STX(decR,decIX,I,decAddress);
 				break;
 				case 34:
 				break;
@@ -152,19 +155,117 @@ public class Register_Set {
 			return EA;
 		}
 		
-		public void LDR(int R,int IX,int I, int Address) {//all input at here is int only
+		public int LDR(int R,int IX,int I,int Address) {//all input at here is int only
 			int EA=Get_EA(I,IX,R,Address);
 			if(R==0){
 				this.R0.Insert(this.Memory.Output(Address), 0);
+				return 1;
 			}
 			else if(R==1) {
 				this.R1.Insert(this.Memory.Output(Address), 0);
+				return 1;
 			}
 			else if(R==2) {
 				this.R2.Insert(this.Memory.Output(Address), 0);
+				return 1;
 			}
 			else if(R==3) {
 				this.R3.Insert(this.Memory.Output(Address), 0);
+				return 1;
+			}
+			else {
+				return 0;//fault
 			}
 		}
+		
+		public int STR(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,R,Address);
+			if(R==0) {
+				this.Memory.Insert(this.R0.Output(0), Address);
+				return 1;
+			}
+			else if(R==1) {
+				this.Memory.Insert(this.R1.Output(0), Address);
+				return 1;
+			}
+			else if(R==2) {
+				this.Memory.Insert(this.R2.Output(0), Address);
+				return 1;
+			}
+			else if(R==3) {
+				this.Memory.Insert(this.R3.Output(0), Address);
+				return 1;
+			}
+			else {
+				return 0;
+			}
+		}
+		
+		public int LDA(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,R,Address);
+			if(R==0) {
+				this.R0.Insert(Address,0);
+				return 1;
+			}
+			else if(R==1) {
+				this.R1.Insert(Address,0);
+				return 1;
+			}
+			else if(R==2) {
+				this.R2.Insert(Address,0);
+				return 1;
+			}
+			else if(R==3) {
+				this.R3.Insert(Address,0);
+				return 1;
+			}
+			else {
+				return 0;
+			}
+		}
+		
+		public int LDX(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,R,Address);
+			if(IX==0) {
+				return 0;
+			}
+			else if(IX==1) {
+				this.X1.Insert(this.Memory.Output(EA), 0);
+				return 1;
+			}
+			else if(IX==2) {
+				this.X2.Insert(this.Memory.Output(EA), 0);
+				return 1;
+			}
+			else if(IX==3) {
+				this.X3.Insert(this.Memory.Output(EA), 0);
+				return 1;
+			}
+			else {
+				return 0;
+			}
+		}
+		
+		public int STX(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,R,Address);
+			if(IX==0) {
+				return 0;
+			}
+			else if(IX==1) {
+				this.Memory.Insert(this.X1.OutputAsInt(), EA);
+				return 1;
+			}
+			else if(IX==2) {
+				this.Memory.Insert(this.X2.OutputAsInt(), EA);
+				return 1;
+			}
+			else if(IX==3) {
+				this.Memory.Insert(this.X3.OutputAsInt(), EA);
+				return 3;
+			}
+			else {
+				return 0;
+			}
+		}
+		
 }
