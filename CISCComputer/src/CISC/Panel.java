@@ -50,6 +50,7 @@ public class Panel {
 	private JRadioButton radioButton_14;
 	private JRadioButton radioButton_15;
 	private JTextArea textArea;
+	private boolean isRunning = false;
 	int[] SwitchRegister = new int[16];
 
 	/**
@@ -97,7 +98,7 @@ public class Panel {
 		DP.setBounds(900, 323, 123, 29);
 		frame.getContentPane().add(DP);
 		
-		JButton Start = new JButton("OFF");
+		JButton Start = new JButton("");
 		Start.setBounds(900, 383, 123, 29);
 		frame.getContentPane().add(Start);
 		
@@ -372,13 +373,14 @@ public class Panel {
 		Start.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				textArea.append("Start\n");
-				if(Start.getText()=="OFF") {
-					Start.setText("ON");
-				}
-				else {
-					Start.setText("OFF");
-				}
+				textArea.append("Running Program in memory...\n");
+				Start.setText("Running");
+				isRunning=true;//Set running paramater to true;
+				/*while(isRunning && Halt.getText()=="OFF") {
+					doSingleStep();
+				}*/
+				//doRun();//Run the program in memory (essentially a loop of single steps)
+				Start.setText("");
 			}
 		});
 		
@@ -529,7 +531,6 @@ public class Panel {
 		return result;
 	}
 	
-	
 	public void doIPL() {
 		textArea.append("Initializing initial program.\n");
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
@@ -539,14 +540,15 @@ public class Panel {
 		updateFields();
 	}
 	
- 	public void doSingleStep() {
+	
+	public void doSingleStep() {
  		textArea.append("Executing Next Instruction.\n");
-		//RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
-		//RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
-		//RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
-		//updateFields();
+		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
+		updateFields();
  		updateSwitchRegisterVal();
- 		RegisterSet.decoder(SwitchRegister);//maybe return some String.
+ 		decoder(RegisterSet.IR.Output);//maybe return some String.
 	}
 	
 	public void doClear() {
@@ -611,6 +613,246 @@ public class Panel {
 		*/
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
 		updateFields();
+	}
+	
+	public void decoder(int[] Instruction) {
+		int[] Opcode=new int[6];
+		int[] R=new int[2];
+		int[] IX=new int[2];
+		int I= 0;
+		int[] Address=new int[5];
+		for(int i=0;i<6;i++) {
+			Opcode[i]=Instruction[i];
+		}
+		for(int i=0;i<2;i++) {
+			R[i]=Instruction[i+6];
+		}
+		for(int i=0;i<2;i++) {
+			IX[i]=Instruction[i+8];
+		}
+		
+		for(int i=0;i<5;i++) {
+			Address[i]=Instruction[i+11];
+		}
+		I=Instruction[10];
+		int decOpcode=bitToInt(Opcode);
+		int decR=bitToInt(R);
+		int decIX=bitToInt(IX);
+		int decAddress=bitToInt(Address);
+		switch (decOpcode) {
+			case 1:
+				LDR(decR,decIX,I,decAddress);
+				//fault diagnose
+				//information report
+				break;
+			case 2:
+				STR(decR,decIX,I,decAddress);
+				break;
+			case 3:
+				LDA(decR,decIX,I,decAddress);
+				break;
+			case 33:
+				LDX(decR,decIX,I,decAddress);
+				break;
+			case 34:
+				STX(decR,decIX,I,decAddress);
+				break;
+			case 0:
+  			default:
+	  			textArea.append("Halted.\n");
+	  			RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
+	  			//isRunning = false;
+	  			//do nothing;
+	  			break;
+		}
+	
+	}
+	
+	public int Get_EA(int I,int IX,int R,int Address) {//get Effective Address(is int)
+		int EA=0;
+		if(I==0) {
+			if(IX==0){
+				EA=Address;
+			}
+			else if(IX==1){
+				EA=RegisterSet.X1.OutputAsInt()+bitToInt(RegisterSet.Memory.Output(Address));
+			}
+			else if(IX==2) {
+				EA=RegisterSet.X2.OutputAsInt()+bitToInt(RegisterSet.Memory.Output(Address));
+			}
+			else if(IX==3) {
+				EA=RegisterSet.X3.OutputAsInt()+bitToInt(RegisterSet.Memory.Output(Address));
+			}
+		}
+		else {
+			if(IX==0) {
+				EA=bitToInt(RegisterSet.Memory.Output(Address));
+			}
+			else if(IX==1) {
+				EA=bitToInt(RegisterSet.Memory.Output(RegisterSet.X1.OutputAsInt()+Address));
+			}
+			else if(IX==2) {
+				EA=bitToInt(RegisterSet.Memory.Output(RegisterSet.X2.OutputAsInt()+Address));
+			}
+			else if(IX==3) {
+				EA=bitToInt(RegisterSet.Memory.Output(RegisterSet.X3.OutputAsInt()+Address));
+			}
+		}
+		return EA;
+	}
+	
+	public int LDR(int R,int IX,int I,int Address) {//all input at here is int only
+		textArea.append("Executing LDR Instruction.\n");
+		int EA=Get_EA(I,IX,R,Address);
+		if(R==0){
+			RegisterSet.R0.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==1) {
+			RegisterSet.R1.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==2) {
+			RegisterSet.R2.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==3) {
+			RegisterSet.R3.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else {
+			return 0;//fault
+		}
+	}
+	
+	public int STR(int R,int IX,int I,int Address) {
+		textArea.append("Executing STR Instruction.\n");
+		int EA=Get_EA(I,IX,R,Address);
+		if(R==0) {
+			RegisterSet.Memory.Insert(RegisterSet.R0.Output(0), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==1) {
+			RegisterSet.Memory.Insert(RegisterSet.R1.Output(0), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==2) {
+			RegisterSet.Memory.Insert(RegisterSet.R2.Output(0), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==3) {
+			RegisterSet.Memory.Insert(RegisterSet.R3.Output(0), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	
+	public int LDA(int R,int IX,int I,int Address) {
+		textArea.append("Executing LDA Instruction.\n");
+		int EA=Get_EA(I,IX,R,Address);
+		if(R==0) {
+			RegisterSet.R0.Insert(EA,0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==1) {
+			RegisterSet.R1.Insert(EA,0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==2) {
+			RegisterSet.R2.Insert(EA,0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(R==3) {
+			RegisterSet.R3.Insert(EA,0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	
+	public int LDX(int R,int IX,int I,int Address) {
+		textArea.append("Executing LDX Instruction.\n");
+		int EA=Get_EA(I,IX,R,Address);
+		if(IX==0) {
+			return 0;
+		}
+		else if(IX==1) {
+			RegisterSet.X1.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(IX==2) {
+			RegisterSet.X2.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(IX==3) {
+			RegisterSet.X3.Insert(RegisterSet.Memory.Output(EA), 0);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	
+	public int STX(int R,int IX,int I,int Address) {
+		textArea.append("Executing STX Instruction.\n");
+		int EA=Get_EA(I,IX,R,Address);
+		if(IX==0) {
+			return 0;
+		}
+		else if(IX==1) {
+			RegisterSet.Memory.Insert(RegisterSet.X1.OutputAsInt(), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(IX==2) {
+			RegisterSet.Memory.Insert(RegisterSet.X2.OutputAsInt(), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else if(IX==3) {
+			RegisterSet.Memory.Insert(RegisterSet.X3.OutputAsInt(), EA);
+			RegisterSet.PC.Insert(RegisterSet.PC.OutputAsInt() + 1, 0);
+			updateFields();
+			return 1;
+		}
+		else {
+			return 0;
+		}
 	}
 	
 }
