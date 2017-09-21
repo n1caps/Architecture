@@ -1,5 +1,6 @@
 package CISC;
 
+//When the register output the data, the data will remove from the memory
 public class Register {
 	int Length;
 	int Height;
@@ -41,6 +42,7 @@ public class Register {
 		else {
 			this.Flag=3;//3 means something go wrong
 		}
+		updatePoint();
 		return this.Flag;
 	}
 	
@@ -58,6 +60,7 @@ public class Register {
 			}
 			this.Output = this.Memory[address];	
 		}
+		updatePoint();
 		return this.Flag;
 	}
 	
@@ -68,6 +71,20 @@ public class Register {
 			decAd += Bin[i] * (exp);
 		}
 		return decAd;
+	}
+	
+	public int[] Dec_to_binary(int Dec) {//dec transfer to binary
+		int[] binary;
+		int temp=Dec;
+		binary=new int[this.Length];
+		for(int i=0;i<this.Length;i++) {
+			binary[i]=0;
+		}
+		for(int i=this.Length;i>=0;i--) {
+			binary[i]=temp%2;
+			temp=temp/2;
+		}
+		return binary;
 	}
 	
 	public int[] Output(int[] Address){//binary is address
@@ -108,4 +125,23 @@ public class Register {
 		int val = Binary_to_dec(this.Output);
 		return val;
 	}
+	
+	public void Pop() {//Clear the Memory and Pointer++ 
+		for(int i=0;i<this.Length;i++) {
+			this.Memory[this.Pointer][i]=0;
+		}
+		updatePoint();
+	}
+	
+	public void updatePoint() {//Pointer++
+		if(this.Height>1) {
+			if(this.Pointer<this.Height-1) {
+				this.Pointer++;
+			}
+			else {
+				this.Pointer=6;//!!!!memory start at 6 
+			}
+		}
+	}
+	
 }

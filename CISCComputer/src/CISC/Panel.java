@@ -540,13 +540,13 @@ public class Panel {
 	}
 	
  	public void doSingleStep() {
- 		textArea.append("Executing Next Instruction.\n");
-		//RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
-		//RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
-		//RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
-		//updateFields();
+ 		String Information;
+ 		textArea.append("Executing Instruction.\n");
+ 		//I capsulate the action of MAR,MBR,IR into decoder, because I set the Output Method with remove the data in memory.
+ 		Information=RegisterSet.decoder(Get_Instruction());//maybe return some String.
+ 		textArea.append(Information);
  		updateSwitchRegisterVal();
- 		RegisterSet.decoder(SwitchRegister);//maybe return some String.
+ 		updateFields();
 	}
 	
 	public void doClear() {
@@ -601,16 +601,53 @@ public class Panel {
 			text=text+SwitchRegister[i];
 		}
 		textArea.append("The Data Insert to Memory is:["+text+"]\n");
-			
-		//insert to memory
-		RegisterSet.MBR.Insert(SwitchRegister,0);
-		RegisterSet.Memory.Insert(SwitchRegister, bitToInt(RegisterSet.MAR.Output));
 		
+		/*
+		 * As the document said. Only when the word is fetched we need the MBR and MAR.	
+		 */
+		//insert to MBR
+		//RegisterSet.MBR.Insert(SwitchRegister,0);
+		//textArea.append("MBR<-Input.\n");
+		//updateFields();
+		//insert to Memory
+		
+		RegisterSet.Memory.Insert(SwitchRegister, RegisterSet.Memory.Pointer);
+		textArea.append("Memory<-Input.\n");
 		/**
 		 *We can add Fault Diagnose   
 		*/
-		textArea.append("The Data:["+text+"] Successfully inserted to Memory.\n");
+		textArea.append("The Data:["+text+"] Successfully inserted to Memory ["+(RegisterSet.Memory.Pointer-1)+"].\n");
 		updateFields();
 	}
+	
+	public int[] Get_Instruction() {//Get the Instruction to decoder.
+		//Because I think will fetch data from memory repeatedly, I make it a individual function. 
+		//MAR<-PC
+		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
+		textArea.append("MAR<-PC.\n");
+		updateFields();
+		//MBR<-Memory(MAR)
+		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
+		textArea.append("MBR<-Memory(MAR).\n");
+		updateFields();
+		//update the PC++
+		int tPC=RegisterSet.PC.OutputAsInt();
+		if(tPC>RegisterSet.Memory.Height) {
+			tPC=6;//start at 6 in memory
+		}
+		else {
+			tPC=tPC+1;
+		}
+		RegisterSet.PC.Insert(tPC, 0);
+		textArea.append("PC++.\n");
+		updateFields();
+		//IR<-MBR
+		RegisterSet.IR.Insert(RegisterSet.MBR.Output(0), 0);
+		textArea.append("IR<-MBR.\n");
+		updateFields();
+		return RegisterSet.IR.Output(0);
+		
+	}
+	
 	
 }

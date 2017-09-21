@@ -45,10 +45,11 @@ public class Register_Set {
 		
 			//Main Memory
 			this.Memory=new Register(16,4096);
-			//this.Memory.Pointer=6;
+			this.Memory.Pointer=6;
 			
-			//PC
+			//PC 
 			this.PC=new Register(12,1);
+			//CC
 			this.CC=new Register(4,1);
 			this.IR=new Register(16,1);
 			this.MAR=new Register(16,1);
@@ -78,21 +79,36 @@ public class Register_Set {
 		}
 		
 		
-		public void decoder(int[] Instruction) {
+		public String decoder(int[] Instruction) {//the function will return String Information of what have do
+			String Information;
+			Information="The Instruction is:";
+			Information=Information+"Opcode:";
+			int[] Opcode=new int[6];
+			int[] R=new int[2];
+			int[] IX=new int[2];
+			int I;
+			int[] Address=new int[5];
 			
 			for(int i=0;i<6;i++) {
 				Opcode[i]=Instruction[i];
+				Information=Information+Instruction[i];
 			}
+			Information=Information+"   R:";
 			for(int i=0;i<2;i++) {
 				R[i]=Instruction[i+6];
+				Information=Information+Instruction[i+6];
 			}
+			Information=Information+"   IX:";
 			for(int i=0;i<2;i++) {
 				IX[i]=Instruction[i+8];
+				Information=Information+Instruction[i+8];
 			}
-			
-			for(int i=0;i<7;i++) {
+			Information=Information+"   Address:";
+			for(int i=0;i<5;i++) {
 				Address[i]=Instruction[i+11];
+				Information=Information+Instruction[i+11];
 			}
+			Information=Information+"\n";
 			I=Instruction[10];
 			int decOpcode=Binary_to_dec(Opcode);
 			int decR=Binary_to_dec(R);
@@ -101,24 +117,25 @@ public class Register_Set {
 			int fault;
 			switch (decOpcode) {
 				case 1:
-					LDR(decR,decIX,I,decAddress);
+					Information=Information+LDR(decR,decIX,I,decAddress);
 					//fault diagnose
 					//information report
 				break;
 				case 2:
-					STR(decR,decIX,I,decAddress);
+					Information=Information+STR(decR,decIX,I,decAddress);
 				break;
 				case 41:
-					LDX(decR,decIX,I,decAddress);
+					Information=Information+LDX(decR,decIX,I,decAddress);
 				break;
 				case 42:
-					STX(decR,decIX,I,decAddress);
+					Information=Information+STX(decR,decIX,I,decAddress);
 				break;
 				case 34:
 				break;
 				default:
 				break;
 			}
+			return Information;
 		
 		}
 		
@@ -155,116 +172,148 @@ public class Register_Set {
 			return EA;
 		}
 		
-		public int LDR(int R,int IX,int I,int Address) {//all input at here is int only
+		public String LDR(int R,int IX,int I,int Address) {//all input at here is int only
 			int EA=Get_EA(I,IX,R,Address);
+			String Information;
+			Information="";
+			Information=Information+R+" "+IX+" "+I+" "+Address+" \n";
 			if(R==0){
 				this.R0.Insert(this.Memory.Output(Address), 0);
-				return 1;
+				Information=Information+"R0<-c("+EA+").\n";
+				return Information;
 			}
 			else if(R==1) {
 				this.R1.Insert(this.Memory.Output(Address), 0);
-				return 1;
+				Information=Information+"R1<-c("+EA+").\n";
+				return Information;
 			}
 			else if(R==2) {
 				this.R2.Insert(this.Memory.Output(Address), 0);
-				return 1;
+				Information=Information+"R2<-c("+EA+").\n";
+				return Information;
 			}
 			else if(R==3) {
 				this.R3.Insert(this.Memory.Output(Address), 0);
-				return 1;
+				Information=Information+"R3<-c("+EA+").\n";
+				return Information;
 			}
 			else {
-				return 0;//fault
+				Information="Instruction LDR fail .\n";
+				return Information;//fault
 			}
 		}
 		
-		public int STR(int R,int IX,int I,int Address) {
+		public String STR(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,R,Address);
+			String Information;
 			if(R==0) {
 				this.Memory.Insert(this.R0.Output(0), Address);
-				return 1;
+				Information="Memory("+EA+")<-c(R0).\n";
+				return Information;
 			}
 			else if(R==1) {
 				this.Memory.Insert(this.R1.Output(0), Address);
-				return 1;
+				Information="Memory("+EA+")<-c(R1).\n";
+				return Information;
 			}
 			else if(R==2) {
 				this.Memory.Insert(this.R2.Output(0), Address);
-				return 1;
+				Information="Memory("+EA+")<-c(R2).\n";
+				return Information;
 			}
 			else if(R==3) {
 				this.Memory.Insert(this.R3.Output(0), Address);
-				return 1;
+				Information="Memory("+EA+")<-c(R3).\n";
+				return Information;
 			}
 			else {
-				return 0;
+				Information="Instruction STR fail.\n";
+				return Information;
 			}
 		}
 		
-		public int LDA(int R,int IX,int I,int Address) {
+		public String LDA(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,R,Address);
+			String Information;
 			if(R==0) {
 				this.R0.Insert(Address,0);
-				return 1;
+				Information="R0<-"+EA+".\n";
+				return Information;
 			}
 			else if(R==1) {
 				this.R1.Insert(Address,0);
-				return 1;
+				Information="R1<-"+EA+".\n";
+				return Information;
 			}
 			else if(R==2) {
 				this.R2.Insert(Address,0);
-				return 1;
+				Information="R2<-"+EA+".\n";
+				return Information;
 			}
 			else if(R==3) {
 				this.R3.Insert(Address,0);
-				return 1;
+				Information="R3<-"+EA+".\n";
+				return Information;
 			}
 			else {
-				return 0;
+				Information="Instruction LDA Fail";
+				return Information;
 			}
 		}
 		
-		public int LDX(int R,int IX,int I,int Address) {
+		public String LDX(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,R,Address);
+			String Information;
 			if(IX==0) {
-				return 0;
+				Information="No Register X0.\n";
+				return Information;
 			}
 			else if(IX==1) {
 				this.X1.Insert(this.Memory.Output(EA), 0);
-				return 1;
+				Information="X1<-c("+EA+").\n";
+				return Information;
 			}
 			else if(IX==2) {
 				this.X2.Insert(this.Memory.Output(EA), 0);
-				return 1;
+				Information="X2<-c("+EA+").\n";
+				return Information;
 			}
 			else if(IX==3) {
 				this.X3.Insert(this.Memory.Output(EA), 0);
-				return 1;
+				Information="X3<-c("+EA+").\n";
+				return Information;
 			}
 			else {
-				return 0;
+				Information="Instruction LDX fail.\n";
+				return Information;
 			}
 		}
 		
-		public int STX(int R,int IX,int I,int Address) {
+		public String STX(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,R,Address);
+			String Information;
 			if(IX==0) {
-				return 0;
+				Information="No Register X0.\n";
+				return Information;
 			}
 			else if(IX==1) {
 				this.Memory.Insert(this.X1.OutputAsInt(), EA);
-				return 1;
+				Information="Memory("+EA+")<-X1.\n";
+				return Information;
 			}
 			else if(IX==2) {
 				this.Memory.Insert(this.X2.OutputAsInt(), EA);
-				return 1;
+				Information="Memory("+EA+")<-X2.\n";
+				return Information;
 			}
 			else if(IX==3) {
 				this.Memory.Insert(this.X3.OutputAsInt(), EA);
-				return 3;
+				Information="Memory("+EA+")<-X3.\n";
+				return Information;
 			}
 			else {
-				return 0;
+				Information="Instruction STX fail.\n";
+				return Information;
 			}
 		}
 		
