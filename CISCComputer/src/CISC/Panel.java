@@ -15,6 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import java.awt.Font;
 import java.awt.Color;
+import java.lang.Thread;
 
 public class Panel {
 
@@ -50,7 +51,8 @@ public class Panel {
 	private JRadioButton radioButton_14;
 	private JRadioButton radioButton_15;
 	private JTextArea textArea;
-	private boolean isRunning = false;
+	private JButton StartBtn;
+	private Thread progThread;
 	int[] SwitchRegister = new int[16];
 
 	/**
@@ -98,11 +100,11 @@ public class Panel {
 		DP.setBounds(900, 323, 123, 29);
 		frame.getContentPane().add(DP);
 		
-		JButton Start = new JButton("");
-		Start.setBounds(900, 383, 123, 29);
-		frame.getContentPane().add(Start);
+		StartBtn = new JButton("");
+		StartBtn.setBounds(900, 383, 123, 29);
+		frame.getContentPane().add(StartBtn);
 		
-		JButton Halt = new JButton("OFF");
+		JButton Halt = new JButton("");
 		Halt.setBounds(900, 444, 123, 29);
 		frame.getContentPane().add(Halt);
 		
@@ -118,7 +120,8 @@ public class Panel {
 		lblDeposit.setBounds(900, 299, 81, 21);
 		frame.getContentPane().add(lblDeposit);
 		
-		JLabel lblStart = new JLabel("Start");
+		//Renaming the label Run to align with instructions in the doc
+		JLabel lblStart = new JLabel("Run");
 		lblStart.setBounds(900, 359, 81, 21);
 		frame.getContentPane().add(lblStart);
 		
@@ -341,6 +344,8 @@ public class Panel {
 			public void mouseClicked(MouseEvent arg0) {
 				if(btnIpl.getBackground().equals(Color.RED)) {
 					btnIpl.setBackground(Color.GREEN);
+					//Moving as much code out of the initialize method as possible so that we dont
+					//Have to look through as much code to find what we need
 					doIPL();
 				}else {
 					btnIpl.setBackground(Color.RED);
@@ -370,29 +375,46 @@ public class Panel {
 			}
 		});
 		
-		Start.addMouseListener(new MouseAdapter() {
+		StartBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				textArea.append("Running Program in memory...\n");
-				Start.setText("Running");
-				isRunning=true;//Set running paramater to true;
-				/*while(isRunning && Halt.getText()=="OFF") {
-					doSingleStep();
-				}*/
-				//doRun();//Run the program in memory (essentially a loop of single steps)
-				Start.setText("");
+				StartBtn.setText("Running");
+				//Prevent multiple presses of the start button
+				StartBtn.setEnabled(false);
+				//Set running paramater to true to all the thread to run until halt condiiton occurs
+				RegisterSet.isRunning=true;
+				progThread = new Thread() {
+					public void run() {
+						try {
+							while(RegisterSet.isRunning)
+							{
+								doSingleStep();
+							}
+							StartBtn.setEnabled(true);
+							StartBtn.setText("");
+						}catch(Exception e) {
+							
+						}
+					}
+				};
+				progThread.start();
 			}
 		});
 		
 		Halt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				textArea.append("Halt\n");
-				if(Halt.getText()=="OFF") {
-					Halt.setText("ON");
-				}
-				else {
-					Halt.setText("OFF");
+				textArea.append("Halting Program Execution\n");
+				//Halts a running program and reenables the start button
+				RegisterSet.isRunning = false;
+				StartBtn.setText("");
+				StartBtn.setEnabled(true);
+				try {
+					progThread.join();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		});
@@ -403,10 +425,13 @@ public class Panel {
 				doClear();
 			}
 		});
-				
+		//Update all the register fields after intialization		
 		updateFields();
 	}
 	
+	/**
+	 * Update all the display fields with the corresponding data
+	 */
 	public void updateFields(){
 		textField.setText(RegisterSet.R0.OutputAsString());
 		textField_1.setText(RegisterSet.R1.OutputAsString());
@@ -423,6 +448,9 @@ public class Panel {
 		textField_12.setText(RegisterSet.MFR.OutputAsString());
 	}
 	
+	/**
+	 * Updates the switch register variable with the current value of the switch variable
+	 */
 	public void updateSwitchRegisterVal() {
 		if(radioButton.isSelected()) {
 			SwitchRegister[0]=1;
@@ -522,6 +550,11 @@ public class Panel {
 		}
 	}
 	
+	/**
+	 * Bit Array to Integer converter helper function
+	 * @param array
+	 * @return
+	 */
 	public int bitToInt (int[] array) {
 		int result = 0;
 		for(int i=0;i<array.length;i++) {
@@ -531,6 +564,14 @@ public class Panel {
 		return result;
 	}
 	
+	/**
+	 * The Initial program load method
+	 * Sets the Program Counter (PC) to the starting point in memory where the first program instruction should be (word 6 because 0-5 are reserved)
+	 * Moves the PC valued to the Memory Address Register (MAR)
+	 * Loads the contents of memory at the location in the MAR to the Memory Buffer Register (MBR)
+	 * Then loads the contents of the MBR to the Instruction Register
+	 * Finally initializes the thread that will be used to Run programs to completion
+	 */
 	public void doIPL() {
 		textArea.append("Initializing initial program.\n");
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
@@ -540,6 +581,13 @@ public class Panel {
 		updateFields();
 	}
 
+	/**
+	 * Perform a single instruction
+	 * To execute an instruction the MAR is loaded with the content of PC
+	 * The MBR is then loaded with the contents of Memory pointed to by the MAR
+	 * The IR is loaded with the contents of the MBR
+	 * and the decoder takes the value from the IR, decodes it, and performs the instruction
+	 */
  	public void doSingleStep() {
  		String Information;
  		textArea.append("Executing Instruction.\n");
@@ -550,6 +598,9 @@ public class Panel {
  		updateFields();
  	}
 
+	/**
+	 * Clears the text area and deselects the switch register buttons
+	 */
 	public void doClear() {
 		textArea.setText("");
 		radioButton.setSelected(false);
@@ -570,6 +621,12 @@ public class Panel {
 		radioButton_15.setSelected(false);
 	}
 	
+	//Not sure if this method is needed
+	/**
+	 * Loads the data to the MBR at the address indicated in the switch register
+	 * loads the MAR with the value in the switch register
+	 * loads the MBR with the contents of memory at the location indicated by the MAR
+	 */
 	public void doAL() {
 		//Get the data of Memory.
 		updateSwitchRegisterVal();
@@ -593,6 +650,9 @@ public class Panel {
 		updateFields();
 	}
 
+	/**
+	 * Stores the value of the Switch register to memory at the location indicated by the MAR 
+	 */
 	public void doDP() {
 		//get the input from Switch Register
 		updateSwitchRegisterVal();

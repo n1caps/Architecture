@@ -1,7 +1,7 @@
 package CISC;
 
 public class Register_Set {
-	//GPR
+		//GPR
 		Register R0;
 		Register R1;
 		Register R2;
@@ -25,14 +25,10 @@ public class Register_Set {
 		Register MFR;
 		//GPR
 		
-		//for instruction
-		int[] Opcode;
-		int[] R;
-		int[] IX;
-		int I;
-		int[] Address;
+		public boolean isRunning = false;
 
 		public Register_Set() {
+			//GPR
 			this.R0=new Register(16,1);
 			this.R1=new Register(16,1);
 			this.R2=new Register(16,1);
@@ -57,18 +53,16 @@ public class Register_Set {
 			this.MBR=new Register(16,1);
 			this.MFR=new Register(16,1);
 			
-			Opcode=new int[6];
-			R=new int[2];
-			IX=new int[2];
-			I=0;
-			Address=new int[7];
-			
-		
 			// ER=new Erro_Report();
 			// DCD=new Decoder();
 			// CT=new Controller();
 		}
 		
+		/**
+		 * Binary Array to Integer converter helper function
+		 * @param Bin
+		 * @return
+		 */
 		public int Binary_to_dec(int[] Bin) {//binary transfer to dec
 			int decAd=0;
 			for(int i=0;i<Bin.length;i++) {
@@ -78,7 +72,10 @@ public class Register_Set {
 			return decAd;
 		}
 		
-		
+		/**
+		 * Decodes and executes the instruction
+		 * @param Instruction
+		 */
 		public String decoder(int[] Instruction) {//the function will return String Information of what have do
 			String Information;
 			Information="The Instruction is:";
@@ -89,6 +86,7 @@ public class Register_Set {
 			int I;
 			int[] Address=new int[5];
 			
+			//Parse out the Opcode, Register, IX, I, and Address from the instruction word
 			for(int i=0;i<6;i++) {
 				Opcode[i]=Instruction[i];
 				Information=Information+Instruction[i];
@@ -110,11 +108,16 @@ public class Register_Set {
 			}
 			Information=Information+"\n";
 			I=Instruction[10];
+			
+			//Convert parsed values to easier to user INTEGER value (base 10)
 			int decOpcode=Binary_to_dec(Opcode);
 			int decR=Binary_to_dec(R);
 			int decIX=Binary_to_dec(IX);
 			int decAddress=Binary_to_dec(Address);
 			int fault;
+			
+			//Using switch statement to determine which instruction to run
+			//Note that the opcode is switched using its BASE 10 VALUE!
 			switch (decOpcode) {
 				case 1:
 					Information=Information+LDR(decR,decIX,I,decAddress);
@@ -124,22 +127,36 @@ public class Register_Set {
 				case 2:
 					Information=Information+STR(decR,decIX,I,decAddress);
 				break;
-				case 41:
+				case 3:
+					Information=Information+LDA(decR,decIX,I,decAddress);
+				break;
+				case 33:
 					Information=Information+LDX(decR,decIX,I,decAddress);
 				break;
-				case 42:
+				case 34:
 					Information=Information+STX(decR,decIX,I,decAddress);
 				break;
-				case 34:
-				break;
+				case 0:
 				default:
+					Information=Information+"Halted.\n";
+		  			//When it halts Return PC to the beginning of program memory
+		  			this.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
+		  			isRunning = false;
+		  			//do nothing;
 				break;
 			}
 			return Information;
 		
 		}
 		
-		public int Get_EA(int I,int IX,int R,int Address) {//get Effective Address(is int)
+		/**
+		 * Calculate affective address based on I,IX, and address
+		 * @param I
+		 * @param IX
+		 * @param Address
+		 * @return
+		 */
+		public int Get_EA(int I,int IX,int Address) {//get Effective Address(is int)
 			int EA=0;
 			if(I==0) {
 				if(IX==0){
@@ -173,27 +190,27 @@ public class Register_Set {
 		}
 		
 		public String LDR(int R,int IX,int I,int Address) {//all input at here is int only
-			int EA=Get_EA(I,IX,R,Address);
+			int EA=Get_EA(I,IX,Address);
 			String Information;
 			Information="";
 			Information=Information+R+" "+IX+" "+I+" "+Address+" \n";
 			if(R==0){
-				this.R0.Insert(this.Memory.Output(Address), 0);
+				this.R0.Insert(this.Memory.Output(EA), 0);
 				Information=Information+"R0<-c("+EA+").\n";
 				return Information;
 			}
 			else if(R==1) {
-				this.R1.Insert(this.Memory.Output(Address), 0);
+				this.R1.Insert(this.Memory.Output(EA), 0);
 				Information=Information+"R1<-c("+EA+").\n";
 				return Information;
 			}
 			else if(R==2) {
-				this.R2.Insert(this.Memory.Output(Address), 0);
+				this.R2.Insert(this.Memory.Output(EA), 0);
 				Information=Information+"R2<-c("+EA+").\n";
 				return Information;
 			}
 			else if(R==3) {
-				this.R3.Insert(this.Memory.Output(Address), 0);
+				this.R3.Insert(this.Memory.Output(EA), 0);
 				Information=Information+"R3<-c("+EA+").\n";
 				return Information;
 			}
@@ -204,25 +221,25 @@ public class Register_Set {
 		}
 		
 		public String STR(int R,int IX,int I,int Address) {
-			int EA=Get_EA(I,IX,R,Address);
+			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
-				this.Memory.Insert(this.R0.Output(0), Address);
+				this.Memory.Insert(this.R0.Output(0), EA);
 				Information="Memory("+EA+")<-c(R0).\n";
 				return Information;
 			}
 			else if(R==1) {
-				this.Memory.Insert(this.R1.Output(0), Address);
+				this.Memory.Insert(this.R1.Output(0), EA);
 				Information="Memory("+EA+")<-c(R1).\n";
 				return Information;
 			}
 			else if(R==2) {
-				this.Memory.Insert(this.R2.Output(0), Address);
+				this.Memory.Insert(this.R2.Output(0), EA);
 				Information="Memory("+EA+")<-c(R2).\n";
 				return Information;
 			}
 			else if(R==3) {
-				this.Memory.Insert(this.R3.Output(0), Address);
+				this.Memory.Insert(this.R3.Output(0), EA);
 				Information="Memory("+EA+")<-c(R3).\n";
 				return Information;
 			}
@@ -233,7 +250,7 @@ public class Register_Set {
 		}
 		
 		public String LDA(int R,int IX,int I,int Address) {
-			int EA=Get_EA(I,IX,R,Address);
+			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
 				this.R0.Insert(Address,0);
@@ -262,7 +279,7 @@ public class Register_Set {
 		}
 		
 		public String LDX(int R,int IX,int I,int Address) {
-			int EA=Get_EA(I,IX,R,Address);
+			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(IX==0) {
 				Information="No Register X0.\n";
@@ -290,7 +307,7 @@ public class Register_Set {
 		}
 		
 		public String STX(int R,int IX,int I,int Address) {
-			int EA=Get_EA(I,IX,R,Address);
+			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(IX==0) {
 				Information="No Register X0.\n";
