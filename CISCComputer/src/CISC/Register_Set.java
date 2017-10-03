@@ -114,7 +114,6 @@ public class Register_Set {
 			int decR=Binary_to_dec(R);
 			int decIX=Binary_to_dec(IX);
 			int decAddress=Binary_to_dec(Address);
-			int fault;
 			
 			//Using switch statement to determine which instruction to run
 			//Note that the opcode is switched using its BASE 10 VALUE!

@@ -4,14 +4,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
-import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import java.awt.Font;
 import java.awt.Color;
