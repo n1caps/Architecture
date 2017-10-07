@@ -139,7 +139,7 @@ public class Register {
 				this.Pointer++;
 			}
 			else {
-				this.Pointer=6;//!!!!memory start at 6 
+				this.Pointer=0;//!!!!memory start at 6 
 			}
 		}
 	}

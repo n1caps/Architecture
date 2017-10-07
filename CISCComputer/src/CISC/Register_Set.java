@@ -24,6 +24,8 @@ public class Register_Set {
 		Register MSR;
 		Register MFR;
 		//GPR
+		Register Cashe;
+		//Cashe 
 		
 		public boolean isRunning = false;
 
@@ -40,7 +42,7 @@ public class Register_Set {
 			this.X3=new Register(16,1);
 		
 			//Main Memory
-			this.Memory=new Register(16,4096);
+			this.Memory=new MainMemory(16,4096);
 			this.Memory.Pointer=6;
 			
 			//PC 
@@ -53,6 +55,8 @@ public class Register_Set {
 			this.MBR=new Register(16,1);
 			this.MFR=new Register(16,1);
 			
+			//Cashe
+			this.Cashe=new Register(16,16);
 			// ER=new Erro_Report();
 			// DCD=new Decoder();
 			// CT=new Controller();
@@ -333,4 +337,362 @@ public class Register_Set {
 			}
 		}
 		
+		public String JZ(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(R==0) {
+				if(this.R0.OutputAsInt()==0) {
+					Information="R0==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n";
+				}
+				else {
+					Information="R0!=0\n";
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else if(R==1) {
+				
+				if(this.R1.OutputAsInt()==0) {
+					Information="R1==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n";
+				}
+				else {
+					Information="R1!=0\n";
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else if(R==2) {
+				if(this.R2.OutputAsInt()==0) {
+					Information="R2==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n";
+				}
+				else {
+					Information="R2!=0\n";
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else if(R==3) {
+				if(this.R3.OutputAsInt()==0) {
+					Information="R3==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n";
+				}
+				else {
+					Information="R3!=0\n";
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else {
+				Information="Instruction JZ fail.\n";
+			}
+			return Information;
+		};
+		
+		public String JNE(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(R==0) {
+				if(this.R0.OutputAsInt()!=0) {
+					this.PC.Insert(EA, 0);
+					Information="R0==0\nPC<-EA\n";
+				}
+				else {
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information="R0!=0\nPC<-PC+1\n";
+				}
+			}
+			else if(R==1) {
+				if(this.R1.OutputAsInt()!=0) {
+					this.PC.Insert(EA, 0);
+					Information="R1==0\nPC<-EA\n";
+				}
+				else {
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information="R1!=0\nPC<-PC+1\n";
+				}
+			}
+			else if(R==2) {
+				if(this.R2.OutputAsInt()!=0) {
+					this.PC.Insert(EA, 0);
+					Information="R2==0\nPC<-EA\n";
+				}
+				else {
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information="R2!=0\nPC<-PC+1\n";
+				}
+			}
+			else if(R==3) {
+				if(this.R3.OutputAsInt()!=0) {
+					this.PC.Insert(EA, 0);
+					Information="R3==0\nPC<-EA\n";
+				}
+				else {
+					this.PC.Insert((this.PC.OutputAsInt()+1), 0);
+					Information="R3!=0\nPC<-PC+1\n";
+				}
+			}
+			else {
+				Information="Instruction JNE fail.\n";
+			}
+			return Information;
+		}
+		
+		public String JCC(int C,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(C==1) {
+				Information="cc bit==1\n";
+				this.PC.Insert(EA, 0);
+				Information=Information+"PC<-EA\n";
+			}
+			else {
+				Information="cc bit!=1\n";
+				this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+				Information=Information+"PC<-PC+1\n";
+			}
+			return Information;
+		}
+		
+		public String JMA(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			this.PC.Insert(EA, 0);
+			Information="PC<-EA\n";
+			return Information;
+		}  
+		
+		public String JSR(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			this.R3.Insert(this.PC.OutputAsInt(), 0);
+			Information="R3<-PC+1\n";
+			this.PC.Insert(EA, 0);
+			Information=Information+"PC<-EA\n";
+			return Information;
+		}
+		
+		public String SOB(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(R==0) {
+				this.R0.Insert(this.R0.OutputAsInt()-1, 0);
+				Information="R0<-C(R0)-1\n";
+				if(this.R0.OutputAsInt()>0) {
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else if(R==1) {
+				this.R1.Insert(this.R1.OutputAsInt()-1, 0);
+				Information="R1<-C(R1)-1\n";
+				if(this.R1.OutputAsInt()>0) {
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else if(R==2) {
+				this.R2.Insert(this.R2.OutputAsInt()-1, 0);
+				Information="R2<-C(R2)-1\n";
+				if(this.R2.OutputAsInt()>0) {
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else if(R==3) {
+				this.R0.Insert(this.R0.OutputAsInt()-1, 0);
+				Information="R3<-C(R3)-1\n";
+				if(this.R3.OutputAsInt()>0) {
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information=Information+"PC<-PC+1\n";
+				}
+			}
+			else {
+				Information="Instruction SOB fail.\n";
+			}
+			return Information;
+		};
+		
+		public String JGE(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(R==0) {
+				if(this.R0.OutputAsInt()>=0) {
+					Information="R0>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information="R0<0\nPC<-PC+1\n";
+				}
+			}
+			else if(R==1) {
+				if(this.R1.OutputAsInt()>=0) {
+					Information="R1>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information="R1<0\nPC<-PC+1\n";
+				}
+			}
+			else if(R==2) {
+				if(this.R2.OutputAsInt()>=0) {
+					Information="R2>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information="R2<0\nPC<-PC+1\n";
+				}
+			}
+			else if(R==3) {
+				if(this.R3.OutputAsInt()>=0) {
+					Information="R3>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n";
+				}
+				else {
+					this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					Information="R3<0\nPC<-PC+1\n";
+				}
+			}
+			else {
+				Information="Instruction JGE fail.\n";
+			}
+			return Information;
+		};
+		
+		public String AMR(int R,int I,int IX,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(R==0) {
+				this.R0.Insert(this.R0.OutputAsInt()+this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R0<-c(R0)+c(EA)\n";
+			}
+			else if(R==1) {
+				this.R1.Insert(this.R1.OutputAsInt()+this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R1<-c(R1)+c(EA)\n";
+			}
+			else if(R==2) {
+				this.R2.Insert(this.R2.OutputAsInt()+this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R2<-c(R2)+c(EA)\n";
+			}
+			else if(R==3) {
+				this.R3.Insert(this.R3.OutputAsInt()+this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R3<-c(R3)+c(EA)\n";
+			}
+			else {
+				Information="Instruction AMR fail.\n";
+			}
+			return Information;
+		};
+		
+		public String SMR(int R,int I,int IX,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			if(R==0) {
+				this.R0.Insert(this.R0.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R0<-c(R0)-c(EA)\n";
+			}
+			else if(R==1) {
+				this.R1.Insert(this.R1.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R1<-c(R1)-c(EA)\n";
+			}
+			else if(R==2) {
+				this.R2.Insert(this.R2.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R2<-c(R2)-c(EA)\n";
+			}
+			else if(R==3) {
+				this.R3.Insert(this.R3.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				Information="R3<-c(R3)-c(EA)\n";
+			}
+			else {
+				Information="Instruction AMR fail.\n";
+			}
+			return Information;
+		};
+		
+		public String AIR(int R,int IX,int I,int Address) {
+			String Information;
+			if (Address==0) {
+				Information="Immed is 0\n";
+			}
+			else {
+				if(R==0) {
+					this.R0.Insert(this.R0.OutputAsInt()+Address, 0);
+					Information="R0<-c(R0)+Immed\n";
+				}
+				else if(R==1) {
+					this.R1.Insert(this.R1.OutputAsInt()+Address, 0);
+					Information="R1<-c(R1)+Immed\n";
+				}
+				else if(R==2) {
+					this.R2.Insert(this.R2.OutputAsInt()+Address, 0);
+					Information="R2<-c(R2)+Immed\n";
+				}
+				else if(R==3) {
+					this.R3.Insert(this.R3.OutputAsInt()+Address, 0);
+					Information="R3<-c(R3)+Immed\n";
+				}
+				else {
+					Information="Instruction AIR fail.\n";
+				}
+			}
+			return Information;
+		};
+		
+		public String SIR(int R,int IX,int I,int Address) {
+			String Information;
+			if (Address==0) {
+				Information="Immed is 0\n";
+			}
+			else {
+				if(R==0) {
+					this.R0.Insert(this.R0.OutputAsInt()-Address, 0);
+					Information="R0<-c(R0)-Immed\n";
+				}
+				else if(R==1) {
+					this.R1.Insert(this.R1.OutputAsInt()-Address, 0);
+					Information="R1<-c(R1)-Immed\n";
+				}
+				else if(R==2) {
+					this.R2.Insert(this.R2.OutputAsInt()-Address, 0);
+					Information="R2<-c(R2)-Immed\n";
+				}
+				else if(R==3) {
+					this.R3.Insert(this.R3.OutputAsInt()-Address, 0);
+					Information="R3<-c(R3)-Immed\n";
+				}
+				else {
+					Information="Instruction AIR fail.\n";
+				}
+			}
+			return Information;
+		};
 }

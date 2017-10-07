@@ -672,7 +672,12 @@ public class Panel {
 		
 		RegisterSet.Memory.Insert(SwitchRegister, RegisterSet.Memory.Pointer);
 		textArea.append("Memory<-Input.\n");
-		/**
+		
+		//when we insert instruction, we need to judge whether can insert instruction to cashe too.
+		if(RegisterSet.Cashe.Pointer!=15) {
+			RegisterSet.Cashe.Insert(SwitchRegister, RegisterSet.Cashe.Pointer);
+		}
+		/*
 		 *We can add Fault Diagnose   
 		*/
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory ["+(RegisterSet.Memory.Pointer-1)+"].\n");
