@@ -42,7 +42,7 @@ public class Register_Set {
 			this.X3=new Register(16,1);
 		
 			//Main Memory
-			this.Memory=new MainMemory(16,4096);
+			this.Memory=new MainMemory(16,4096,16,16,16);
 			this.Memory.Pointer=6;
 			
 			//PC 
