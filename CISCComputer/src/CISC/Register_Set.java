@@ -1,5 +1,7 @@
 package CISC;
 
+import java.io.IOException;
+
 public class Register_Set {
 		//GPR
 		Register R0;
@@ -24,8 +26,8 @@ public class Register_Set {
 		Register MSR;
 		Register MFR;
 		//GPR
-		Register Cashe;
-		//Cashe 
+		Register Cache;
+		//Cache 
 		
 		public boolean isRunning = false;
 
@@ -55,8 +57,8 @@ public class Register_Set {
 			this.MBR=new Register(16,1);
 			this.MFR=new Register(16,1);
 			
-			//Cashe
-			this.Cashe=new Register(16,16);
+			//Cache
+			this.Cache=new Register(16,16);
 			// ER=new Erro_Report();
 			// DCD=new Decoder();
 			// CT=new Controller();
@@ -74,6 +76,20 @@ public class Register_Set {
 				decAd += Bin[i] * (exp);
 			}
 			return decAd;
+		}
+		
+		public int[] Dec_to_binary(int Dec, int Length) {//dec transfer to binary
+			int[] binary;
+			int temp=Dec;
+			binary=new int[Length];
+			for(int i=0;i<Length;i++) {
+				binary[i]=0;
+			}
+			for(int i=Length;i>=0;i--) {
+				binary[i]=temp%2;
+				temp=temp/2;
+			}
+			return binary;
 		}
 		
 		/**
@@ -533,7 +549,7 @@ public class Register_Set {
 				Information="Instruction SOB fail.\n";
 			}
 			return Information;
-		};
+		}
 		
 		public String JGE(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);
@@ -586,7 +602,7 @@ public class Register_Set {
 				Information="Instruction JGE fail.\n";
 			}
 			return Information;
-		};
+		}
 		
 		public String AMR(int R,int I,int IX,int Address) {
 			int EA=Get_EA(I,IX,Address);
@@ -611,7 +627,7 @@ public class Register_Set {
 				Information="Instruction AMR fail.\n";
 			}
 			return Information;
-		};
+		}
 		
 		public String SMR(int R,int I,int IX,int Address) {
 			int EA=Get_EA(I,IX,Address);
@@ -636,7 +652,7 @@ public class Register_Set {
 				Information="Instruction AMR fail.\n";
 			}
 			return Information;
-		};
+		}
 		
 		public String AIR(int R,int IX,int I,int Address) {
 			String Information;
@@ -665,7 +681,7 @@ public class Register_Set {
 				}
 			}
 			return Information;
-		};
+		}
 		
 		public String SIR(int R,int IX,int I,int Address) {
 			String Information;
@@ -694,5 +710,504 @@ public class Register_Set {
 				}
 			}
 			return Information;
-		};
+		}
+		
+		public String MLT(int Rx, int Ry) {
+			String Information;
+			int crx = 0;
+			int cry = 0;
+			int [] res;
+			if(!((Rx == 0 || Rx == 2)&& (Ry == 0 || Ry == 2))) {
+				return "MLT fail! Rx must be 0 or 2, Ry must be 0 or 2\n";
+			}
+			
+			switch (Rx){
+			case 2:
+				crx = this.R2.OutputAsInt();
+				break;
+			default:
+				crx = this.R0.OutputAsInt();
+				break;
+			}
+			
+			switch (Ry){
+			case 2:
+				cry = this.R2.OutputAsInt();
+				break;
+			default:
+				cry = this.R0.OutputAsInt();
+				break;
+			}
+			
+			res = Dec_to_binary(cry * crx, 32);
+			int [] resHighOrder = {res[0], res[1], res[2], res[3], res[4], res[5], res[6], res[7], 
+								res[8], res[9], res[10], res[11], res[12], res[13], res[14], res[15]};
+			int [] resLowOrder = {res[16], res[17], res[18], res[19], res[20], res[21], res[22], res[23], 
+					res[24], res[25], res[26], res[27], res[28], res[29], res[30], res[31]};
+			
+
+			switch (Rx){
+			case 2:
+				this.R2.Insert(resHighOrder, 0);
+				this.R3.Insert(resLowOrder, 0);
+				Information = "rx, rx+1 <- c(rx) * c(ry)\r\n";
+				break;
+			default:
+				this.R0.Insert(resHighOrder, 0);
+				this.R1.Insert(resLowOrder, 0);
+				Information = "rx, rx+1 <- c(rx) * c(ry)\r\n";
+				break;
+			}
+			return Information;
+		}
+		
+		public String DVD(int Rx, int Ry) {
+			String Information;
+			int crx = 0;
+			int cry = 0;
+			if(!((Rx == 0 || Rx == 2)&& (Ry == 0 || Ry == 2))) {
+				return "DVD fail! Rx must be 0 or 2, Ry must be 0 or 2\n";
+			}
+			
+			switch (Rx){
+			case 2:
+				crx = this.R2.OutputAsInt();
+				break;
+			default:
+				crx = this.R0.OutputAsInt();
+				break;
+			}
+			
+			switch (Ry){
+			case 2:
+				cry = this.R2.OutputAsInt();
+				break;
+			default:
+				cry = this.R0.OutputAsInt();
+				break;
+			}
+			
+			if (cry == 0) {
+				this.CC.Insert(1, 3);
+				return "Error! devide by Zero";
+			}
+			
+			int [] resHighOrder = Dec_to_binary(crx/cry, 16);
+			int [] resLowOrder = Dec_to_binary(crx%cry, 16);
+
+			switch (Rx){
+			case 2:
+				this.R2.Insert(resHighOrder, 0);
+				this.R3.Insert(resLowOrder, 0);
+				Information = "rx, rx+1 <- c(rx) / c(ry)\r\n";
+				break;
+			default:
+				this.R0.Insert(resHighOrder, 0);
+				this.R1.Insert(resLowOrder, 0);
+				Information = "rx, rx+1 <- c(rx) / c(ry)\r\n";
+				break;
+			}
+			return Information;
+		}
+		
+		public String TRR(int Rx, int Ry) {
+			String Information;
+			int crx = 0;
+			int cry = 0;
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.OutputAsInt();
+				break;
+			case 2:
+				crx = this.R2.OutputAsInt();
+				break;
+			case 3:
+				crx = this.R3.OutputAsInt();
+				break;
+			default:
+				crx = this.R0.OutputAsInt();
+				break;
+			}
+			
+			switch (Ry){
+			case 1: 
+				cry = this.R1.OutputAsInt();
+				break;
+			case 2:
+				cry = this.R2.OutputAsInt();
+				break;
+			case 3: 
+				cry = this.R3.OutputAsInt();
+				break;
+			default:
+				cry = this.R0.OutputAsInt();
+				break;
+			}
+			if(crx == cry) {
+				this.CC.Insert(1, 4);
+				Information = "c(rx) = c(ry); cc(4) <- 1\n";
+			}else {
+				this.CC.Insert(0, 4);
+				Information = "c(rx) != c(ry); cc(4) <- 0\n";
+			}
+			return Information;
+		}
+		
+		public String AND(int Rx, int Ry) {
+			String Information;
+			int crx = 0;
+			int cry = 0;
+			int [] res;
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.OutputAsInt();
+				break;
+			case 2:
+				crx = this.R2.OutputAsInt();
+				break;
+			case 3:
+				crx = this.R3.OutputAsInt();
+				break;
+			default:
+				crx = this.R0.OutputAsInt();
+				break;
+			}
+			
+			switch (Ry){
+			case 1: 
+				cry = this.R1.OutputAsInt();
+				break;
+			case 2:
+				cry = this.R2.OutputAsInt();
+				break;
+			case 3: 
+				cry = this.R3.OutputAsInt();
+				break;
+			default:
+				cry = this.R0.OutputAsInt();
+				break;
+			}
+			
+			res = Dec_to_binary(crx & cry, 16);
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.Insert(res, 0);
+				break;
+			case 2:
+				crx = this.R2.Insert(res, 0);
+				break;
+			case 3:
+				crx = this.R3.Insert(res, 0);
+				break;
+			default:
+				crx = this.R0.Insert(res, 0);
+				break;
+			}
+			Information = "c(Rx) <- c(rx) & c(ry)\n";
+			return Information;
+		}
+		
+		public String ORR(int Rx, int Ry) {
+			String Information;
+			int crx = 0;
+			int cry = 0;
+			int [] res;
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.OutputAsInt();
+				break;
+			case 2:
+				crx = this.R2.OutputAsInt();
+				break;
+			case 3:
+				crx = this.R3.OutputAsInt();
+				break;
+			default:
+				crx = this.R0.OutputAsInt();
+				break;
+			}
+			
+			switch (Ry){
+			case 1: 
+				cry = this.R1.OutputAsInt();
+				break;
+			case 2:
+				cry = this.R2.OutputAsInt();
+				break;
+			case 3: 
+				cry = this.R3.OutputAsInt();
+				break;
+			default:
+				cry = this.R0.OutputAsInt();
+				break;
+			}
+			
+			res = Dec_to_binary(crx | cry, 16);
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.Insert(res, 0);
+				break;
+			case 2:
+				crx = this.R2.Insert(res, 0);
+				break;
+			case 3:
+				crx = this.R3.Insert(res, 0);
+				break;
+			default:
+				crx = this.R0.Insert(res, 0);
+				break;
+			}
+			Information = "c(Rx) <- c(rx) | c(ry)\n";
+			return Information;
+		}
+		
+		public String NOT(int Rx) {
+			String Information;
+			int crx = 0;
+			int [] res;
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.OutputAsInt();
+				break;
+			case 2:
+				crx = this.R2.OutputAsInt();
+				break;
+			case 3:
+				crx = this.R3.OutputAsInt();
+				break;
+			default:
+				crx = this.R0.OutputAsInt();
+				break;
+			}
+			
+			res = Dec_to_binary(~crx, 16);
+			
+			switch (Rx){
+			case 1:
+				crx = this.R1.Insert(res, 0);
+				break;
+			case 2:
+				crx = this.R2.Insert(res, 0);
+				break;
+			case 3:
+				crx = this.R3.Insert(res, 0);
+				break;
+			default:
+				crx = this.R0.Insert(res, 0);
+				break;
+			}
+			Information = "c(Rx) <- NOT c(rx)\n";
+			return Information;
+		}
+		
+		public String SRC(int R, int count, int LR, int AL) {
+			int[] temp;			
+			String Information;
+			
+			switch (R){
+			case 1:
+				temp = this.R1.Output(0);
+				break;
+			case 2:
+				temp = this.R2.Output(0);
+				break;
+			case 3:
+				temp = this.R3.Output(0);
+				break;
+			default:
+				temp = this.R0.Output(0);
+				break;
+			}
+			
+			if(LR == 1) {//Shift Left
+				for(int i = 0; i < 16; i++) {
+					if(i+count > 15) {
+						temp[i] = 0;
+					}else {
+						temp[i] = temp[i + count];
+					}
+				}
+			}else {//Shift Right
+				for(int i = 15; i >= 0; i--) {
+					if(i-count < 0) {
+						if(AL == 1) {//Logical shift
+							temp[i] = 0;
+						}else {
+							temp[i] = temp[0];
+						}
+					}else {
+						temp[i] = temp[i - count];
+					}
+				}
+			}
+			
+			switch (R){
+			case 1:
+				this.R1.Insert(temp,0);
+				break;
+			case 2:
+				this.R2.Insert(temp,0);
+				break;
+			case 3:
+				this.R3.Insert(temp,0);
+				break;
+			default:
+				this.R0.Insert(temp,0);
+				break;
+			}
+			
+			Information = "Shift operation succes \n";
+			return Information;
+		}
+		
+		public String RRC(int R, int count, int LR, int AL) {
+			int[] temp;	
+			int[] res = new int[16];
+			String Information;
+			
+			switch (R){
+			case 1:
+				temp = this.R1.Output(0);
+				break;
+			case 2:
+				temp = this.R2.Output(0);
+				break;
+			case 3:
+				temp = this.R3.Output(0);
+				break;
+			default:
+				temp = this.R0.Output(0);
+				break;
+			}
+			
+			if(LR == 1) {//Rotate Left
+				for(int i = 0; i < 16; i++) {
+					res[i] = temp[(i + count) % 16];
+				}
+			}else {//Rotate Right
+				for(int i = 0; i < 16; i++) {
+					res[i] = temp[(i - count) % 16];
+				}
+			}
+			
+			switch (R){
+			case 1:
+				this.R1.Insert(temp,0);
+				break;
+			case 2:
+				this.R2.Insert(temp,0);
+				break;
+			case 3:
+				this.R3.Insert(temp,0);
+				break;
+			default:
+				this.R0.Insert(temp,0);
+				break;
+			}
+			
+			Information = "rotate operation succes \n";
+			return Information;
+		}
+		
+		public String IN(int R, int devId) {
+			String Information;
+			if(!(devId == 0 || devId==2)) {
+				return "IN can only be called on keyboard or card reader";
+			}
+			if(devId == 0) {
+				int chr = 0;
+				try {
+					chr = System.in.read();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				switch (R){
+				case 1:
+					this.R1.Insert(chr, 0);
+					break;
+				case 2:
+					this.R2.Insert(chr,0);
+					break;
+				case 3:
+					this.R3.Insert(chr,0);
+					break;
+				default:
+					this.R0.Insert(chr,0);
+					break;
+				}
+				Information = "Read from keyboard success";
+			}
+			else{
+				Information = "Read from cardReader Not implemented yet";
+			}
+			return Information;
+		}
+		
+		public String OUT(int R, int devId) {
+			String Information;
+			char res;
+			if(!(devId == 1)) {
+				return "IN can only be called on printer";
+			}
+			switch (R){
+			case 1:
+				res = (char)this.R1.OutputAsInt();
+				break;
+			case 2:
+				res = (char)this.R1.OutputAsInt();
+				break;
+			case 3:
+				res = (char)this.R1.OutputAsInt();
+			default:
+				res = (char)this.R0.OutputAsInt();
+				break;
+			}
+			Information = "" + res;
+			return Information;
+		}
+		
+		public String CHK(int R, int devId) {
+			String Information;
+			if(devId == 2)
+			{
+				switch (R){
+				case 1:
+					this.R1.Insert(0, 0);
+					break;
+				case 2:
+					this.R2.Insert(0,0);
+					break;
+				case 3:
+					this.R3.Insert(0,0);
+					break;
+				default:
+					this.R0.Insert(0,0);
+					break;
+				}
+				Information = "Card Reader not implemented yet";
+			}
+			switch (R){
+			case 1:
+				this.R1.Insert(1, 0);
+				break;
+			case 2:
+				this.R2.Insert(1,0);
+				break;
+			case 3:
+				this.R3.Insert(1,0);
+				break;
+			default:
+				this.R0.Insert(1,0);
+				break;
+			}
+			Information = "Devices are all on and connected by default";
+			return Information;
+		}
 }

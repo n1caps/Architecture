@@ -33,25 +33,26 @@ public class Cache {
 			return this.HSM[line][HSMrow][word];
 		}
 		else {
-			this.InsertAddress(Memory.Output(line*Memory.nline+row*Memory.nrow+word*Memory.nword), int line);
+			this.InsertAddress(Memory.Output(line*Memory.nline+row*Memory.nrow+word*Memory.nword), line);
+			return this.HSM[line][HSMrow][word];
 		}
 	};
 	
-	private void InsertAddress(int[][] Instruction, int line) {
+	private void InsertAddress(int[] Instruction, int line) {
 		int flag=0;
 		for(int i=0;i<this.HSMHeight;i++) {
 			if(this.HSM[line][i]!=null) {
 				flag=1;
 				for(int j=0;j<16;j++) {
-					HSM[line][i][j+1]=Instruction[j];
+//					HSM[line][i][j+1]=Instruction[j];
 				}
 			}
 		}
-		if(flage==1) {
+		if(flag==1) {
 			
 		}
 		for(int i=0;i<16;i++) {
-			this.AM
+			//this.AM
 		}
 	}
 }
