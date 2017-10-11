@@ -674,8 +674,8 @@ public class Panel {
 		textArea.append("Memory<-Input.\n");
 		
 		//when we insert instruction, we need to judge whether can insert instruction to cashe too.
-		if(RegisterSet.Cashe.Pointer!=15) {
-			RegisterSet.Cashe.Insert(SwitchRegister, RegisterSet.Cashe.Pointer);
+		if(RegisterSet.Cache.Pointer!=15) {
+			RegisterSet.Cache.Insert(SwitchRegister, RegisterSet.Cache.Pointer);
 		}
 		/*
 		 *We can add Fault Diagnose   
