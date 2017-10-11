@@ -13,7 +13,7 @@ public class Register_Set {
 		Register X3;
 		
 		//Main Memory
-		Register Memory;
+		MainMemory Memory;
 			
 		//PC
 		Register PC;
@@ -695,4 +695,5 @@ public class Register_Set {
 			}
 			return Information;
 		};
+		
 }
