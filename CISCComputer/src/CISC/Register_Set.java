@@ -103,6 +103,10 @@ public class Register_Set {
 			int[] Opcode=new int[6];
 			int[] R=new int[2];
 			int[] IX=new int[2];
+			int[] Rx=new int[2];
+			int[] Ry=new int[2];
+			int[] Count=new int[4];
+			int[] DevId=new int[5];
 			int I;
 			int[] Address=new int[5];
 			
@@ -126,6 +130,32 @@ public class Register_Set {
 				Address[i]=Instruction[i+11];
 				Information=Information+Instruction[i+11];
 			}
+			Information=Information+"   Rx:";
+			for(int i=0;i<2;i++) {
+				Rx[i]=Instruction[i+6];
+				Information=Information+Instruction[i+6];
+			}
+			Information=Information+"   Ry:";
+			for(int i=0;i<2;i++) {
+				Ry[i]=Instruction[i+8];
+				Information=Information+Instruction[i+8];
+			}
+			Information=Information+"   AL:";
+			int decAL = Instruction[8];
+			Information=Information+Instruction[8];
+			Information=Information+"   LR:";
+			int decLR = Instruction[9];
+			Information=Information+Instruction[9];
+			Information=Information+"   Count:";
+			for(int i=0;i<4;i++) {
+				Count[i]=Instruction[i+12];
+				Information=Information+Instruction[i+12];
+			}
+			Information=Information+"   DevId:";
+			for(int i=0;i<5;i++) {
+				DevId[i]=Instruction[i+11];
+				Information=Information+Instruction[i+11];
+			}
 			Information=Information+"\n";
 			I=Instruction[10];
 			
@@ -134,6 +164,10 @@ public class Register_Set {
 			int decR=Binary_to_dec(R);
 			int decIX=Binary_to_dec(IX);
 			int decAddress=Binary_to_dec(Address);
+			int decRx=Binary_to_dec(Rx);
+			int decRy=Binary_to_dec(Ry);
+			int decCount=Binary_to_dec(Count);
+			int decDevId=Binary_to_dec(DevId);
 			
 			//Using switch statement to determine which instruction to run
 			//Note that the opcode is switched using its BASE 10 VALUE!
@@ -142,19 +176,87 @@ public class Register_Set {
 					Information=Information+LDR(decR,decIX,I,decAddress);
 					//fault diagnose
 					//information report
-				break;
+					break;
 				case 2:
 					Information=Information+STR(decR,decIX,I,decAddress);
-				break;
+					break;
 				case 3:
 					Information=Information+LDA(decR,decIX,I,decAddress);
-				break;
+					break;
+				case 4:
+					Information=Information+AMR(decR,decIX,I,decAddress);
+					break;
+				case 5:
+					Information=Information+SMR(decR,decIX,I,decAddress);
+					break;
+				case 6:
+					Information=Information+AIR(decR,decIX,I,decAddress);
+					break;
+				case 7:
+					Information=Information+SIR(decR,decIX,I,decAddress);
+					break;
+				case 8:
+					Information=Information+JZ(decR,decIX,I,decAddress);
+					break;
+				case 9:
+					Information=Information+JNE(decR,decIX,I,decAddress);
+					break;
+				case 10:
+					Information=Information+JCC(decR,decIX,I,decAddress);
+					break;
+				case 11:
+					Information=Information+JMA(decR,decIX,I,decAddress);
+					break;
+				case 12:
+					Information=Information+JSR(decR,decIX,I,decAddress);
+					break;
+				case 13:
+					Information=Information+RFS(decR,decIX,I,decAddress);
+					break;
+				case 14:
+					Information=Information+SOB(decR,decIX,I,decAddress);
+					break;
+				case 15:
+					Information=Information+JGE(decR,decIX,I,decAddress);
+					break;
+				case 16:
+					Information=Information+MLT(decRx,decRy);
+					break;
+				case 17:
+					Information=Information+DVD(decRx,decRy);
+					break;
+				case 18:
+					Information=Information+TRR(decRx,decRy);
+					break;
+				case 19:
+					Information=Information+AND(decRx,decRy);
+					break;
+				case 20:
+					Information=Information+ORR(decRx,decRy);
+					break;
+				case 21:
+					Information=Information+NOT(decRx);
+					break;
+				case 24:
+					Information=Information+SRC(decR,decCount, decLR, decAL);
+					break;
+				case 25:
+					Information=Information+RRC(decR,decCount, decLR, decAL);
 				case 33:
 					Information=Information+LDX(decR,decIX,I,decAddress);
-				break;
+					break;
 				case 34:
 					Information=Information+STX(decR,decIX,I,decAddress);
-				break;
+					break;
+				case 41:
+					Information=Information+IN(decR,decDevId);
+					break;
+				case 42:
+					Information=Information+OUT(decR,decDevId);
+					break;
+				case 43:
+					Information=Information+CHK(decR,decDevId);
+					break;
 				case 0:
 				default:
 					Information=Information+"Halted.\n";
@@ -491,6 +593,14 @@ public class Register_Set {
 			Information="R3<-PC+1\n";
 			this.PC.Insert(EA, 0);
 			Information=Information+"PC<-EA\n";
+			return Information;
+		}
+		
+		public String RFS(int R,int IX,int I,int Address) {
+			String Information ="";
+			this.R0.Insert(Address, 0);
+			this.PC.Insert(this.R3.OutputAsInt(), 0);
+			Information = "R0 <- Immed; PC <- c(R3)\n";
 			return Information;
 		}
 		
@@ -1125,7 +1235,6 @@ public class Register_Set {
 				try {
 					chr = System.in.read();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				switch (R){
