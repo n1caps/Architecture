@@ -14,6 +14,10 @@ import javax.swing.JScrollPane;
 import java.awt.Font;
 import java.awt.Color;
 import java.lang.Thread;
+import java.util.Scanner;
+
+import javax.swing.JFileChooser;
+import java.io.*;
 
 public class Panel {
 
@@ -337,6 +341,14 @@ public class Panel {
 		singleStepButton.setBounds(900, 94, 123, 29);
 		frame.getContentPane().add(singleStepButton);
 		
+		JLabel lblLoadProgramFrom = new JLabel("Load Program From File");
+		lblLoadProgramFrom.setBounds(900, 186, 157, 21);
+		frame.getContentPane().add(lblLoadProgramFrom);
+		
+		JButton Load = new JButton("");
+		Load.setBounds(900, 209, 123, 29);
+		frame.getContentPane().add(Load);
+		
 		btnIpl.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -370,6 +382,13 @@ public class Panel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				doDP();
+			}
+		});
+		
+		Load.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				doLoad();
 			}
 		});
 		
@@ -579,6 +598,31 @@ public class Panel {
 		updateFields();
 	}
 
+	public void doLoad() {
+		JFileChooser fileChooser = new JFileChooser();
+		int retVal = fileChooser.showOpenDialog(null);
+		if(retVal == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = fileChooser.getSelectedFile();
+			Scanner input;
+			try {
+				input = new Scanner(selectedFile);
+				int iter = 6;
+				int[] parsedLineAsArray = new int[16];
+				while(input.hasNext()) {
+					String parsedLine = input.nextLine();
+					for(int i = 0; i<16; i++) {
+						parsedLineAsArray[i] = parsedLine.charAt(i) == '1'? 1:0;
+					}
+					RegisterSet.Memory.Insert(parsedLineAsArray, iter);
+					iter++;
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return;
+	}
+	
 	/**
 	 * Perform a single instruction
 	 * To execute an instruction the MAR is loaded with the content of PC
