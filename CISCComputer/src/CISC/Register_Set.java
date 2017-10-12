@@ -156,8 +156,11 @@ public class Register_Set {
 				DevId[i]=Instruction[i+11];
 				Information=Information+Instruction[i+11];
 			}
-			Information=Information+"\n";
+			Information=Information+"   DevId:";
 			I=Instruction[10];
+			Information=Information+Instruction[10];
+			
+			Information=Information+"\n";
 			
 			//Convert parsed values to easier to user INTEGER value (base 10)
 			int decOpcode=Binary_to_dec(Opcode);
@@ -284,13 +287,13 @@ public class Register_Set {
 					EA=Address;
 				}
 				else if(IX==1){
-					EA=this.X1.OutputAsInt()+Binary_to_dec(this.Memory.Output(Address));
+					EA=this.X1.OutputAsInt()+Address;
 				}
 				else if(IX==2) {
-					EA=this.X2.OutputAsInt()+Binary_to_dec(this.Memory.Output(Address));
+					EA=this.X2.OutputAsInt()+Address;
 				}
 				else if(IX==3) {
-					EA=this.X3.OutputAsInt()+Binary_to_dec(this.Memory.Output(Address));
+					EA=this.X3.OutputAsInt()+Address;
 				}
 			}
 			else {
