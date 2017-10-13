@@ -10,6 +10,7 @@ public class MainMemory extends Register{
 		this.nline=nline;
 		this.nrow=nrow;
 		this.nword=nword;
+		Initiate_table();
 		// TODO Auto-generated constructor stub
 	}
 

@@ -594,7 +594,7 @@ public class Panel {
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
 		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
 		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
-		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
+		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0); 
 		updateFields();
 	}
 
@@ -718,9 +718,9 @@ public class Panel {
 		textArea.append("Memory<-Input.\n");
 		
 		//when we insert instruction, we need to judge whether can insert instruction to cashe too.
-		if(RegisterSet.Cache.Pointer!=15) {
-			RegisterSet.Cache.Insert(SwitchRegister, RegisterSet.Cache.Pointer);
-		}
+		//if(RegisterSet.Cache.Pointer!=15) {
+			//RegisterSet.Cache.Insert(SwitchRegister, RegisterSet.Cache.Pointer);
+		//}
 		/*
 		 *We can add Fault Diagnose   
 		*/

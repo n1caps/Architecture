@@ -26,7 +26,7 @@ public class Register_Set {
 		Register MSR;
 		Register MFR;
 		//GPR
-		Register Cache;
+		//Cache Cache;
 		//Cache 
 		
 		public boolean isRunning = false;
@@ -58,7 +58,7 @@ public class Register_Set {
 			this.MFR=new Register(16,1);
 			
 			//Cache
-			this.Cache=new Register(16,16);
+			//this.Cache=new Register(16,16);
 			// ER=new Erro_Report();
 			// DCD=new Decoder();
 			// CT=new Controller();
@@ -186,6 +186,13 @@ public class Register_Set {
 				case 3:
 					Information=Information+LDA(decR,decIX,I,decAddress);
 					break;
+				case 41:
+					Information=Information+LDX(decR,decIX,I,decAddress);
+					break;
+				case 42:
+					Information=Information+STX(decR,decIX,I,decAddress);
+					break;
+					
 				case 4:
 					Information=Information+AMR(decR,decIX,I,decAddress);
 					break;
@@ -198,66 +205,61 @@ public class Register_Set {
 				case 7:
 					Information=Information+SIR(decR,decIX,I,decAddress);
 					break;
-				case 8:
+				case 10:
 					Information=Information+JZ(decR,decIX,I,decAddress);
 					break;
-				case 9:
+				case 11:
 					Information=Information+JNE(decR,decIX,I,decAddress);
 					break;
-				case 10:
+				case 12:
 					Information=Information+JCC(decR,decIX,I,decAddress);
 					break;
-				case 11:
+				case 13:
 					Information=Information+JMA(decR,decIX,I,decAddress);
 					break;
-				case 12:
+				case 14:
 					Information=Information+JSR(decR,decIX,I,decAddress);
 					break;
-				case 13:
+				case 15:
 					Information=Information+RFS(decR,decIX,I,decAddress);
 					break;
-				case 14:
+				case 16:
 					Information=Information+SOB(decR,decIX,I,decAddress);
 					break;
-				case 15:
+				case 17:
 					Information=Information+JGE(decR,decIX,I,decAddress);
 					break;
-				case 16:
+				case 20:
 					Information=Information+MLT(decRx,decRy);
 					break;
-				case 17:
+				case 21:
 					Information=Information+DVD(decRx,decRy);
 					break;
-				case 18:
+				case 22:
 					Information=Information+TRR(decRx,decRy);
 					break;
-				case 19:
+				case 23:
 					Information=Information+AND(decRx,decRy);
 					break;
-				case 20:
+				case 24:
 					Information=Information+ORR(decRx,decRy);
 					break;
-				case 21:
+				case 25:
 					Information=Information+NOT(decRx);
 					break;
-				case 24:
+				case 31:
 					Information=Information+SRC(decR,decCount, decLR, decAL);
 					break;
-				case 25:
+				case 32:
 					Information=Information+RRC(decR,decCount, decLR, decAL);
-				case 33:
-					Information=Information+LDX(decR,decIX,I,decAddress);
-					break;
-				case 34:
-					Information=Information+STX(decR,decIX,I,decAddress);
-					break;
-				case 41:
+				
+				case 61:
 					Information=Information+IN(decR,decDevId);
 					break;
-				case 42:
+				case 62:
 					Information=Information+OUT(decR,decDevId);
 					break;
-				case 43:
+				case 63:
 					Information=Information+CHK(decR,decDevId);
 					break;
 				case 0:
