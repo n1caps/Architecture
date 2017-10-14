@@ -252,7 +252,10 @@ public class Register_Set {
 					break;
 				case 32:
 					Information=Information+RRC(decR,decCount, decLR, decAL);
-				
+					break;
+				case 60:
+					Information=Information+COMP(decR,decIX,I,decAddress);
+					break;
 				case 61:
 					Information=Information+IN(decR,decDevId);
 					break;
@@ -312,6 +315,7 @@ public class Register_Set {
 					EA=Binary_to_dec(this.Memory.Output(this.X3.OutputAsInt()+Address));
 				}
 			}
+			
 			return EA;
 		}
 		
@@ -379,22 +383,22 @@ public class Register_Set {
 			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
-				this.R0.Insert(Address,0);
+				this.R0.Insert(EA,0);
 				Information="R0<-"+EA+".\n";
 				return Information;
 			}
 			else if(R==1) {
-				this.R1.Insert(Address,0);
+				this.R1.Insert(EA,0);
 				Information="R1<-"+EA+".\n";
 				return Information;
 			}
 			else if(R==2) {
-				this.R2.Insert(Address,0);
+				this.R2.Insert(EA,0);
 				Information="R2<-"+EA+".\n";
 				return Information;
 			}
 			else if(R==3) {
-				this.R3.Insert(Address,0);
+				this.R3.Insert(EA,0);
 				Information="R3<-"+EA+".\n";
 				return Information;
 			}
@@ -1266,24 +1270,24 @@ public class Register_Set {
 		
 		public String OUT(int R, int devId) {
 			String Information;
-			char res;
+			String res="";
 			if(!(devId == 1)) {
 				return "IN can only be called on printer";
 			}
 			switch (R){
 			case 1:
-				res = (char)this.R1.OutputAsInt();
+				res =res+this.R1.OutputAsInt();
 				break;
 			case 2:
-				res = (char)this.R1.OutputAsInt();
+				res =res+this.R1.OutputAsInt();
 				break;
 			case 3:
-				res = (char)this.R1.OutputAsInt();
+				res =res+this.R1.OutputAsInt();
 			default:
-				res = (char)this.R0.OutputAsInt();
+				res =res+this.R0.OutputAsInt();
 				break;
 			}
-			Information = "" + res;
+			Information =res+"\n";
 			return Information;
 		}
 		
@@ -1324,4 +1328,154 @@ public class Register_Set {
 			Information = "Devices are all on and connected by default";
 			return Information;
 		};
+		
+		public String COMP(int R1,int I,int R2,int Address) {
+			String Information;
+			int EA=Get_EA(I,0,Address);
+			int flag=0; //if R xiao wei 0, if R da wei 1 
+			if(R1==0) {
+				if(R2==0) {
+					if(this.R0.OutputAsInt()<this.R0.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==1) {
+					if(this.R0.OutputAsInt()<this.R1.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==2) {
+					if(this.R0.OutputAsInt()<this.R2.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else {
+					if(this.R0.OutputAsInt()<this.R3.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				Information="COMP success\n";
+			}
+			else if(R1==1) {
+				if(R2==0) {
+					if(this.R1.OutputAsInt()<this.R0.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==1) {
+					if(this.R1.OutputAsInt()<this.R1.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==2) {
+					if(this.R1.OutputAsInt()<this.R2.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else {
+					if(this.R1.OutputAsInt()<this.R3.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				Information="COMP success\n";
+			}
+			else if(R1==2) {
+				if(R2==0) {
+					if(this.R2.OutputAsInt()<this.R0.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==1) {
+					if(this.R2.OutputAsInt()<this.R1.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==2) {
+					if(this.R2.OutputAsInt()<this.R2.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else {
+					if(this.R2.OutputAsInt()<this.R3.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				Information="COMP success\n";
+			}
+			else if(R1==3) {
+				if(R2==0) {
+					if(this.R3.OutputAsInt()<this.R0.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==1) {
+					if(this.R3.OutputAsInt()<this.R1.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else if(R2==2) {
+					if(this.R3.OutputAsInt()<this.R2.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				else {
+					if(this.R3.OutputAsInt()<this.R3.OutputAsInt()) {
+						this.PC.Insert(this.PC.OutputAsInt()+1, 0);
+					}
+					else {
+						this.PC.Insert(EA, 0);
+					}
+				}
+				Information="COMP success\n";
+			}
+			else {
+				Information="Instruction COMP fail\n";
+			}
+			return Information;
+		}
 }
