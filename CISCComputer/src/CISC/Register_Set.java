@@ -173,6 +173,7 @@ public class Register_Set {
 			int decDevId=Binary_to_dec(DevId);
 			
 			//Using switch statement to determine which instruction to run
+			//Opcodes in the document are in BASE 8!!!
 			//Note that the opcode is switched using its BASE 10 VALUE!
 			switch (decOpcode) {
 				case 1:
@@ -186,13 +187,6 @@ public class Register_Set {
 				case 3:
 					Information=Information+LDA(decR,decIX,I,decAddress);
 					break;
-				case 41:
-					Information=Information+LDX(decR,decIX,I,decAddress);
-					break;
-				case 42:
-					Information=Information+STX(decR,decIX,I,decAddress);
-					break;
-					
 				case 4:
 					Information=Information+AMR(decR,decIX,I,decAddress);
 					break;
@@ -205,64 +199,71 @@ public class Register_Set {
 				case 7:
 					Information=Information+SIR(decR,decIX,I,decAddress);
 					break;
-				case 10:
+				case 8:
 					Information=Information+JZ(decR,decIX,I,decAddress);
 					break;
-				case 11:
+				case 9:
 					Information=Information+JNE(decR,decIX,I,decAddress);
 					break;
-				case 12:
+				case 10:
 					Information=Information+JCC(decR,decIX,I,decAddress);
 					break;
-				case 13:
+				case 11:
 					Information=Information+JMA(decR,decIX,I,decAddress);
 					break;
-				case 14:
+				case 12:
 					Information=Information+JSR(decR,decIX,I,decAddress);
 					break;
-				case 15:
+				case 13:
 					Information=Information+RFS(decR,decIX,I,decAddress);
 					break;
-				case 16:
+				case 14:
 					Information=Information+SOB(decR,decIX,I,decAddress);
 					break;
-				case 17:
+				case 15:
 					Information=Information+JGE(decR,decIX,I,decAddress);
 					break;
-				case 20:
+				case 16:
 					Information=Information+MLT(decRx,decRy);
 					break;
-				case 21:
+				case 17:
 					Information=Information+DVD(decRx,decRy);
 					break;
-				case 22:
+				case 18:
 					Information=Information+TRR(decRx,decRy);
 					break;
-				case 23:
+				case 19:
 					Information=Information+AND(decRx,decRy);
 					break;
-				case 24:
+				case 20:
 					Information=Information+ORR(decRx,decRy);
 					break;
-				case 25:
+				case 21:
 					Information=Information+NOT(decRx);
 					break;
-				case 31:
+				case 25:
 					Information=Information+SRC(decR,decCount, decLR, decAL);
 					break;
-				case 32:
+				case 26:
 					Information=Information+RRC(decR,decCount, decLR, decAL);
 					break;
-				case 60:
+				case 33:
+					Information=Information+LDX(decR,decIX,I,decAddress);
+					break;
+				case 34:
+					Information=Information+STX(decR,decIX,I,decAddress);
+					break;
+				case 60://?? Is this our own opcode? not part of the instruction set
+					//Need to get rid of this or it will fail
 					Information=Information+COMP(decR,decIX,I,decAddress);
 					break;
-				case 61:
+				case 49:
 					Information=Information+IN(decR,decDevId);
 					break;
-				case 62:
+				case 50:
 					Information=Information+OUT(decR,decDevId);
 					break;
-				case 63:
+				case 51:
 					Information=Information+CHK(decR,decDevId);
 					break;
 				case 0:
