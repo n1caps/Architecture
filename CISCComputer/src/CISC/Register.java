@@ -57,6 +57,10 @@ public class Register {
 				val = (int) (remainder/Math.pow(2,(this.Length-1-i)));
 				remainder = (int) (remainder%Math.pow(2,(this.Length-1-i)));
 				this.Memory[address][i]= val;
+				if(remainder < 0) {
+					//this.Memory[address][0] = 1;
+					remainder = remainder * -1;
+				}
 			}
 			this.Output = this.Memory[address];	
 		}

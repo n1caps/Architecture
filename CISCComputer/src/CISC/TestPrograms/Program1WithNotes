@@ -1,0 +1,55 @@
+1000010010001000 //load x2 with value in var(which should be loc of start of program)
+0010110010000001 //Jump past variables to start of prg (c(x2)+1)
+0000000000100000 //var initally 32
+0000000000010100 //I is initially 20 
+0000000000000000 //n1 
+0000000000000000 //n2
+0000000000000000 //n3
+0000000000000000 //n4
+0000000000000000 //n5
+0000000000000000 //n6
+0000000000000000 //n7
+0000000000000000 //n8
+0000000000000000 //n9
+0000000000000000 //n10
+0000000000000000 //n11
+0000000000000000 //n12
+0000000000000000 //n13
+0000000000000000 //n14
+0000000000000000 //n15
+0000000000000000 //n16
+0000000000000000 //n17
+0000000000000000 //n18
+0000000000000000 //n19
+0000000000000000 //n20
+0000000000000000 //Input
+0111111111111111 //var2 initally set to 0111111111111111
+0000000001000110 //result intially set to 0000000001000110 //F for fail
+0000010000001001 //Load r0 with i
+0000100000001001 //Update i (store r0 to i)
+1000010001001001 //Load x1 with i
+1100010100000000 //Read into r1 number from console
+0000100101001001 //store read number to location 9 + c(x1)
+0011100010000010 //subtract 1 from r0 if greater than 0 jump to loc in c(x2) + 2
+1100010100000000 //read in number to comp against
+0000100100011110 //save number to Input location 
+0001100000010100 //add 20 back to r0
+0000100000001001 //Update i (store r0 to i)
+0000010100001001 //Load r1 with i
+0000100100001001 //Update i (store r1 to i)
+1000010001001001 //Load x1 with i
+0000010001001001 //Load r0 with number at location 9 + c(x1)
+0001010000011110 //Subtract input from r0
+0000011000011111 //Load r2 with number at location 31
+0100010010000000 //Divide r0 by r2
+0010010010011000 //if r0 does != 0 jump back to c(x2) + 24 (32+24)
+0000010001001001 //Load r0 with number at location 9 + c(x1)
+0001010000011110 //Subtract input from r0
+0000100000011111 //Store r0 to var2 location
+0000010001001001 //Load r0 with number at location 9 + c(x1)
+0000100010000000 //Store r0 to result location
+0000010100001001 //reloadLoad r1 with i
+0011100110001100 //subtract 1 from r1 if greater than 0 jump to loc in c(x2) + 12
+0000010010000000 //Load r0 with number at result location
+1100100000000001 //Print number in r0
+0000000000000000 //Halt End of Program

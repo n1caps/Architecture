@@ -522,37 +522,37 @@ public class Register_Set {
 			if(R==0) {
 				if(this.R0.OutputAsInt()!=0) {
 					this.PC.Insert(EA, 0);
-					Information="R0==0\nPC<-EA\n";
+					Information="R0!=0\nPC<-EA\n";
 				}
 				else {
-					Information="R0!=0\nPC<-PC+1\n";
+					Information="R0==0\nPC<-PC+1\n";
 				}
 			}
 			else if(R==1) {
 				if(this.R1.OutputAsInt()!=0) {
 					this.PC.Insert(EA, 0);
-					Information="R1==0\nPC<-EA\n";
+					Information="R1!=0\nPC<-EA\n";
 				}
 				else {
-					Information="R1!=0\nPC<-PC+1\n";
+					Information="R1==0\nPC<-PC+1\n";
 				}
 			}
 			else if(R==2) {
 				if(this.R2.OutputAsInt()!=0) {
 					this.PC.Insert(EA, 0);
-					Information="R2==0\nPC<-EA\n";
+					Information="R2!=0\nPC<-EA\n";
 				}
 				else {
-					Information="R2!=0\nPC<-PC+1\n";
+					Information="R2==0\nPC<-PC+1\n";
 				}
 			}
 			else if(R==3) {
 				if(this.R3.OutputAsInt()!=0) {
 					this.PC.Insert(EA, 0);
-					Information="R3==0\nPC<-EA\n";
+					Information="R3!=0\nPC<-EA\n";
 				}
 				else {
-					Information="R3!=0\nPC<-PC+1\n";
+					Information="R3==0\nPC<-PC+1\n";
 				}
 			}
 			else {
