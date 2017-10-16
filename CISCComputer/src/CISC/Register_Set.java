@@ -1,6 +1,8 @@
 package CISC;
 
 import java.io.IOException;
+import java.lang.*;
+import java.util.*;
 
 public class Register_Set {
 		//GPR
@@ -1220,10 +1222,14 @@ public class Register_Set {
 				return "IN can only be called on keyboard or card reader";
 			}
 			if(devId == 0) {
+				char c;
 				int chr = 0;
 				try {
-					chr = System.in.read();
-				} catch (IOException e) {
+					//System.out.print("Enter n" + this.X1.OutputAsInt() + " number: ");
+					Scanner sc = new Scanner(System.in);
+					chr = sc.nextInt();				
+				} catch (Exception e) {
+					System.out.print(e.getMessage());
 					e.printStackTrace();
 				}
 				switch (R){
@@ -1240,10 +1246,10 @@ public class Register_Set {
 					this.R0.Insert(chr,0);
 					break;
 				}
-				Information = "Read from keyboard success";
+				Information = "Read from keyboard success\n";
 			}
 			else{
-				Information = "Read from cardReader Not implemented yet";
+				Information = "Read from cardReader Not implemented yet\n";
 			}
 			return Information;
 		}

@@ -632,7 +632,7 @@ public class Panel {
 	 */
  	public void doSingleStep() {
  		String Information;
- 		textArea.append("Executing Instruction.\n");
+ 		textArea.append("Executing Instruction at PC " + RegisterSet.PC.OutputAsInt() + "\n");
  		//I capsulate the action of MAR,MBR,IR into decoder, because I set the Output Method with remove the data in memory.
  		Information=RegisterSet.decoder(Get_Instruction());//maybe return some String.
  		textArea.append(Information);
