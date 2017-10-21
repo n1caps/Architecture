@@ -22,6 +22,7 @@ import java.io.*;
 public class Panel {
 
 	private JFrame frame;
+	private String InputData;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -56,6 +57,9 @@ public class Panel {
 	private JButton StartBtn;
 	private Thread progThread;
 	int[] SwitchRegister = new int[16];
+	private JTextField FR0;
+	private JTextField FR1;
+	private JTextField INPUT;
 
 	/**
 	 * Launch the application.
@@ -201,7 +205,7 @@ public class Panel {
 		
 		JLabel lblSWI = new JLabel("S W I T C H        R E G I S T E R");
 		lblSWI.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 26));
-		lblSWI.setBounds(250, 334, 386, 44);
+		lblSWI.setBounds(250, 299, 386, 44);
 		frame.getContentPane().add(lblSWI);
 		
 		
@@ -348,6 +352,35 @@ public class Panel {
 		JButton Load = new JButton("");
 		Load.setBounds(900, 209, 123, 29);
 		frame.getContentPane().add(Load);
+		
+		JLabel lblFr = new JLabel("FR0");
+		lblFr.setBounds(62, 202, 34, 21);
+		frame.getContentPane().add(lblFr);
+		
+		FR0 = new JTextField();
+		FR0.setText("0000000000000000");
+		FR0.setBounds(111, 205, 190, 27);
+		frame.getContentPane().add(FR0);
+		FR0.setColumns(10);
+		
+		FR1 = new JTextField();
+		FR1.setText("0000000000000000");
+		FR1.setBounds(362, 208, 206, 27);
+		frame.getContentPane().add(FR1);
+		FR1.setColumns(10);
+		
+		JLabel lblFr_1 = new JLabel("FR1");
+		lblFr_1.setBounds(331, 211, 34, 21);
+		frame.getContentPane().add(lblFr_1);
+		
+		INPUT = new JTextField();
+		INPUT.setBounds(344, 444, 487, 83);
+		frame.getContentPane().add(INPUT);
+		INPUT.setColumns(10);
+		
+		JLabel lblInput = new JLabel("INPUT");
+		lblInput.setBounds(280, 477, 51, 21);
+		frame.getContentPane().add(lblInput);
 		
 		btnIpl.addMouseListener(new MouseAdapter() {
 			@Override
@@ -595,7 +628,10 @@ public class Panel {
 		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
 		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
 		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0); 
+		InputData=INPUT.getText().trim();//get the input
+		RegisterSet.INPUT.filter(InputData);
 		updateFields();
+		//textArea.append(InputData);//test
 	}
 
 	public void doLoad() {

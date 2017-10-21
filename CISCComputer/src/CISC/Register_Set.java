@@ -30,6 +30,8 @@ public class Register_Set {
 		//GPR
 		//Cache Cache;
 		//Cache 
+		Inputdevice INPUT;
+		
 		
 		public boolean isRunning = false;
 
@@ -58,6 +60,8 @@ public class Register_Set {
 			this.MSR=new Register(16,1);
 			this.MBR=new Register(16,1);
 			this.MFR=new Register(16,1);
+			
+			this.INPUT=new Inputdevice();
 			
 			//Cache
 			//this.Cache=new Register(16,16);
@@ -1222,8 +1226,15 @@ public class Register_Set {
 				return "IN can only be called on keyboard or card reader";
 			}
 			if(devId == 0) {
-				char c;
-				int chr = 0;
+				//char c;
+				int chr;
+				try {
+					chr = this.INPUT.Output();
+				}catch(Exception e) {
+					R=0;
+					chr=0;
+				}
+				/*
 				try {
 					//System.out.print("Enter n" + this.X1.OutputAsInt() + " number: ");
 					Scanner sc = new Scanner(System.in);
@@ -1232,6 +1243,7 @@ public class Register_Set {
 					System.out.print(e.getMessage());
 					e.printStackTrace();
 				}
+				*/
 				switch (R){
 				case 1:
 					this.R1.Insert(chr, 0);
