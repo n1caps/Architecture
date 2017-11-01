@@ -382,6 +382,16 @@ public class Panel {
 		lblInput.setBounds(280, 477, 51, 21);
 		frame.getContentPane().add(lblInput);
 		
+		JButton LS = new JButton("Load Text");
+		LS.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				doLS();
+			}
+		});
+		LS.setBounds(900, 149, 123, 29);
+		frame.getContentPane().add(LS);
+		
 		btnIpl.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -633,7 +643,35 @@ public class Panel {
 		updateFields();
 		//textArea.append(InputData);//test
 	}
-
+	
+	public void doLS() {
+		JFileChooser fileChooser = new JFileChooser();
+		int retVal = fileChooser.showOpenDialog(null);
+		if(retVal == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = fileChooser.getSelectedFile();
+			Scanner input;
+			try {
+				input = new Scanner(selectedFile);
+				int iter = 6;
+				while(input.hasNext()) {
+					String parsedLine = input.nextLine();
+					for(int j=0;j<parsedLine.length();j++) {
+						int c=(int)parsedLine.charAt(j);
+						RegisterSet.Memory.Insert(RegisterSet.Memory.Dec_to_binary(c), iter);
+						iter++;
+					}
+					String n="\n";
+					int c=Integer.parseInt(n);
+					RegisterSet.Memory.Insert(RegisterSet.Memory.Dec_to_binary(c), iter);
+					iter++;
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return;
+	}
+	
 	public void doLoad() {
 		JFileChooser fileChooser = new JFileChooser();
 		int retVal = fileChooser.showOpenDialog(null);

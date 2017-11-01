@@ -32,6 +32,8 @@ public class Register_Set {
 		//Cache 
 		Inputdevice INPUT;
 		
+		FRegister FR0;
+		FRegister FR1;
 		
 		public boolean isRunning = false;
 
@@ -63,6 +65,8 @@ public class Register_Set {
 			
 			this.INPUT=new Inputdevice();
 			
+			this.FR0=new FRegister(16,1);
+			this.FR1=new FRegister(16,1);
 			//Cache
 			//this.Cache=new Register(16,16);
 			// ER=new Erro_Report();
@@ -1323,7 +1327,71 @@ public class Register_Set {
 				this.R0.Insert(1,0);
 				break;
 			}
-			Information = "Devices are all on and connected by default";
+			Information = "Devices are all on and connected by default\n";
 			return Information;
 		};
+		
+		public String FADD(int FR,int IX,int I,int Address) {
+			String information;
+			int EA=Get_EA(I,IX,Address);
+			if(FR==0) {
+				float F=this.FR0.OutPutAsFloat();
+				float F2=this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.FR0.Insert(this.FR0.float_binary(F+F2),0);
+				information="c(FR0)<-c(FR0)+c(EA)\n";
+			}
+			else if(FR==1) {
+				float F=this.FR1.OutPutAsFloat();
+				float F2=this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.FR1.Insert(this.FR0.float_binary(F+F2),0);
+				information="c(FR1)<-c(FR1)+c(EA)\n";
+			}
+			else {
+				information="FADD fail\n";
+			}
+			return information;
+		}
+		
+		public String FSUB(int FR, int IX, int I, int Address) {
+			String information;
+			int EA=Get_EA(I,IX,Address);
+			if(FR==0) {
+				float F=this.FR0.OutPutAsFloat();
+				float F2=this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.FR0.Insert(this.FR0.float_binary(F-F2), 0);
+				information="c(FR0)<-c(FR0)-c(EA)\n";
+			}
+			else if(FR==1) {
+				float F=this.FR1.OutPutAsFloat();
+				float F2=this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.FR1.Insert(this.FR1.float_binary(F-F2), 0);
+				information="c(FR1)<-c(FR1)-c(EA)\n";
+			}
+			else {
+				information="FSUB fail\n";
+			}
+			return information;
+		}
+		
+		public String LDFR(int FR, int IX, int I, int Address) {
+			String information;
+			int EA=Get_EA(I,IX,Address);
+			if(FR==0) {
+				this.FR0.Insert(this.Memory.Output(EA), 0);
+				this.Memory.Insert(this.Memory.Binary_to_dec(this.Memory.Output(EA))+1, EA);//IM NOT SURE
+				information="FR0<-c(EA),c(EA+1)\n";
+			}
+			else if(FR==1) {
+				this.FR1.Insert(this.Memory.Output(EA), 0);
+				this.Memory.Insert(this.Memory.Binary_to_dec(this.Memory.Output(EA))+1, EA);
+				information="FR1<-c(EA),c(EA+1)\n";
+			}
+			else {
+				information="LDFR fail\n";
+			}
+			return information;
+		}
+		
+		
+		
 }
