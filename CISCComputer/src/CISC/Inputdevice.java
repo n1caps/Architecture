@@ -15,7 +15,6 @@ public class Inputdevice {
 		}else {
 			int length=InputData.length();
 			int temp = 0;
-			int j=0;
 			for(int i=0;i<length;i++) {
 				temp += InputData.charAt(i);
 			}

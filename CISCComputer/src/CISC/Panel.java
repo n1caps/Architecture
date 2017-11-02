@@ -5,8 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JRadioButton;
@@ -14,16 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.Font;
-import java.awt.KeyEventDispatcher;
-import java.awt.KeyboardFocusManager;
 import java.awt.Color;
 import java.lang.Thread;
 import java.util.Scanner;
-import java.util.concurrent.CountDownLatch;
 
 import javax.swing.JFileChooser;
 import java.io.*;
-import javax.swing.SwingConstants;
 
 public class Panel {
 
@@ -147,67 +141,67 @@ public class Panel {
 		frame.getContentPane().add(lblClear);
 		
 		radioButton = new JRadioButton("");
-		radioButton.setBounds(62, 284, 34, 29);
+		radioButton.setBounds(62, 282, 34, 29);
 		frame.getContentPane().add(radioButton);
 		
 		radioButton_1 = new JRadioButton("");
-		radioButton_1.setBounds(111, 284, 34, 29);
+		radioButton_1.setBounds(111, 282, 34, 29);
 		frame.getContentPane().add(radioButton_1);
 		
 		radioButton_2 = new JRadioButton("");
-		radioButton_2.setBounds(159, 284, 29, 29);
+		radioButton_2.setBounds(159, 282, 29, 29);
 		frame.getContentPane().add(radioButton_2);
 		
 		radioButton_3 = new JRadioButton("");
-		radioButton_3.setBounds(205, 284, 34, 29);
+		radioButton_3.setBounds(205, 282, 34, 29);
 		frame.getContentPane().add(radioButton_3);
 		
 		radioButton_4 = new JRadioButton("");
-		radioButton_4.setBounds(250, 284, 29, 29);
+		radioButton_4.setBounds(250, 282, 29, 29);
 		frame.getContentPane().add(radioButton_4);
 		
 		radioButton_5 = new JRadioButton("");
-		radioButton_5.setBounds(297, 284, 34, 29);
+		radioButton_5.setBounds(297, 282, 34, 29);
 		frame.getContentPane().add(radioButton_5);
 		
 		radioButton_6 = new JRadioButton("");
-		radioButton_6.setBounds(344, 284, 34, 29);
+		radioButton_6.setBounds(344, 282, 34, 29);
 		frame.getContentPane().add(radioButton_6);
 		
 		radioButton_7 = new JRadioButton("");
-		radioButton_7.setBounds(389, 284, 34, 29);
+		radioButton_7.setBounds(389, 282, 34, 29);
 		frame.getContentPane().add(radioButton_7);
 		
 		radioButton_8 = new JRadioButton("");
-		radioButton_8.setBounds(440, 284, 29, 29);
+		radioButton_8.setBounds(440, 282, 29, 29);
 		frame.getContentPane().add(radioButton_8);
 		
 		radioButton_9 = new JRadioButton("");
-		radioButton_9.setBounds(488, 284, 34, 29);
+		radioButton_9.setBounds(488, 282, 34, 29);
 		frame.getContentPane().add(radioButton_9);
 		
 		radioButton_10 = new JRadioButton("");
-		radioButton_10.setBounds(534, 284, 34, 29);
+		radioButton_10.setBounds(534, 282, 34, 29);
 		frame.getContentPane().add(radioButton_10);
 		
 		radioButton_11 = new JRadioButton("");
-		radioButton_11.setBounds(583, 284, 29, 29);
+		radioButton_11.setBounds(583, 282, 29, 29);
 		frame.getContentPane().add(radioButton_11);
 		
 		radioButton_12 = new JRadioButton("");
-		radioButton_12.setBounds(630, 284, 34, 29);
+		radioButton_12.setBounds(630, 282, 34, 29);
 		frame.getContentPane().add(radioButton_12);
 		
 		radioButton_13 = new JRadioButton("");
-		radioButton_13.setBounds(679, 284, 29, 29);
+		radioButton_13.setBounds(679, 282, 29, 29);
 		frame.getContentPane().add(radioButton_13);
 		
 		radioButton_14 = new JRadioButton("");
-		radioButton_14.setBounds(728, 284, 29, 29);
+		radioButton_14.setBounds(728, 282, 29, 29);
 		frame.getContentPane().add(radioButton_14);
 		
 		radioButton_15 = new JRadioButton("");
-		radioButton_15.setBounds(776, 284, 29, 29);
+		radioButton_15.setBounds(776, 282, 29, 29);
 		frame.getContentPane().add(radioButton_15);
 		
 		JLabel lblSWI = new JLabel("S W I T C H        R E G I S T E R");
@@ -222,7 +216,7 @@ public class Panel {
 		textArea.setLineWrap(true);
 		
 		JScrollPane scroll=new JScrollPane(textArea);
-		scroll.setBounds(93,541,928,141);
+		scroll.setBounds(95,541,926,141);
 		frame.getContentPane().add(scroll);
 		
 		textField = new JTextField();
@@ -381,12 +375,12 @@ public class Panel {
 		frame.getContentPane().add(lblFr_1);
 		
 		INPUT = new JTextField();
-		INPUT.setBounds(93, 323, 295, 35);
+		INPUT.setBounds(95, 323, 303, 35);
 		frame.getContentPane().add(INPUT);
 		INPUT.setColumns(10);
 		
 		JLabel lblInput = new JLabel("INPUT");
-		lblInput.setBounds(40, 331, 51, 21);
+		lblInput.setBounds(45, 331, 51, 21);
 		frame.getContentPane().add(lblInput);
 		
 		JLabel lblDevCosole = new JLabel("DEV COSOLE");
@@ -406,6 +400,16 @@ public class Panel {
 		PRINTER.setLineWrap(true);
 		PRINTER.setBounds(95, 383, 738, 141);
 		frame.getContentPane().add(PRINTER);
+		
+		JButton LS = new JButton("Load Text");
+		LS.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				doLS();
+			}
+		});
+		LS.setBounds(900, 149, 123, 29);
+		frame.getContentPane().add(LS);
 		
 		btnIpl.addMouseListener(new MouseAdapter() {
 			@Override
@@ -501,6 +505,7 @@ public class Panel {
 			}
 		});
 		
+
 		btnEnterInput.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -660,16 +665,41 @@ public class Panel {
 		RegisterSet.PC.Insert((new int[] {0,0,0,0,0,0,0,0,0,1,1,0}), 0);
 		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
 		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
-		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0);
-		//RegisterSet.INPUT.filter("Hello");
-		//RegisterSet.INPUT.filter("1234");
+		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0); 
+		//InputData=INPUT.getText().trim();//get the input
+		//RegisterSet.INPUT.filter(InputData);
 		updateFields();
 		//textArea.append(InputData);//test
 	}
-
-	/**
-	 * Loads A Program into Memory
-	 */
+	
+	public void doLS() {
+		JFileChooser fileChooser = new JFileChooser();
+		int retVal = fileChooser.showOpenDialog(null);
+		if(retVal == JFileChooser.APPROVE_OPTION) {
+			File selectedFile = fileChooser.getSelectedFile();
+			Scanner input;
+			try {
+				input = new Scanner(selectedFile);
+				int iter = 6;
+				while(input.hasNext()) {
+					String parsedLine = input.nextLine();
+					for(int j=0;j<parsedLine.length();j++) {
+						int c=(int)parsedLine.charAt(j);
+						RegisterSet.Memory.Insert(RegisterSet.Memory.Dec_to_binary(c), iter);
+						iter++;
+					}
+					String n="\n";
+					int c=Integer.parseInt(n);
+					RegisterSet.Memory.Insert(RegisterSet.Memory.Dec_to_binary(c), iter);
+					iter++;
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return;
+	}
+	
 	public void doLoad() {
 		JFileChooser fileChooser = new JFileChooser();
 		int retVal = fileChooser.showOpenDialog(null);
@@ -800,13 +830,10 @@ public class Panel {
 		updateFields();
 	}
 	
-	/**
-	 * Submits the input
-	 */
 	public void doSubmitInput() {
-		RegisterSet.isWaitingForInput = false;
 		RegisterSet.INPUT.filter(INPUT.getText());
 		INPUT.setText("");
+		RegisterSet.isWaitingForInput = false;
 	}
 	
 	public int[] Get_Instruction() {//Get the Instruction to decoder.
