@@ -31,7 +31,9 @@ public class Register_Set {
 		//Cache Cache;
 		//Cache 
 		Inputdevice INPUT;
+		PrinterDevice PRINTER;
 		
+		public boolean isWaitingForInput = false;
 		
 		public boolean isRunning = false;
 
@@ -62,6 +64,7 @@ public class Register_Set {
 			this.MFR=new Register(16,1);
 			
 			this.INPUT=new Inputdevice();
+			this.PRINTER = new PrinterDevice();
 			
 			//Cache
 			//this.Cache=new Register(16,16);
@@ -1226,14 +1229,21 @@ public class Register_Set {
 				return "IN can only be called on keyboard or card reader";
 			}
 			if(devId == 0) {
-				//char c;
-				int chr;
-				try {
-					chr = this.INPUT.Output();
-				}catch(Exception e) {
-					R=0;
-					chr=0;
+				this.isWaitingForInput = true;
+				while(isWaitingForInput) {
+					System.out.println("Waiting for submit to be entered...");
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
+				System.out.println("DoneLooping");
+				
+				int chr = 0;
+				chr = this.INPUT.Output();
+				
 				/*
 				try {
 					//System.out.print("Enter n" + this.X1.OutputAsInt() + " number: ");
@@ -1285,6 +1295,7 @@ public class Register_Set {
 				res =res+this.R0.OutputAsInt();
 				break;
 			}
+			this.PRINTER.output += res+"\n";
 			Information =res+"\n";
 			return Information;
 		}
