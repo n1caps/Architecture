@@ -60,6 +60,7 @@ public class Panel {
 	private JTextField FR0;
 	private JTextField FR1;
 	private JTextField INPUT;
+	private JTextArea PRINTER;
 
 	/**
 	 * Launch the application.
@@ -140,72 +141,72 @@ public class Panel {
 		frame.getContentPane().add(lblClear);
 		
 		radioButton = new JRadioButton("");
-		radioButton.setBounds(62, 383, 34, 29);
+		radioButton.setBounds(62, 282, 34, 29);
 		frame.getContentPane().add(radioButton);
 		
 		radioButton_1 = new JRadioButton("");
-		radioButton_1.setBounds(111, 383, 34, 29);
+		radioButton_1.setBounds(111, 282, 34, 29);
 		frame.getContentPane().add(radioButton_1);
 		
 		radioButton_2 = new JRadioButton("");
-		radioButton_2.setBounds(159, 383, 29, 29);
+		radioButton_2.setBounds(159, 282, 29, 29);
 		frame.getContentPane().add(radioButton_2);
 		
 		radioButton_3 = new JRadioButton("");
-		radioButton_3.setBounds(205, 383, 34, 29);
+		radioButton_3.setBounds(205, 282, 34, 29);
 		frame.getContentPane().add(radioButton_3);
 		
 		radioButton_4 = new JRadioButton("");
-		radioButton_4.setBounds(250, 383, 29, 29);
+		radioButton_4.setBounds(250, 282, 29, 29);
 		frame.getContentPane().add(radioButton_4);
 		
 		radioButton_5 = new JRadioButton("");
-		radioButton_5.setBounds(297, 383, 34, 29);
+		radioButton_5.setBounds(297, 282, 34, 29);
 		frame.getContentPane().add(radioButton_5);
 		
 		radioButton_6 = new JRadioButton("");
-		radioButton_6.setBounds(344, 383, 34, 29);
+		radioButton_6.setBounds(344, 282, 34, 29);
 		frame.getContentPane().add(radioButton_6);
 		
 		radioButton_7 = new JRadioButton("");
-		radioButton_7.setBounds(389, 383, 34, 29);
+		radioButton_7.setBounds(389, 282, 34, 29);
 		frame.getContentPane().add(radioButton_7);
 		
 		radioButton_8 = new JRadioButton("");
-		radioButton_8.setBounds(440, 383, 29, 29);
+		radioButton_8.setBounds(440, 282, 29, 29);
 		frame.getContentPane().add(radioButton_8);
 		
 		radioButton_9 = new JRadioButton("");
-		radioButton_9.setBounds(488, 383, 34, 29);
+		radioButton_9.setBounds(488, 282, 34, 29);
 		frame.getContentPane().add(radioButton_9);
 		
 		radioButton_10 = new JRadioButton("");
-		radioButton_10.setBounds(534, 383, 34, 29);
+		radioButton_10.setBounds(534, 282, 34, 29);
 		frame.getContentPane().add(radioButton_10);
 		
 		radioButton_11 = new JRadioButton("");
-		radioButton_11.setBounds(583, 383, 29, 29);
+		radioButton_11.setBounds(583, 282, 29, 29);
 		frame.getContentPane().add(radioButton_11);
 		
 		radioButton_12 = new JRadioButton("");
-		radioButton_12.setBounds(630, 383, 34, 29);
+		radioButton_12.setBounds(630, 282, 34, 29);
 		frame.getContentPane().add(radioButton_12);
 		
 		radioButton_13 = new JRadioButton("");
-		radioButton_13.setBounds(679, 383, 29, 29);
+		radioButton_13.setBounds(679, 282, 29, 29);
 		frame.getContentPane().add(radioButton_13);
 		
 		radioButton_14 = new JRadioButton("");
-		radioButton_14.setBounds(728, 383, 29, 29);
+		radioButton_14.setBounds(728, 282, 29, 29);
 		frame.getContentPane().add(radioButton_14);
 		
 		radioButton_15 = new JRadioButton("");
-		radioButton_15.setBounds(776, 383, 29, 29);
+		radioButton_15.setBounds(776, 282, 29, 29);
 		frame.getContentPane().add(radioButton_15);
 		
 		JLabel lblSWI = new JLabel("S W I T C H        R E G I S T E R");
 		lblSWI.setFont(new Font("Adobe Garamond Pro", Font.PLAIN, 26));
-		lblSWI.setBounds(250, 299, 386, 44);
+		lblSWI.setBounds(250, 242, 386, 44);
 		frame.getContentPane().add(lblSWI);
 		
 		
@@ -215,7 +216,7 @@ public class Panel {
 		textArea.setLineWrap(true);
 		
 		JScrollPane scroll=new JScrollPane(textArea);
-		scroll.setBounds(33,541,988,141);
+		scroll.setBounds(95,541,926,141);
 		frame.getContentPane().add(scroll);
 		
 		textField = new JTextField();
@@ -374,13 +375,31 @@ public class Panel {
 		frame.getContentPane().add(lblFr_1);
 		
 		INPUT = new JTextField();
-		INPUT.setBounds(344, 444, 487, 83);
+		INPUT.setBounds(95, 323, 303, 35);
 		frame.getContentPane().add(INPUT);
 		INPUT.setColumns(10);
 		
 		JLabel lblInput = new JLabel("INPUT");
-		lblInput.setBounds(280, 477, 51, 21);
+		lblInput.setBounds(45, 331, 51, 21);
 		frame.getContentPane().add(lblInput);
+		
+		JLabel lblDevCosole = new JLabel("DEV COSOLE");
+		lblDevCosole.setBounds(6, 544, 90, 35);
+		frame.getContentPane().add(lblDevCosole);
+		
+		JLabel lblPrinter = new JLabel("PRINTER");
+		lblPrinter.setBounds(30, 383, 61, 21);
+		frame.getContentPane().add(lblPrinter);
+		
+		JButton btnEnterInput = new JButton("ENTER");
+		btnEnterInput.setBounds(399, 327, 117, 29);
+		frame.getContentPane().add(btnEnterInput);
+		
+		PRINTER = new JTextArea();
+		PRINTER.setEditable(false);
+		PRINTER.setLineWrap(true);
+		PRINTER.setBounds(95, 383, 738, 141);
+		frame.getContentPane().add(PRINTER);
 		
 		JButton LS = new JButton("Load Text");
 		LS.addMouseListener(new MouseAdapter() {
@@ -485,6 +504,14 @@ public class Panel {
 				doClear();
 			}
 		});
+		
+
+		btnEnterInput.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				doSubmitInput();
+			}
+		});
 		//Update all the register fields after intialization		
 		updateFields();
 	}
@@ -506,6 +533,7 @@ public class Panel {
 		textField_10.setText(RegisterSet.MBR.OutputAsString());
 		textField_11.setText(RegisterSet.MSR.OutputAsString());
 		textField_12.setText(RegisterSet.MFR.OutputAsString());
+		PRINTER.setText(RegisterSet.PRINTER.Output());
 	}
 	
 	/**
@@ -638,8 +666,8 @@ public class Panel {
 		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
 		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
 		RegisterSet.IR.Insert(RegisterSet.MBR.OutputAsInt(), 0); 
-		InputData=INPUT.getText().trim();//get the input
-		RegisterSet.INPUT.filter(InputData);
+		//InputData=INPUT.getText().trim();//get the input
+		//RegisterSet.INPUT.filter(InputData);
 		updateFields();
 		//textArea.append(InputData);//test
 	}
@@ -799,6 +827,12 @@ public class Panel {
 		*/
 		textArea.append("The Data:["+text+"] Successfully inserted to Memory ["+(RegisterSet.Memory.Pointer-1)+"].\n");
 		updateFields();
+	}
+	
+	public void doSubmitInput() {
+		RegisterSet.INPUT.filter(INPUT.getText());
+		INPUT.setText("");
+		RegisterSet.isWaitingForInput = false;
 	}
 	
 	public int[] Get_Instruction() {//Get the Instruction to decoder.
