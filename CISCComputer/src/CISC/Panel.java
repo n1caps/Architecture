@@ -652,17 +652,16 @@ public class Panel {
 			Scanner input;
 			try {
 				input = new Scanner(selectedFile);
-				int iter = 6;
+				int iter = 200;//!!!it is important, the paragraph store at Memory(200)
 				while(input.hasNext()) {
 					String parsedLine = input.nextLine();
 					for(int j=0;j<parsedLine.length();j++) {
 						int c=(int)parsedLine.charAt(j);
-						RegisterSet.Memory.Insert(RegisterSet.Memory.Dec_to_binary(c), iter);
+						RegisterSet.Memory.Insert(c, iter);
 						iter++;
 					}
-					String n="\n";
-					int c=Integer.parseInt(n);
-					RegisterSet.Memory.Insert(RegisterSet.Memory.Dec_to_binary(c), iter);
+					int c=10;//Enter Ascii is 10
+					RegisterSet.Memory.Insert(c, iter);
 					iter++;
 				}
 			} catch (FileNotFoundException e) {
