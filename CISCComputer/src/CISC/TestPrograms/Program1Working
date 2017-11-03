@@ -1,0 +1,2484 @@
+Initializing initial program.
+Running Program in memory...
+Executing Instruction at PC 6
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:10   Address:01000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:01000   DevId:0
+X2<-c(8).
+Executing Instruction at PC 7
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001011   R:00   IX:10   Address:00001   Rx:00   Ry:10   AL:1   LR:0   Count:0001   DevId:00001   DevId:0
+PC<-EA
+Executing Instruction at PC 33
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(9).
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(29)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(28)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(27)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(26)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(25)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(24)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(23)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(22)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(21)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(20)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(19)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(18)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(17)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(16)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(15)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(14)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(13)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(12)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(11)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-EA
+Executing Instruction at PC 34
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 35
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 36
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 37
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:01   Address:01001   Rx:01   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+Memory(10)<-c(R1).
+Executing Instruction at PC 38
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:00   IX:10   Address:00010   Rx:00   Ry:10   AL:1   LR:0   Count:0010   DevId:00010   DevId:0
+R0<-C(R0)-1
+PC<-PC+1
+Executing Instruction at PC 39
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110001   R:01   IX:00   Address:00000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 40
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:11110   Rx:01   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+Memory(30)<-c(R1).
+Executing Instruction at PC 41
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000110   R:00   IX:00   Address:10100   Rx:00   Ry:00   AL:0   LR:0   Count:0100   DevId:10100   DevId:0
+R0<-c(R0)+Immed
+Executing Instruction at PC 42
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R0).
+Executing Instruction at PC 43
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(29).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(29).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(29).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(28).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(28).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(28).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(27).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(27).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(27).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(26).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(26).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(26).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(25).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(25).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(25).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(24).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(24).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(24).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(23).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(23).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(23).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(22).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(22).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(22).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(21).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(21).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(21).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(20).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(20).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(20).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(19).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0==0
+PC<-PC+1
+Executing Instruction at PC 51
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(19).
+Executing Instruction at PC 52
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:00   Address:11111   Rx:00   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+Memory(31)<-c(R0).
+Executing Instruction at PC 54
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(19).
+Executing Instruction at PC 55
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+Memory(32)<-c(R0).
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(18).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(17).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(16).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(15).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(14).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(13).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(12).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(11).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-EA
+Executing Instruction at PC 44
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+Memory(9)<-c(R1).
+Executing Instruction at PC 45
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+X1<-c(9).
+Executing Instruction at PC 46
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:01   Address:01001   Rx:00   Ry:01   AL:0   LR:1   Count:1001   DevId:01001   DevId:0
+R0<-c(10).
+Executing Instruction at PC 47
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000101   R:00   IX:00   Address:11110   Rx:00   Ry:00   AL:0   LR:0   Count:1110   DevId:11110   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 48
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:10   IX:00   Address:11111   Rx:10   Ry:00   AL:0   LR:0   Count:1111   DevId:11111   DevId:0
+R2<-c(31).
+Executing Instruction at PC 49
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:010001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+rx, rx+1 <- c(rx) / c(ry)
+Executing Instruction at PC 50
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001001   R:00   IX:10   Address:11000   Rx:00   Ry:10   AL:1   LR:0   Count:1000   DevId:11000   DevId:0
+R0!=0
+PC<-EA
+Executing Instruction at PC 56
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01001   Rx:01   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R1<-c(9).
+Executing Instruction at PC 57
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:001110   R:01   IX:10   Address:01100   Rx:01   Ry:10   AL:1   LR:0   Count:1100   DevId:01100   DevId:0
+R1<-C(R1)-1
+PC<-PC+1
+Executing Instruction at PC 58
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000001   R:00   IX:10   Address:00000   Rx:00   Ry:10   AL:1   LR:0   Count:0000   DevId:00000   DevId:0
+R0<-c(32).
+Executing Instruction at PC 59
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:110010   R:00   IX:00   Address:00001   Rx:00   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+21
+Executing Instruction at PC 60
+MAR<-PC.
+MBR<-Memory(MAR).
+PC++.
+IR<-MBR.
+The Instruction is:Opcode:000000   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Halted.
