@@ -680,7 +680,7 @@ public class Panel {
 			Scanner input;
 			try {
 				input = new Scanner(selectedFile);
-				int iter = 200;//!!!it is important, the paragraph store at Memory(200)
+				int iter = 300;//!!!it is important, the paragraph store at Memory(200)
 				while(input.hasNext()) {
 					String parsedLine = input.nextLine();
 					for(int j=0;j<parsedLine.length();j++) {

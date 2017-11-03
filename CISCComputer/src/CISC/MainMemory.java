@@ -5,7 +5,7 @@ public class MainMemory extends Register{
 	int nrow;
 	int nword;
 	int[][] Address_Table;
-	Cache cache;
+	//Cache cache;
 	
 	public MainMemory(int bits, int height, int nline, int nrow, int nword) {
 		super(bits, height);
@@ -13,7 +13,7 @@ public class MainMemory extends Register{
 		this.nrow=nrow;
 		this.nword=nword;
 		Initiate_table();
-		this.cache=new Cache(this.Length,this.Address_Table,this.nline,this.nrow,this.nword,4);
+		//this.cache=new Cache(this.Length,this.Address_Table,this.nline,this.nrow,this.nword,4);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -39,7 +39,7 @@ public class MainMemory extends Register{
 		}
 	}
 	
-	
+	/*
 	public int[] Output(int[] Address){//binary is address
 		this.Output=new int[this.Length];
 		int decAd;
@@ -63,7 +63,8 @@ public class MainMemory extends Register{
 		}
 		return this.Output;
 	}
-	
+	*/
+	/*
 	public int[] Separate(int EA) {//
 		int line;
 		int row;
@@ -85,4 +86,5 @@ public class MainMemory extends Register{
 		}
 		return error;
 	}
+	*/
 }

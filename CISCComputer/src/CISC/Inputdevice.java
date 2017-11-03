@@ -3,12 +3,20 @@ package CISC;
 public class Inputdevice {
 	public int[] Data;
 	public int point;
+	public int point_2;
 	public Inputdevice() {
 		Data=new int[100];
 		point=0;
+		point_2=0;
 	}
 	
-	public void filter(String InputData) {
+	public void filter(String InputData) {//all the input save as ASCII
+		int L=InputData.length();
+		for(int i=0;i<InputData.length();i++) {
+			this.Data[this.point]=(int)InputData.charAt(i);
+			this.point++;
+		}
+		/*
 		if(isInteger(InputData))
 		{
 			Data[0] = Integer.parseInt(InputData);
@@ -20,12 +28,17 @@ public class Inputdevice {
 			}
 			Data[0] = temp;
 		}
+		*/
 	}
 
 	public int Output() {
-		int num=this.Data[this.point];
-		//this.point++;
+		int num=this.Data[this.point_2];
+		this.point_2++;
 		return num;
+	}
+	
+	public void Clear() {
+		this.point_2=0;
 	}
 	
 	public static boolean isInteger(String s) {

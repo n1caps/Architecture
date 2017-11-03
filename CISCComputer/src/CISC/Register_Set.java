@@ -1233,7 +1233,7 @@ public class Register_Set {
 				return "IN can only be called on keyboard or card reader";
 			}
 			if(devId == 0) {
-				this.isWaitingForInput = true;
+				this.isWaitingForInput = false ;
 				while(isWaitingForInput) {
 					System.out.println("Waiting for submit to be entered...");
 					try {
@@ -1260,7 +1260,7 @@ public class Register_Set {
 				*/
 				switch (R){
 				case 1:
-					this.R1.Insert(chr, 0);
+					this.R1.Insert(chr,0);
 					break;
 				case 2:
 					this.R2.Insert(chr,0);
