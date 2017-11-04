@@ -715,7 +715,7 @@ public class Register_Set {
 			return Information;
 		}
 		
-		public String AMR(int R,int I,int IX,int Address) {
+		public String AMR(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
@@ -740,23 +740,27 @@ public class Register_Set {
 			return Information;
 		}
 		
-		public String SMR(int R,int I,int IX,int Address) {
+		public String SMR(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
-				this.R0.Insert(this.R0.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				int value=this.R0.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.R0.Insert(value, 0);
 				Information="R0<-c(R0)-c(EA)\n";
 			}
 			else if(R==1) {
-				this.R1.Insert(this.R1.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				int value=this.R1.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.R1.Insert(value, 0);
 				Information="R1<-c(R1)-c(EA)\n";
 			}
 			else if(R==2) {
-				this.R2.Insert(this.R2.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				int value=this.R2.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.R2.Insert(value, 0);
 				Information="R2<-c(R2)-c(EA)\n";
 			}
 			else if(R==3) {
-				this.R3.Insert(this.R3.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA)), 0);
+				int value=this.R3.OutputAsInt()-this.Memory.Binary_to_dec(this.Memory.Output(EA));
+				this.R3.Insert(value, 0);
 				Information="R3<-c(R3)-c(EA)\n";
 			}
 			else {

@@ -839,11 +839,11 @@ public class Panel {
 		//Because I think will fetch data from memory repeatedly, I make it a individual function. 
 		//MAR<-PC
 		RegisterSet.MAR.Insert(RegisterSet.PC.OutputAsInt(),0);
-		textArea.append("MAR<-PC.\n");
+		//textArea.append("MAR<-PC.\n");
 		updateFields();
 		//MBR<-Memory(MAR)
 		RegisterSet.MBR.Insert(RegisterSet.Memory.Output(RegisterSet.MAR.Output), 0);
-		textArea.append("MBR<-Memory(MAR).\n");
+		//textArea.append("MBR<-Memory(MAR).\n");
 		updateFields();
 		//update the PC++
 		int tPC=RegisterSet.PC.OutputAsInt();
@@ -854,11 +854,11 @@ public class Panel {
 			tPC=tPC+1;
 		}
 		RegisterSet.PC.Insert(tPC, 0);
-		textArea.append("PC++.\n");
+		//textArea.append("PC++.\n");
 		updateFields();
 		//IR<-MBR
 		RegisterSet.IR.Insert(RegisterSet.MBR.Output(0), 0);
-		textArea.append("IR<-MBR.\n");
+		//textArea.append("IR<-MBR.\n");
 		updateFields();
 		return RegisterSet.IR.Output(0);
 		
