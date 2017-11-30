@@ -1,0 +1,532 @@
+Initializing initial program.
+Running Program in memory...
+Executing Instruction at PC 6
+The Instruction is:Opcode:001010   R:01   IX:00   Address:10111   Rx:01   Ry:00   AL:0   LR:0   Count:0111   DevId:10111   DevId:0
+cc bit==1
+PC<-EA
+Executing Instruction at PC 23
+The Instruction is:Opcode:100001   R:00   IX:11   Address:01111   Rx:00   Ry:11   AL:1   LR:1   Count:1111   DevId:01111   DevId:0
+X3<-c(15).
+Executing Instruction at PC 24
+The Instruction is:Opcode:100001   R:00   IX:10   Address:01010   Rx:00   Ry:10   AL:1   LR:0   Count:1010   DevId:01010   DevId:0
+X2<-c(10).
+Executing Instruction at PC 25
+The Instruction is:Opcode:000001   R:00   IX:00   Address:00111   Rx:00   Ry:00   AL:0   LR:0   Count:0111   DevId:00111   DevId:0
+R0<-c(7).
+Executing Instruction at PC 26
+The Instruction is:Opcode:000010   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+Memory(19)<-c(R0).
+Executing Instruction at PC 27
+The Instruction is:Opcode:110001   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 28
+The Instruction is:Opcode:001000   R:00   IX:10   Address:00101   Rx:00   Ry:10   AL:1   LR:0   Count:0101   DevId:00101   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 29
+The Instruction is:Opcode:000010   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+Memory(100)<-c(R0).
+Executing Instruction at PC 30
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01101   Rx:01   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R1<-c(13).
+Executing Instruction at PC 31
+The Instruction is:Opcode:000110   R:01   IX:00   Address:00001   Rx:01   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R1<-c(R1)+Immed
+Executing Instruction at PC 32
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01101   Rx:01   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R1).
+Executing Instruction at PC 33
+The Instruction is:Opcode:000100   R:01   IX:00   Address:10011   Rx:01   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+R1<-c(R1)+c(EA)
+Executing Instruction at PC 34
+The Instruction is:Opcode:000010   R:01   IX:00   Address:10011   Rx:01   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+Memory(19)<-c(R1).
+Executing Instruction at PC 35
+The Instruction is:Opcode:110001   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 36
+The Instruction is:Opcode:001010   R:01   IX:00   Address:11100   Rx:01   Ry:00   AL:0   LR:0   Count:1100   DevId:11100   DevId:0
+cc bit==1
+PC<-EA
+Executing Instruction at PC 28
+The Instruction is:Opcode:001000   R:00   IX:10   Address:00101   Rx:00   Ry:10   AL:1   LR:0   Count:0101   DevId:00101   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 29
+The Instruction is:Opcode:000010   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+Memory(101)<-c(R0).
+Executing Instruction at PC 30
+The Instruction is:Opcode:000001   R:01   IX:00   Address:01101   Rx:01   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R1<-c(13).
+Executing Instruction at PC 31
+The Instruction is:Opcode:000110   R:01   IX:00   Address:00001   Rx:01   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R1<-c(R1)+Immed
+Executing Instruction at PC 32
+The Instruction is:Opcode:000010   R:01   IX:00   Address:01101   Rx:01   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R1).
+Executing Instruction at PC 33
+The Instruction is:Opcode:000100   R:01   IX:00   Address:10011   Rx:01   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+R1<-c(R1)+c(EA)
+Executing Instruction at PC 34
+The Instruction is:Opcode:000010   R:01   IX:00   Address:10011   Rx:01   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+Memory(19)<-c(R1).
+Executing Instruction at PC 35
+The Instruction is:Opcode:110001   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Read from keyboard success
+Executing Instruction at PC 36
+The Instruction is:Opcode:001010   R:01   IX:00   Address:11100   Rx:01   Ry:00   AL:0   LR:0   Count:1100   DevId:11100   DevId:0
+cc bit==1
+PC<-EA
+Executing Instruction at PC 28
+The Instruction is:Opcode:001000   R:00   IX:10   Address:00101   Rx:00   Ry:10   AL:1   LR:0   Count:0101   DevId:00101   DevId:0
+R0==0
+PC<-(37)
+Executing Instruction at PC 37
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 38
+The Instruction is:Opcode:100001   R:00   IX:01   Address:01101   Rx:00   Ry:01   AL:0   LR:1   Count:1101   DevId:01101   DevId:0
+X1<-c(13).
+Executing Instruction at PC 39
+The Instruction is:Opcode:100001   R:00   IX:10   Address:01110   Rx:00   Ry:10   AL:1   LR:0   Count:1110   DevId:01110   DevId:0
+X2<-c(14).
+Executing Instruction at PC 40
+The Instruction is:Opcode:000010   R:11   IX:00   Address:10011   Rx:11   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+Memory(19)<-c(R3).
+Executing Instruction at PC 41
+The Instruction is:Opcode:000001   R:10   IX:00   Address:00111   Rx:10   Ry:00   AL:0   LR:0   Count:0111   DevId:00111   DevId:0
+R2<-c(7).
+Executing Instruction at PC 42
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10011   Rx:10   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+Memory(19)<-c(R2).
+Executing Instruction at PC 43
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 44
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 45
+The Instruction is:Opcode:000001   R:01   IX:00   Address:10011   Rx:01   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+R1<-c(100).
+Executing Instruction at PC 46
+The Instruction is:Opcode:001000   R:01   IX:00   Address:10000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R1!=0
+PC<-PC+1
+Executing Instruction at PC 47
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(300).
+Executing Instruction at PC 48
+The Instruction is:Opcode:001000   R:00   IX:00   Address:10000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 49
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 50
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01000   Rx:00   Ry:11   AL:1   LR:1   Count:1000   DevId:01000   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 51
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(300).
+Executing Instruction at PC 52
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01010   Rx:00   Ry:00   AL:0   LR:0   Count:1010   DevId:01010   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01110   Rx:00   Ry:11   AL:1   LR:1   Count:1110   DevId:01110   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 54
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(300).
+Executing Instruction at PC 55
+The Instruction is:Opcode:000101   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 56
+The Instruction is:Opcode:001000   R:00   IX:11   Address:11100   Rx:00   Ry:11   AL:1   LR:1   Count:1100   DevId:11100   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 57
+The Instruction is:Opcode:001011   R:00   IX:11   Address:10100   Rx:00   Ry:11   AL:1   LR:1   Count:0100   DevId:10100   DevId:0
+PC<-EA
+Executing Instruction at PC 70
+The Instruction is:Opcode:100010   R:00   IX:01   Address:01110   Rx:00   Ry:01   AL:0   LR:1   Count:1110   DevId:01110   DevId:0
+Memory(14)<-X1.
+Executing Instruction at PC 71
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R3<-c(13).
+Executing Instruction at PC 72
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 73
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 74
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 75
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01101   Rx:10   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 76
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 77
+The Instruction is:Opcode:001011   R:00   IX:00   Address:10100   Rx:00   Ry:00   AL:0   LR:0   Count:0100   DevId:10100   DevId:1
+PC<-EA
+Executing Instruction at PC 47
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(301).
+Executing Instruction at PC 48
+The Instruction is:Opcode:001000   R:00   IX:00   Address:10000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 49
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 50
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01000   Rx:00   Ry:11   AL:1   LR:1   Count:1000   DevId:01000   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 51
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(301).
+Executing Instruction at PC 52
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01010   Rx:00   Ry:00   AL:0   LR:0   Count:1010   DevId:01010   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01110   Rx:00   Ry:11   AL:1   LR:1   Count:1110   DevId:01110   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 54
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(301).
+Executing Instruction at PC 55
+The Instruction is:Opcode:000101   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 56
+The Instruction is:Opcode:001000   R:00   IX:11   Address:11100   Rx:00   Ry:11   AL:1   LR:1   Count:1100   DevId:11100   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 57
+The Instruction is:Opcode:001011   R:00   IX:11   Address:10100   Rx:00   Ry:11   AL:1   LR:1   Count:0100   DevId:10100   DevId:0
+PC<-EA
+Executing Instruction at PC 70
+The Instruction is:Opcode:100010   R:00   IX:01   Address:01110   Rx:00   Ry:01   AL:0   LR:1   Count:1110   DevId:01110   DevId:0
+Memory(14)<-X1.
+Executing Instruction at PC 71
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R3<-c(13).
+Executing Instruction at PC 72
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 73
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 74
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 75
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01101   Rx:10   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 76
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 77
+The Instruction is:Opcode:001011   R:00   IX:00   Address:10100   Rx:00   Ry:00   AL:0   LR:0   Count:0100   DevId:10100   DevId:1
+PC<-EA
+Executing Instruction at PC 47
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(302).
+Executing Instruction at PC 48
+The Instruction is:Opcode:001000   R:00   IX:00   Address:10000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 49
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 50
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01000   Rx:00   Ry:11   AL:1   LR:1   Count:1000   DevId:01000   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 51
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(302).
+Executing Instruction at PC 52
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01010   Rx:00   Ry:00   AL:0   LR:0   Count:1010   DevId:01010   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01110   Rx:00   Ry:11   AL:1   LR:1   Count:1110   DevId:01110   DevId:0
+R0==0
+PC<-(64)
+Executing Instruction at PC 64
+The Instruction is:Opcode:001010   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+cc bit!=1
+PC<-PC+1
+Executing Instruction at PC 65
+The Instruction is:Opcode:001010   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+cc bit!=1
+PC<-PC+1
+Executing Instruction at PC 66
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01100   Rx:11   Ry:00   AL:0   LR:0   Count:1100   DevId:01100   DevId:0
+R3<-c(12).
+Executing Instruction at PC 67
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 68
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01100   Rx:11   Ry:00   AL:0   LR:0   Count:1100   DevId:01100   DevId:0
+Memory(12)<-c(R3).
+Executing Instruction at PC 69
+The Instruction is:Opcode:001011   R:00   IX:11   Address:10100   Rx:00   Ry:11   AL:1   LR:1   Count:0100   DevId:10100   DevId:0
+PC<-EA
+Executing Instruction at PC 70
+The Instruction is:Opcode:100010   R:00   IX:01   Address:01110   Rx:00   Ry:01   AL:0   LR:1   Count:1110   DevId:01110   DevId:0
+Memory(14)<-X1.
+Executing Instruction at PC 71
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R3<-c(13).
+Executing Instruction at PC 72
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 73
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 74
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 75
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01101   Rx:10   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 76
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 77
+The Instruction is:Opcode:001011   R:00   IX:00   Address:10100   Rx:00   Ry:00   AL:0   LR:0   Count:0100   DevId:10100   DevId:1
+PC<-EA
+Executing Instruction at PC 47
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(303).
+Executing Instruction at PC 48
+The Instruction is:Opcode:001000   R:00   IX:00   Address:10000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 49
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 50
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01000   Rx:00   Ry:11   AL:1   LR:1   Count:1000   DevId:01000   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 51
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(303).
+Executing Instruction at PC 52
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01010   Rx:00   Ry:00   AL:0   LR:0   Count:1010   DevId:01010   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01110   Rx:00   Ry:11   AL:1   LR:1   Count:1110   DevId:01110   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 54
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(303).
+Executing Instruction at PC 55
+The Instruction is:Opcode:000101   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 56
+The Instruction is:Opcode:001000   R:00   IX:11   Address:11100   Rx:00   Ry:11   AL:1   LR:1   Count:1100   DevId:11100   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 57
+The Instruction is:Opcode:001011   R:00   IX:11   Address:10100   Rx:00   Ry:11   AL:1   LR:1   Count:0100   DevId:10100   DevId:0
+PC<-EA
+Executing Instruction at PC 70
+The Instruction is:Opcode:100010   R:00   IX:01   Address:01110   Rx:00   Ry:01   AL:0   LR:1   Count:1110   DevId:01110   DevId:0
+Memory(14)<-X1.
+Executing Instruction at PC 71
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R3<-c(13).
+Executing Instruction at PC 72
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 73
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 74
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 75
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01101   Rx:10   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 76
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 77
+The Instruction is:Opcode:001011   R:00   IX:00   Address:10100   Rx:00   Ry:00   AL:0   LR:0   Count:0100   DevId:10100   DevId:1
+PC<-EA
+Executing Instruction at PC 47
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(304).
+Executing Instruction at PC 48
+The Instruction is:Opcode:001000   R:00   IX:00   Address:10000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 49
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 50
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01000   Rx:00   Ry:11   AL:1   LR:1   Count:1000   DevId:01000   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 51
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(304).
+Executing Instruction at PC 52
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01010   Rx:00   Ry:00   AL:0   LR:0   Count:1010   DevId:01010   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01110   Rx:00   Ry:11   AL:1   LR:1   Count:1110   DevId:01110   DevId:0
+R0==0
+PC<-(64)
+Executing Instruction at PC 64
+The Instruction is:Opcode:001010   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+cc bit!=1
+PC<-PC+1
+Executing Instruction at PC 65
+The Instruction is:Opcode:001010   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+cc bit!=1
+PC<-PC+1
+Executing Instruction at PC 66
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01100   Rx:11   Ry:00   AL:0   LR:0   Count:1100   DevId:01100   DevId:0
+R3<-c(12).
+Executing Instruction at PC 67
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 68
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01100   Rx:11   Ry:00   AL:0   LR:0   Count:1100   DevId:01100   DevId:0
+Memory(12)<-c(R3).
+Executing Instruction at PC 69
+The Instruction is:Opcode:001011   R:00   IX:11   Address:10100   Rx:00   Ry:11   AL:1   LR:1   Count:0100   DevId:10100   DevId:0
+PC<-EA
+Executing Instruction at PC 70
+The Instruction is:Opcode:100010   R:00   IX:01   Address:01110   Rx:00   Ry:01   AL:0   LR:1   Count:1110   DevId:01110   DevId:0
+Memory(14)<-X1.
+Executing Instruction at PC 71
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R3<-c(13).
+Executing Instruction at PC 72
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 73
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 74
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 75
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01101   Rx:10   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 76
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 77
+The Instruction is:Opcode:001011   R:00   IX:00   Address:10100   Rx:00   Ry:00   AL:0   LR:0   Count:0100   DevId:10100   DevId:1
+PC<-EA
+Executing Instruction at PC 47
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(305).
+Executing Instruction at PC 48
+The Instruction is:Opcode:001000   R:00   IX:00   Address:10000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 49
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01001   Rx:00   Ry:00   AL:0   LR:0   Count:1001   DevId:01001   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 50
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01000   Rx:00   Ry:11   AL:1   LR:1   Count:1000   DevId:01000   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 51
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(305).
+Executing Instruction at PC 52
+The Instruction is:Opcode:000101   R:00   IX:00   Address:01010   Rx:00   Ry:00   AL:0   LR:0   Count:1010   DevId:01010   DevId:0
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 53
+The Instruction is:Opcode:001000   R:00   IX:11   Address:01110   Rx:00   Ry:11   AL:1   LR:1   Count:1110   DevId:01110   DevId:0
+R0!=0
+PC<-PC+1
+Executing Instruction at PC 54
+The Instruction is:Opcode:000001   R:00   IX:00   Address:10010   Rx:00   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:1
+R0<-c(305).
+Executing Instruction at PC 55
+The Instruction is:Opcode:000101   R:00   IX:00   Address:10011   Rx:00   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+R0<-c(R0)-c(EA)
+Executing Instruction at PC 56
+The Instruction is:Opcode:001000   R:00   IX:11   Address:11100   Rx:00   Ry:11   AL:1   LR:1   Count:1100   DevId:11100   DevId:0
+R0==0
+PC<-(78)
+Executing Instruction at PC 78
+The Instruction is:Opcode:001010   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+cc bit!=1
+PC<-PC+1
+Executing Instruction at PC 79
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01110   Rx:11   Ry:00   AL:0   LR:0   Count:1110   DevId:01110   DevId:0
+R3<-c(14).
+Executing Instruction at PC 80
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 81
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01110   Rx:11   Ry:00   AL:0   LR:0   Count:1110   DevId:01110   DevId:0
+Memory(14)<-c(R3).
+Executing Instruction at PC 82
+The Instruction is:Opcode:000001   R:10   IX:00   Address:00111   Rx:10   Ry:00   AL:0   LR:0   Count:0111   DevId:00111   DevId:0
+R2<-c(7).
+Executing Instruction at PC 83
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01110   Rx:10   Ry:00   AL:0   LR:0   Count:1110   DevId:01110   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 84
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10011   Rx:10   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:0
+Memory(19)<-c(R2).
+Executing Instruction at PC 85
+The Instruction is:Opcode:000001   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R3<-c(13).
+Executing Instruction at PC 86
+The Instruction is:Opcode:000110   R:11   IX:00   Address:00001   Rx:11   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+R3<-c(R3)+Immed
+Executing Instruction at PC 87
+The Instruction is:Opcode:000010   R:11   IX:00   Address:01101   Rx:11   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+Memory(13)<-c(R3).
+Executing Instruction at PC 88
+The Instruction is:Opcode:000001   R:10   IX:00   Address:01000   Rx:10   Ry:00   AL:0   LR:0   Count:1000   DevId:01000   DevId:0
+R2<-c(8).
+Executing Instruction at PC 89
+The Instruction is:Opcode:000100   R:10   IX:00   Address:01101   Rx:10   Ry:00   AL:0   LR:0   Count:1101   DevId:01101   DevId:0
+R2<-c(R2)+c(EA)
+Executing Instruction at PC 90
+The Instruction is:Opcode:000010   R:10   IX:00   Address:10010   Rx:10   Ry:00   AL:0   LR:0   Count:0010   DevId:10010   DevId:0
+Memory(18)<-c(R2).
+Executing Instruction at PC 91
+The Instruction is:Opcode:001011   R:00   IX:00   Address:10001   Rx:00   Ry:00   AL:0   LR:0   Count:0001   DevId:10001   DevId:1
+PC<-EA
+Executing Instruction at PC 45
+The Instruction is:Opcode:000001   R:01   IX:00   Address:10011   Rx:01   Ry:00   AL:0   LR:0   Count:0011   DevId:10011   DevId:1
+R1<-c(105).
+Executing Instruction at PC 46
+The Instruction is:Opcode:001000   R:01   IX:00   Address:10000   Rx:01   Ry:00   AL:0   LR:0   Count:0000   DevId:10000   DevId:1
+R1==0
+PC<-(92)
+Executing Instruction at PC 92
+The Instruction is:Opcode:000001   R:00   IX:00   Address:01011   Rx:00   Ry:00   AL:0   LR:0   Count:1011   DevId:01011   DevId:0
+R0<-c(11).
+Executing Instruction at PC 93
+The Instruction is:Opcode:110010   R:00   IX:00   Address:00001   Rx:00   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+0
+Executing Instruction at PC 94
+The Instruction is:Opcode:000001   R:00   IX:00   Address:01100   Rx:00   Ry:00   AL:0   LR:0   Count:1100   DevId:01100   DevId:0
+R0<-c(12).
+Executing Instruction at PC 95
+The Instruction is:Opcode:110010   R:00   IX:00   Address:00001   Rx:00   Ry:00   AL:0   LR:0   Count:0001   DevId:00001   DevId:0
+2
+Executing Instruction at PC 96
+The Instruction is:Opcode:000000   R:00   IX:00   Address:00000   Rx:00   Ry:00   AL:0   LR:0   Count:0000   DevId:00000   DevId:0
+Halted.

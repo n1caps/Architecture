@@ -1,144 +1,191 @@
-[6]Jump 
- [12 JCC cc=1 x=0 a=20 I=0]
-[7]Input=The Input stores at Memory[100]
-[8]Start=The Sentence stores at Memory[300]
-[9]10 //ENTER
-[10]32 //SPACE
-[11]Pnum=0
-[12]Wnum=0
-[13]j
-[14]i
-[15]40//another bias
-[16]71//output
-[17]36
-[18]38
-[19]
+[6]Jump to 23
+ [12 JCC cc=1 x=0 a=23 I=0]~0010100100010111
+[7]Input=The Input stores at Memory[100] 0000000001100100 
+[8]Start=The Sentence stores at Memory[300] 0000000100101100
+[9]10 //ENTER 0000000000001010
+[10]32 //SPACE 0000000000100000
+[11]Pnum=0 0000000000000000
+[12]Wnum=0 0000000000000000
+[13]j 0000000000000000
+[14]i 0000000000000000
+[15]50//another bias 0000000000110010
+[16]92//output       0000000001011100
+[17]45//the enter of input loop   0000000000101101
+[18]paragraph 0000000000000000
+[19]Input really address 0000000000000000
+[20]47//the enter of paragraph loop 0000000000101111
+[21]//
+[22]//
 
-[20]X2<-40//the bias
- [41 LDX r=0 x=3 I=0 a=15]
-[21]X0<-Memory(j)
- [41 LDX r=0 x=1 I=0 a=13(j)]
+[23]X2<-50//the bias 
+ [41 LDX r=0 x=3 I=0 a=15]~1000010011001111
+[24]X1<-Memory(10)//the bias
+ [41 LDX r=0 x=2 I=0 a=10] 1000010010001010
+//get real address 
+[25]R0<-Memory(7)
+ [01 LDR r=0 I=0 x=0 a=7] 0000010000000111
+[26]Memory[19]<-R0
+ [02 STR r=0 I=0 x=0 a=19] 0000100000010011
+
 while
-	[22]R0 IN device
-	 [61 IN r=0 device=0]
-	[23]If(R0)==0 jump to main program;else pc++//
-	 [010 JZ r=0 x=2 a=1 I=0] EA=32+1=33
-	[24]M(Input+X0)<-R0//insert the Input to certain place
-	 [02 STR r=0 x=1 I=0 a=7]
-		//j++
-		[25]Memory(j)<-X0
-		 [42 STX r=0 x=1 I=0 a=13]
-		[26]R1<-Memory(j)
-		 [01 LDR r=1 I=0 x=0 j=13]
-		[27]R1<-R1+1
-		 [06 AIR r=1 immed=1]
-		[28]Memory(j)<-R1
-		 [02 STR r=1 x=0 I=0 a=13]
-		[29]X0<-Memrory(j)
-		 [41 LDX r=0 x=1 I=0 a=13]
-	[30]R0 IN device
-	 [61 IN r=0 device=0]
-	[31]Jump to 23
-	 [12 JCC cc=1 x=0 I=0 a=23]
-	[32]If(R0)!=0 jump to 19 ;else pc++//can be change
-	 [11 JNE r=0 x=0 I=0 a=19]
+	[27]R0 IN device 
+	 [61 IN r=0 device=0]~1100010000000000
+	[28]If(R0)==0 jump to main program;else pc++//X2
+	 [010 JZ r=0 x=2 a=5 I=0] EA=32+5=37~0010000010000101
+	[29]M(c(19))<-R0//insert the Input to certain place
+	 [02 STR r=0 x=0 I=1 a=19]~0000100000110011
 	 
-[33]Memory(j)<-R3//initiate j to 0
- [02 STR r=3 I=0 x=0 a=13]
-[34]X0<-Memory(j) //j is the counter of paragraph
- [41 LDX x=1 I=0 a=13]
-[35]X1<-Memory(i) //i is the counter of input word
- [41 LDX x=2 I=0 a=14]
+		//j++
+		[30]R1<-Memory(j)
+		 [01 LDR r=1 I=0 x=0 j=13]~0000010100001101
+		[31]R1<-R1+1
+		 [06 AIR r=1 immed=1]~0001100100000001
+		[32]Memory(j)<-R1
+		 [02 STR r=1 x=0 I=0 a=13]~0000100100001101
+		
+		[33]R1<-R1+Memory(19)
+		 [04 AMR r=1 I=0 x=0 a=19]~0001000100010011
+		[34]Memory(19)<-R1
+		 [02 STR r=1 x=0 I=0 a=19] 0000100100010011
+		 
+		 
+	[35]R0 IN device
+	 [61 IN r=0 device=0]~1100010000000000
+	[36]Jump to 28
+	 [12 JCC cc=1 x=0 I=0 a=28]~0010100100011100
+	 
+[37]Memory(j)<-R3//initiate j to 0
+ [02 STR r=3 I=0 x=0 a=13] 0000101100001101
+[38]X0<-Memory(j) //j is the counter of paragraph
+ [41 LDX x=1 I=0 a=13] 1000010001001101
+[39]X1<-Memory(i) //i is the counter of input word
+ [41 LDX x=2 I=0 a=14] 1000010010001110
 
 while
-	[36]R1<-Memory(X1+Input)
-	 [01 LDR r=1 x=2 I=0 a=7]
-	[37]If R1==0 jump to SAY Yes; else pc++//judge whether i is over, if it over means input word has been found
-	 [010 JZ r=1 x=0 I=1 a=16(71) ]
-	[38]R0<-Memory(X0+Start)
-	 [01 LDR r=0 x=1 I=0 a=8]
-	[39]If(R0)==0 jump to SAY NO;else pc++//judge j whether is over, if it over means input word hasn't been found
-	 [010 JZ r=0 x=0 I=0 a=16(71)]
-		[40]R0<-R0-Memory(\n)//judge whether is ENTER
-		 [05 SMR r=0 x=0 I=0 a=9]
-		[41]If R0==0 jump to \n++;else pc++//If it is, Pnum++
-		 [010 JZ r=0 x=3 I=0 a=9] 40+9=49 
-		[42]R0<-Memory(X0+Start) //reload
-		 [02 STR r=0 x=1 I=0 a=8]
-		[43]R0<-R0-Memory(' ') //judge whether is SPACE，if it is, Wnum++
-		 [05 SMR r=0 x=0 I=0 a=10]
-		[44]If R0==0 jump to ' '++;else pc++ //
-		 [010 JZ r=0 I=0 x=3 a=15] 40+15=55
-		[45]R0<-Memory(X0+Start)//
-		 [01 LDR r=0 I=0 X=1 a=8]
-		[46]R0<-R0-Memory(X1+Input)//reload
-		 [05 SMR r=0 I=0 x=1 a=7]
-		[47]If(R1!=0) jump to ??;else pc++//if R1==0 i++, else j++
-		 [11 JNE r=0 I=0 x=3 a=26] 40+26=66
-		[48]Jump to new sentence
-		 [13 JMA x=3 I=0 a=21] 40+21=61
+	[40]Memory(19)<-R3//initiate Memory(19)
+	 [02 STR r=3 I=0 x=0 a=19] 0000101100010011
+	[41]R2<-Memory(7)//get the 100
+	 [01 LDR r=2 I=0 x=0 a=7] 0000011000000111
+	[42]Memory(19)<-R2//
+	 [02 STR r=2 I=0 x=0 a=19] 0000101000010011
+	[43]R2<-Memory(8) 
+	 [01 LDR r=2 I=0 x=0 a=8] 0000011000001000
+	[44]Memory(18)<-R2
+	 [02 STR r=2 I=0 x=0 a=18] 0000101000010010
+	
+	[45]R1<-Memory(19)//Input loop R1 store input
+	 [01 LDR r=1 x=0 I=1 a=19] 0000010100110011
+	[46]If R1==0 jump to SAY Yes; else pc++//judge whether i is over, if it over means input word has been found
+	 [010 JZ r=1 x=0 I=1 a=16(86) ] 
+	[47]R0<-Memory(18) //R0 stores Paragraph
+	 [01 LDR r=0 x=0 I=1 a=18] 0000010000110010
+	[48]If(R0)==0 jump to SAY NO;else pc++//judge j whether is over, if it over means input word hasn't been found
+	 [010 JZ r=0 x=0 I=1 a=16(83)] 0010000000110000
+	 
+		[49]R0<-R0-Memory(\n)//judge whether is ENTER
+		 [05 SMR r=0 x=0 I=0 a=9] 0001010000001001
+		[50]If R0==0 jump to \n++;else pc++//If it is, Pnum++
+		 [010 JZ r=0 x=3 I=0 a=8] 50+8=58  0010000011001000
+		[51]R0<-Memory(18) //reload
+		 [01 LDR r=0 x=0 I=1 a=18] 0000010000110010
+		[52]R0<-R0-Memory(' ') //judge whether is SPACE，if it is, Wnum++
+		 [05 SMR r=0 x=0 I=0 a=10] 0001010000001010
+		[53]If R0==0 jump to ' '++;else pc++ //
+		 [010 JZ r=0 I=0 x=3 a=14] 50+11=64 0010000011001110
+		[54]R0<-Memory(18)//
+		 [01 LDR r=0 I=1 X=0 a=18] 0000010000110010
+		[55]R0<-R0-Memory(Input)//reload
+		 [05 SMR r=0 I=1 x=0 a=19] 0001010000110011
+		[56]If(R0==0) jump to ??;else pc++//if R1==0 i++, else j++
+		 [010 JZ r=0 I=0 x=3 a=28] 50+28=78 0010000011011100
+		[57]Jump to j++ X2+27
+		 [13 JMA x=3 I=0 a=20] 50+20=70 0010110011010100
 	
 	//Pnum++
-	[49]R3<-Memory(5)//initiate R3 to 0
-	 [01 LDR r=3 I=0 x=0 a=5]
-	[50]Memory(j)<-R3 //j
-	 [02 STR r=3 I=0 x=0 a=13]
-	[51]R3<-Memory(\n)//Pnum++
-	 [01 LDR r=3 I=0 x=0 a=11]
-	[52]R3<-R3+1
-	 [06 AIR r=3 I=0 immed=1]
-	[53]Memory(\n)<-R3
-	 [02 STR r=3 I=0 x=0 a=11]
-	[54]Jump to (j++)//jump to the unit to j++
-	 [13 JMA x=3 I=0 a=21] 40+21=61
+	[58]Jump unvalid
+	 [12 JCC cc=0 x=0 I=0 a=00] 0010100000000000
+	[59]Jump unvalid
+	 [12 JCC cc=0 x=0 I=0 a=00] 0010100000000000
+	[60]R3<-Memory(\n)//Pnum++
+	 [01 LDR r=3 I=0 x=0 a=11] 0000011100001011
+	[61]R3<-R3+1
+	 [06 AIR r=3 I=0 immed=1] 0001100000000001
+	[62]Memory(\n)<-R3
+	 [02 STR r=3 I=0 x=0 a=11] 0000101100001011
+	[63]Jump to (j++)//jump to the unit to j++
+	 [13 JMA x=3 I=0 a=20] 50+20=70 0010110011010100
 	
 	//Wnum++
-	[55]R3<-Memory(5)
-	 [01 LDR r=3 I=0 x=0 a=5]
-	[56]Memory(j)<-R3
-	 [02 STR r=3 I=0 x=0 a=13]
-	[57]R3<-Memory(' ')//Wnum++
-	 [LDR r=3 I=0 x=0 a=12]
-	[58]R3<-R3+1
-	 [06 AIR r=3 I=0 immed=1]
-	[59]Memory(' ')<-R3
-	 [STR r=3 I=0 x=0 a=12]
-	[60]Jump to (j++)//jump to the unit to j++
-	 [JMA I=0 x=3 a=21] 40+21=61
+	[64]Jump unvalid
+	 [12 JCC cc=0 x=0 I=0 a=00] 0010100000000000
+	[65]Jump unvalid
+	 [12 JCC cc=0 x=0 I=0 a=00] 0010100000000000
+	[66]R3<-Memory(' ')//Wnum++
+	 [01 LDR r=3 I=0 x=0 a=12] 0000011100001100
+	[67]R3<-R3+1
+	 [06 AIR r=3 I=0 immed=1]  0001101100000001
+	[68]Memory(' ')<-R3
+	 [02 STR r=3 I=0 x=0 a=12] 0000101100001100
+	[69]Jump to (j++)//jump to the unit to j++
+	 [13 JMA I=0 x=3 a=20] 50+20=70 0010110011010100
 	 
 	//j++
-	[61]Memory(j)<-X0//j++
-	 [STR r=0 x=0 I=0 a=13]
-	[62]R3<-Memory(j)
-	 [LDR r=3 I=0 x=0 a=13]
-	[63]R3<-R3+1
-	 [AIR r=3 I=0 immed=1]
-	[64]Memory(j)<-R3
-	 [STR r=0 x=0 I=0 a=13]
-	[65]Jump to 38//jump
-	 [JMA r=0 I=1 x=0 a=18] 38
+	[70]Memory(i)<-X0//initiate i
+	 [42 STX r=0 x=1 I=0 a=14] 1000100001001110
+	[71]R3<-Memory(j)
+	 [01 LDR r=3 I=0 x=0 a=13] 0000011100001101
+	[72]R3<-R3+1
+	 [06 AIR r=3 I=0 immed=1]  0001101100000001 
+	[73]Memory(j)<-R3
+	 [02 STR r=3 x=0 I=0 a=13] 0000101100001101
+	[74]R2<-Memory(8)
+	 [01 LDR r=2 I=0 x=0 a=8]  0000011000001000
+	[75]R2<-R2+Memory(13)
+	 [04 AMR r=2 I=0 x=0 a=13] 0001001000001101
+	[76]Memory(18)<-R2
+	 [02 STR r=2 I=0 x=0 a=18] 0000101000010010
+	[77]Jump to (47)//jump
+	 [13 JMA r=0 I=1 x=0 a=20]47 0010110000110100
 	
 	//i++
-	[66]Memory(i)<-X1//i++
-	 [41 LDX x=2 I=0 a=14]
-	[67]R3<-Memory(i)
-	 [LDR r=3 I=0 x=0 a=14]
-	[68]R3<-R3+1
-	 [AIR r=3 I=0 immed=1]
-	[69]Memory(i)<-R3
-	 [STR r=0 x=0 I=0 a=14]
-	[70]Jump to 36//jump
-	 [13 JMA r=0 I=1 x=0 a=17] 36
+	[78]Jump unvalid
+	 [12 JCC cc=0 x=0 I=0 a=00] 0010100000000000
+	[79]R3<-Memory(i)
+	 [01 LDR r=3 I=0 x=0 a=14] 0000011100001110
+	[80]R3<-R3+1
+	 [06 AIR r=3 I=0 immed=1]  0001101100000001
+	[81]Memory(i)<-R3
+	 [02 STR r=3 x=0 I=0 a=14] 0000101100001110
+	[82]R2<-Memory(7)
+	 [01 LDR r=2 I=0 x=0 a=7]  0000011000000111
+	[83]R2<-R2+Memory(14)
+	 [04 AMR r=2 I=0 x=0 a=14] 0001001000001110
+	[84]Memory(19)<-R2
+	 [02 STR r=2 I=0 x=0 a=19] 0000101000010011
+	[85]R3<-Memory(j)//j++
+	 [01 LDR r=3 I=0 x=0 a=13] 0000011100001101
+	[86]R3<-R3+1
+	 [06 AIR r=3 I=0 immed=1]  0001101100000001 
+	[87]Memory(j)<-R3
+	 [02 STR r=3 x=0 I=0 a=13] 0000101100001101
+	[88]R2<-Memory(8)
+	 [01 LDR r=2 I=0 x=0 a=8] 0000011000001000
+	[89]R2<-R2+Memory(13)
+	 [04 AMR r=2 I=0 x=0 a=13] 0001001000001101
+	[90]Memory(18)<-R2
+	 [02 STR r=2 I=0 x=0 a=18] 0000101000010010
+	[91]Jump to 45//jump
+	 [13 JMA r=0 I=1 x=0 a=17(45)] 0010110000110001 
 	 
 	 //Output
-	[71]R0<-Memory(Pnum)
-	 [LDR r=0 I=0 x=0 a=11]
-	[72]Out R0
-	 [62 r=0 devid=0]
-	[73]R0<-Memory(Wnum)
-	 [LDR r=0 I=0 x=0 a=12]
-	[74]Out R0
-	 [62 r=0 devid=0]
+	[92]R0<-Memory(Pnum)
+	 [01 LDR r=0 I=0 x=0 a=11] 0000010000001011
+	[93]Out R0
+	 [62 r=0 devid=1] 1100100000000001
+	[94]R0<-Memory(Wnum)
+	 [LDR r=0 I=0 x=0 a=12] 0000010000001100
+	[95]Out R0
+	 [62 r=0 devid=1] 1100100000000001
 	
 	
 	

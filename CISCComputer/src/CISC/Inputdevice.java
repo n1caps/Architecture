@@ -12,9 +12,14 @@ public class Inputdevice {
 	
 	public void filter(String InputData) {//all the input save as ASCII
 		int L=InputData.length();
-		for(int i=0;i<InputData.length();i++) {
-			this.Data[this.point]=(int)InputData.charAt(i);
+		if(InputData.isEmpty()) {
+			this.Data[this.point] = 0;
 			this.point++;
+		}else {
+			for(int i=0;i<InputData.length();i++) {
+				this.Data[this.point]=(int)InputData.charAt(i);
+				this.point++;
+			}
 		}
 		/*
 		if(isInteger(InputData))

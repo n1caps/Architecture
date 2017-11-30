@@ -1237,7 +1237,7 @@ public class Register_Set {
 				return "IN can only be called on keyboard or card reader";
 			}
 			if(devId == 0) {
-				this.isWaitingForInput = false ;
+				this.isWaitingForInput = true ;
 				while(isWaitingForInput) {
 					System.out.println("Waiting for submit to be entered...");
 					try {
