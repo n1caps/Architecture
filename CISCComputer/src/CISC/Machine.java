@@ -10,7 +10,7 @@ public class Machine {
 	}
 	
 	public void Run(int[] value, int State) {
-		this.Get_Instruction();
+		//this.Get_Instruction();
 		/*
 		value[0]==8||value[0]==9||value[0]==10||value[0]==11||value[0]==14||value[0]==15
 				decR,decIX,I,decAddress
