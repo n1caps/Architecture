@@ -3,6 +3,8 @@ package CISC;
 import java.io.IOException;
 import java.lang.*;
 import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register_Set {
 		//GPR
@@ -109,6 +111,92 @@ public class Register_Set {
 		 * Decodes and executes the instruction
 		 * @param Instruction
 		 */
+		public int[] Identification(int[] Instruction) {
+			int value[]=new int[9];
+			String Information="";
+			int[] Opcode=new int[6];
+			int[] R=new int[2];
+			int[] IX=new int[2];
+			int[] Rx=new int[2];
+			int[] Ry=new int[2];
+			int[] Count=new int[4];
+			int[] DevId=new int[5];
+			int I;
+			int[] Address=new int[5];
+			
+			//Parse out the Opcode, Register, IX, I, and Address from the instruction word
+			for(int i=0;i<6;i++) {
+				Opcode[i]=Instruction[i];
+				Information=Information+Instruction[i];
+			}
+			Information=Information+"   R:";
+			for(int i=0;i<2;i++) {
+				R[i]=Instruction[i+6];
+				Information=Information+Instruction[i+6];
+			}
+			Information=Information+"   IX:";
+			for(int i=0;i<2;i++) {
+				IX[i]=Instruction[i+8];
+				Information=Information+Instruction[i+8];
+			}
+			Information=Information+"   Address:";
+			for(int i=0;i<5;i++) {
+				Address[i]=Instruction[i+11];
+				Information=Information+Instruction[i+11];
+			}
+			Information=Information+"   Rx:";
+			for(int i=0;i<2;i++) {
+				Rx[i]=Instruction[i+6];
+				Information=Information+Instruction[i+6];
+			}
+			Information=Information+"   Ry:";
+			for(int i=0;i<2;i++) {
+				Ry[i]=Instruction[i+8];
+				Information=Information+Instruction[i+8];
+			}
+			Information=Information+"   AL:";
+			int decAL = Instruction[8];
+			Information=Information+Instruction[8];
+			Information=Information+"   LR:";
+			int decLR = Instruction[9];
+			Information=Information+Instruction[9];
+			Information=Information+"   Count:";
+			for(int i=0;i<4;i++) {
+				Count[i]=Instruction[i+12];
+				Information=Information+Instruction[i+12];
+			}
+			Information=Information+"   DevId:";
+			for(int i=0;i<5;i++) {
+				DevId[i]=Instruction[i+11];
+				Information=Information+Instruction[i+11];
+			}
+			Information=Information+"   DevId:";
+			I=Instruction[10];
+			Information=Information+Instruction[10];
+			
+			Information=Information+"\n";
+			
+			//Convert parsed values to easier to user INTEGER value (base 10)
+			int decOpcode=Binary_to_dec(Opcode);
+			value[0]=decOpcode;
+			int decR=Binary_to_dec(R);
+			value[1]=decR;
+			int decIX=Binary_to_dec(IX);
+			value[2]=decIX;
+			int decAddress=Binary_to_dec(Address);
+			value[3]=decAddress;
+			int decRx=Binary_to_dec(Rx);
+			value[4]=decRx;
+			int decRy=Binary_to_dec(Ry);
+			value[5]=decRy;
+			int decCount=Binary_to_dec(Count);
+			value[6]=decCount;
+			int decDevId=Binary_to_dec(DevId);
+			value[7]=decDevId;
+			value[8]=I;
+			return  value;
+		}
+		
 		public String decoder(int[] Instruction) {//the function will return String Information of what have do
 			String Information;
 			Information="The Instruction is:";
@@ -475,117 +563,280 @@ public class Register_Set {
 		
 		public String JZ(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);
+			String tag;//get the result of judge
 			String Information;
 			if(R==0) {
 				if(this.R0.OutputAsInt()==0) {
+					tag="1";
 					Information="R0==0\n";
 					this.PC.Insert(EA,0);
-					Information=Information+"PC<-("+EA+")\n";
+					Information=Information+"PC<-("+EA+")\n"+tag;
 				}
 				else {
+					tag="0";
 					Information="R0!=0\n";
-					Information=Information+"PC<-PC+1\n";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==1) {
 				
 				if(this.R1.OutputAsInt()==0) {
+					tag="1";
 					Information="R1==0\n";
 					this.PC.Insert(EA,0);
-					Information=Information+"PC<-("+EA+")\n";
+					Information=Information+"PC<-("+EA+")\n"+tag;
 				}
 				else {
+					tag="0";
 					Information="R1!=0\n";
-					Information=Information+"PC<-PC+1\n";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==2) {
 				if(this.R2.OutputAsInt()==0) {
+					tag="1";
 					Information="R2==0\n";
 					this.PC.Insert(EA,0);
-					Information=Information+"PC<-("+EA+")\n";
+					Information=Information+"PC<-("+EA+")\n"+tag;
 				}
 				else {
+					tag="0";
 					Information="R2!=0\n";
-					Information=Information+"PC<-PC+1\n";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==3) {
 				if(this.R3.OutputAsInt()==0) {
+					tag="1";
 					Information="R3==0\n";
 					this.PC.Insert(EA,0);
-					Information=Information+"PC<-("+EA+")\n";
+					Information=Information+"PC<-("+EA+")\n"+tag;
 				}
 				else {
+					tag="0";
 					Information="R3!=0\n";
-					Information=Information+"PC<-PC+1\n";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else {
-				Information="Instruction JZ fail.\n";
+				tag="0";
+				Information="Instruction JZ fail.\n"+tag;
 			}
 			return Information;
 		};
 		
+		public String JZ(int R,int IX,int I,int Address, int State) {
+			int EA=Get_EA(I,IX,Address);
+			String tag;//get the result of judge
+			String Information;
+			if(R==0) {
+				if(State==1) {
+					tag="1";
+					Information="R0==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R0!=0\n";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==1) {
+				
+				if(State==1) {
+					tag="1";
+					Information="R1==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R1!=0\n";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==2) {
+				if(State==1) {
+					tag="1";
+					Information="R2==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R2!=0\n";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==3) {
+				if(State==1) {
+					tag="1";
+					Information="R3==0\n";
+					this.PC.Insert(EA,0);
+					Information=Information+"PC<-("+EA+")\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R3!=0\n";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else {
+				tag="0";
+				Information="Instruction JZ fail.\n"+tag;
+			}
+			return Information;
+		};
+		
+		//
 		public String JNE(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);
 			String Information;
+			String tag;
 			if(R==0) {
 				if(this.R0.OutputAsInt()!=0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information="R0!=0\nPC<-EA\n";
+					Information="R0!=0\nPC<-EA\n"+tag;
 				}
 				else {
-					Information="R0==0\nPC<-PC+1\n";
+					tag="0";
+					Information="R0==0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==1) {
 				if(this.R1.OutputAsInt()!=0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information="R1!=0\nPC<-EA\n";
+					Information="R1!=0\nPC<-EA\n"+tag;
 				}
 				else {
-					Information="R1==0\nPC<-PC+1\n";
+					tag="0";
+					Information="R1==0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==2) {
 				if(this.R2.OutputAsInt()!=0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information="R2!=0\nPC<-EA\n";
+					Information="R2!=0\nPC<-EA\n"+tag;
 				}
 				else {
-					Information="R2==0\nPC<-PC+1\n";
+					tag="0";
+					Information="R2==0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==3) {
 				if(this.R3.OutputAsInt()!=0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information="R3!=0\nPC<-EA\n";
+					Information="R3!=0\nPC<-EA\n"+tag;
 				}
 				else {
-					Information="R3==0\nPC<-PC+1\n";
+					tag="0";
+					Information="R3==0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else {
-				Information="Instruction JNE fail.\n";
+				tag="0";
+				Information="Instruction JNE fail.\n"+tag;
 			}
 			return Information;
 		}
 		
-		public String JCC(int C,int IX,int I,int Address) {
+		public String JNE(int R,int IX,int I,int Address,int State) {
 			int EA=Get_EA(I,IX,Address);
 			String Information;
-			if(C==1) {
-				Information="cc bit==1\n";
-				this.PC.Insert(EA, 0);
-				Information=Information+"PC<-EA\n";
+			String tag;
+			if(R==0) {
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information="R0!=0\nPC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R0==0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==1) {
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information="R1!=0\nPC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R1==0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==2) {
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information="R2!=0\nPC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R2==0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==3) {
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information="R3!=0\nPC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R3==0\nPC<-PC+1\n"+tag;
+				}
 			}
 			else {
-				Information="cc bit!=1\n";
-				Information=Information+"PC<-PC+1\n";
+				tag="0";
+				Information="Instruction JNE fail.\n"+tag;
 			}
 			return Information;
 		}
+		
+		//
+		public String JCC(int C,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			String tag;
+			if(C==1) {
+				tag="1";
+				Information="cc bit==1\n";
+				this.PC.Insert(EA, 0);
+				Information=Information+"PC<-EA\n"+tag;
+			}
+			else {
+				tag="0";
+				Information="cc bit!=1\n";
+				Information=Information+"PC<-PC+1\n"+tag;
+			}
+			return Information;
+		}
+		
+		public String JCC(int C,int IX,int I,int Address,int State) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			String tag;
+			if(State==1) {
+				tag="1";
+				Information="cc bit==1\n";
+				this.PC.Insert(EA, 0);
+				Information=Information+"PC<-EA\n"+tag;
+			}
+			else {
+				tag="0";
+				Information="cc bit!=1\n";
+				Information=Information+"PC<-PC+1\n"+tag;
+			}
+			return Information;
+		}
+		//
 		
 		public String JMA(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);
@@ -613,107 +864,255 @@ public class Register_Set {
 			return Information;
 		}
 		
+		//
+		
 		public String SOB(int R,int IX,int I,int Address) {
+			String tag;
 			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
 				this.R0.Insert(this.R0.OutputAsInt()-1, 0);
 				Information="R0<-C(R0)-1\n";
 				if(this.R0.OutputAsInt()>0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information=Information+"PC<-PC+1\n";
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==1) {
 				this.R1.Insert(this.R1.OutputAsInt()-1, 0);
 				Information="R1<-C(R1)-1\n";
 				if(this.R1.OutputAsInt()>0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information=Information+"PC<-PC+1\n";
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==2) {
 				this.R2.Insert(this.R2.OutputAsInt()-1, 0);
 				Information="R2<-C(R2)-1\n";
 				if(this.R2.OutputAsInt()>0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information=Information+"PC<-PC+1\n";
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==3) {
 				this.R0.Insert(this.R0.OutputAsInt()-1, 0);
 				Information="R3<-C(R3)-1\n";
 				if(this.R3.OutputAsInt()>0) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information=Information+"PC<-PC+1\n";
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
 				}
 			}
 			else {
-				Information="Instruction SOB fail.\n";
+				tag="0";
+				Information="Instruction SOB fail.\n"+tag;
 			}
 			return Information;
 		}
 		
-		public String JGE(int R,int IX,int I,int Address) {
+		public String SOB(int R,int IX,int I,int Address,int State) {
+			String tag;
 			int EA=Get_EA(I,IX,Address);
 			String Information;
 			if(R==0) {
-				if(this.R0.OutputAsInt()>=0) {
-					Information="R0>=0\n";
+				this.R0.Insert(this.R0.OutputAsInt()-1, 0);
+				Information="R0<-C(R0)-1\n";
+				if(State==1) {
+					tag="1";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information="R0<0\nPC<-PC+1\n";
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==1) {
+				this.R1.Insert(this.R1.OutputAsInt()-1, 0);
+				Information="R1<-C(R1)-1\n";
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==2) {
+				this.R2.Insert(this.R2.OutputAsInt()-1, 0);
+				Information="R2<-C(R2)-1\n";
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==3) {
+				this.R0.Insert(this.R0.OutputAsInt()-1, 0);
+				Information="R3<-C(R3)-1\n";
+				if(State==1) {
+					tag="1";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information=Information+"PC<-PC+1\n"+tag;
+				}
+			}
+			else {
+				tag="0";
+				Information="Instruction SOB fail.\n"+tag;
+			}
+			return Information;
+		}
+		
+		
+		//
+		public String JGE(int R,int IX,int I,int Address) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			String tag;
+			if(R==0) {
+				if(this.R0.OutputAsInt()>=0) {
+					tag="1";
+					Information="R0>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R0<0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==1) {
 				if(this.R1.OutputAsInt()>=0) {
+					tag="1";
 					Information="R1>=0\n";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information="R1<0\nPC<-PC+1\n";
+					tag="0";
+					Information="R1<0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==2) {
 				if(this.R2.OutputAsInt()>=0) {
+					tag="1";
 					Information="R2>=0\n";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information="R2<0\nPC<-PC+1\n";
+					tag="0";
+					Information="R2<0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else if(R==3) {
 				if(this.R3.OutputAsInt()>=0) {
+					tag="1";
 					Information="R3>=0\n";
 					this.PC.Insert(EA, 0);
-					Information=Information+"PC<-EA\n";
+					Information=Information+"PC<-EA\n"+tag;
 				}
 				else {
-					Information="R3<0\nPC<-PC+1\n";
+					tag="0";
+					Information="R3<0\nPC<-PC+1\n"+tag;
 				}
 			}
 			else {
-				Information="Instruction JGE fail.\n";
+				tag="0";
+				Information="Instruction JGE fail.\n"+tag;
 			}
 			return Information;
 		}
+		
+		public String JGE(int R,int IX,int I,int Address,int State) {
+			int EA=Get_EA(I,IX,Address);
+			String Information;
+			String tag;
+			if(R==0) {
+				if(State==1) {
+					tag="1";
+					Information="R0>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R0<0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==1) {
+				if(State==1) {
+					tag="1";
+					Information="R1>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R1<0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==2) {
+				if(State==1) {
+					tag="1";
+					Information="R2>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R2<0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else if(R==3) {
+				if(State==1) {
+					tag="1";
+					Information="R3>=0\n";
+					this.PC.Insert(EA, 0);
+					Information=Information+"PC<-EA\n"+tag;
+				}
+				else {
+					tag="0";
+					Information="R3<0\nPC<-PC+1\n"+tag;
+				}
+			}
+			else {
+				tag="0";
+				Information="Instruction JGE fail.\n"+tag;
+			}
+			return Information;
+		}
+		
+		//
 		
 		public String AMR(int R,int IX,int I,int Address) {
 			int EA=Get_EA(I,IX,Address);

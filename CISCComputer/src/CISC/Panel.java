@@ -61,6 +61,7 @@ public class Panel {
 	private JTextField FR1;
 	private JTextField INPUT;
 	private JTextArea PRINTER;
+	public BPrediction Bprediction;
 
 	/**
 	 * Launch the application.
@@ -97,6 +98,9 @@ public class Panel {
 		//Initialize the Register
 		RegisterSet= new Register_Set();
 		//
+		
+		//Initialize the BPrediction
+		Bprediction=new BPrediction();
 		
 		JButton AL = new JButton("");
 		
@@ -733,9 +737,45 @@ public class Panel {
 	 */
  	public void doSingleStep() {
  		String Information;
+ 		int judge;
+ 		int[] value;
  		textArea.append("Executing Instruction at PC " + RegisterSet.PC.OutputAsInt() + "\n");
  		//I capsulate the action of MAR,MBR,IR into decoder, because I set the Output Method with remove the data in memory.
- 		Information=RegisterSet.decoder(Get_Instruction());//maybe return some String.
+ 		
+ 		value=RegisterSet.Identification(Get_Instruction());
+ 		//judge whehter is branch
+ 		if(value[0]==8||value[0]==9||value[0]==10||value[0]==14||value[0]==15) {
+ 			//JZ JNE JCC JMA SOB JGE 
+ 			int State=Bprediction.FindState(RegisterSet.PC.OutputAsInt());
+ 			/******* Creating a subthread to run Machine********/
+ 			/**
+ 			 *
+ 			 * initial machine;
+ 			 * machine=new Machine(RegisterSet);//machine will copy the variable of Register Set of main Thread
+ 			 * machine.Run(value,State);//At here, machine should run as a subthread, but I don't know how to use Thread
+ 			 * 
+ 			 * 
+ 			 */
+ 			Information=RegisterSet.decoder(Get_Instruction());
+ 			judge=Integer.valueOf(Information.substring(Information.length()-1,Information.length()));
+ 			//comparing 
+ 			if(judge!=Bprediction.FindState(RegisterSet.PC.OutputAsInt())) {
+ 				/**
+ 				 * stop the subthread
+ 				 * backtrack
+ 				 */
+ 			}
+ 			else {
+ 				/**
+ 				 * stop the subthread
+ 				 * original Register=subthread Register
+ 				 * RegisterSet=machine.RegisterSet; 
+ 				 */
+ 			}
+ 		}	
+ 		else {
+ 			Information=RegisterSet.decoder(Get_Instruction());//maybe return some String.
+ 		}
  		textArea.append(Information);
  		updateSwitchRegisterVal();
  		updateFields();
