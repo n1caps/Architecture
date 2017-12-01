@@ -739,10 +739,11 @@ public class Panel {
  		String Information;
  		int judge;
  		int[] value;
+ 		Thread subThread;
  		textArea.append("Executing Instruction at PC " + RegisterSet.PC.OutputAsInt() + "\n");
  		//I capsulate the action of MAR,MBR,IR into decoder, because I set the Output Method with remove the data in memory.
  		
- 		value=RegisterSet.Identification(Get_Instruction());
+ 		value=RegisterSet.Identification(GetNextInsturction());
  		//judge whehter is branch
  		if(value[0]==8||value[0]==9||value[0]==10||value[0]==14||value[0]==15) {
  			//JZ JNE JCC JMA SOB JGE 
@@ -756,6 +757,17 @@ public class Panel {
  			 * 
  			 * 
  			 */
+ 			Machine mach = new Machine(RegisterSet);
+ 			subThread = new Thread() {
+				public void run() {
+					try {
+						mach.Run(value, State);
+					}catch(Exception e) {
+						
+					}
+				}
+			};
+			subThread.start();
  			Information=RegisterSet.decoder(Get_Instruction());
  			judge=Integer.valueOf(Information.substring(Information.length()-1,Information.length()));
  			//comparing 
@@ -764,6 +776,11 @@ public class Panel {
  				 * stop the subthread
  				 * backtrack
  				 */
+ 				try {
+					subThread.join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
  			}
  			else {
  				/**
@@ -771,6 +788,12 @@ public class Panel {
  				 * original Register=subthread Register
  				 * RegisterSet=machine.RegisterSet; 
  				 */
+ 				try {
+					subThread.join();
+	 				RegisterSet = mach.RegisterSet2;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
  			}
  		}	
  		else {
@@ -874,7 +897,9 @@ public class Panel {
 		INPUT.setText("");
 		RegisterSet.isWaitingForInput = false;
 	}
-	
+	public int[] GetNextInsturction() {
+		return RegisterSet.Memory.Output(RegisterSet.PC.OutputAsInt());
+	}
 	public int[] Get_Instruction() {//Get the Instruction to decoder.
 		//Because I think will fetch data from memory repeatedly, I make it a individual function. 
 		//MAR<-PC
